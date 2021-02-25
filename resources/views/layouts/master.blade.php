@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 @include('layouts.head')
-
+@livewireStyles
 <body class="nav-fixed">
 @include('layouts.navbar')
     <div id="layoutSidenav">
@@ -14,6 +14,6 @@
         </div>
     </div>
     @include('layouts.script')
+    @livewireScripts
 </body>
-
 </html>
