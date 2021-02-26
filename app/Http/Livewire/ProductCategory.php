@@ -8,6 +8,6 @@ class ProductCategory extends Component
 {
     public function render()
     {
-        return view('livewire.product-category');
+        return view('livewire.product-category')->extends('layouts.master');;
     }
 }

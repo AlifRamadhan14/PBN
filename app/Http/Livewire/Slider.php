@@ -8,6 +8,6 @@ class Slider extends Component
 {
     public function render()
     {
-        return view('livewire.slider');
+        return view('livewire.slider')->extends('layouts.master');;
     }
 }

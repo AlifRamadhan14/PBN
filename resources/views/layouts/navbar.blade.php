@@ -1,5 +1,5 @@
-    <nav class="topnav navbar navbar-expand shadow navbar-light bg-white" id="sidenavAccordion">
-        <a class="navbar-brand" href="index-2.html">SB Admin Pro</a>
+    <nav class="topnav navbar navbar-expand shadow navbar-primary bg-white" id="sidenavAccordion">
+        <a class="navbar-brand" href="index-2.html">Admin Page</a>
         <button class="btn btn-icon btn-transparent-dark order-1 order-lg-0 mr-lg-2" id="sidebarToggle" href="#"><i
                 data-feather="menu"></i></button>
         <form class="form-inline mr-auto d-none d-md-block">
@@ -11,7 +11,7 @@
             </div>
         </form>
         <ul class="navbar-nav align-items-center ml-auto">
-            <li class="nav-item dropdown no-caret mr-3 d-none d-md-inline">
+            {{-- <li class="nav-item dropdown no-caret mr-3 d-none d-md-inline">
                 <a class="nav-link dropdown-toggle" id="navbarDropdownDocs" href="javascript:void(0);" role="button"
                     data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <div class="d-none d-md-inline font-weight-500">Documentation</div>
@@ -45,7 +45,7 @@
                         </div>
                     </a>
                 </div>
-            </li>
+            </li> --}}
             <li class="nav-item dropdown no-caret mr-3 d-md-none">
                 <a class="btn btn-icon btn-transparent-dark dropdown-toggle" id="searchDropdown" href="#" role="button"
                     data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i data-feather="search"></i></a>
@@ -63,7 +63,7 @@
                     </form>
                 </div>
             </li>
-            <li class="nav-item dropdown no-caret mr-3 dropdown-notifications">
+            {{-- <li class="nav-item dropdown no-caret mr-3 dropdown-notifications">
                 <a class="btn btn-icon btn-transparent-dark dropdown-toggle" id="navbarDropdownAlerts"
                     href="javascript:void(0);" role="button" data-toggle="dropdown" aria-haspopup="true"
                     aria-expanded="false"><i data-feather="bell"></i></a>
@@ -108,8 +108,8 @@
                     </a>
                     <a class="dropdown-item dropdown-notifications-footer" href="#!">View All Alerts</a>
                 </div>
-            </li>
-            <li class="nav-item dropdown no-caret mr-3 dropdown-notifications">
+            </li> --}}
+            {{-- <li class="nav-item dropdown no-caret mr-3 dropdown-notifications">
                 <a class="btn btn-icon btn-transparent-dark dropdown-toggle" id="navbarDropdownMessages"
                     href="javascript:void(0);" role="button" data-toggle="dropdown" aria-haspopup="true"
                     aria-expanded="false"><i data-feather="mail"></i></a>
@@ -147,7 +147,7 @@
                     </a>
                     <a class="dropdown-item dropdown-notifications-footer" href="#!">Read All Messages</a>
                 </div>
-            </li>
+            </li> --}}
             <li class="nav-item dropdown no-caret mr-2 dropdown-user">
                 <a class="btn btn-icon btn-transparent-dark dropdown-toggle" id="navbarDropdownUserImage"
                     href="javascript:void(0);" role="button" data-toggle="dropdown" aria-haspopup="true"
@@ -158,8 +158,8 @@
                     <h6 class="dropdown-header d-flex align-items-center">
                         <img class="dropdown-user-img" src="https://source.unsplash.com/QAB-WJcbgJk/60x60" />
                         <div class="dropdown-user-details">
-                            <div class="dropdown-user-details-name">Valerie Luna</div>
-                            <div class="dropdown-user-details-email">vluna@aol.com</div>
+                            <div class="dropdown-user-details-name">{{ Auth::user()->name }}</div>
+                            <div class="dropdown-user-details-email">{{ Auth::user()->email }}</div>
                         </div>
                     </h6>
                     <div class="dropdown-divider"></div>
@@ -167,9 +167,17 @@
                         <div class="dropdown-item-icon"><i data-feather="settings"></i></div>
                         Account
                     </a>
-                    <a class="dropdown-item" href="#!">
-                        <div class="dropdown-item-icon"><i data-feather="log-out"></i></div>
-                        Logout
+                    <a class="dropdown-item dropdown-item-right" aria-labelledby="navbarDropdown">
+
+                        <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
+                        document.getElementById('logout-form').submit();">
+                            <div class="dropdown-item-icon"><i data-feather="log-out"></i></div>
+                            {{ __('Logout') }}
+                        </a>
+
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                            @csrf
+                        </form>
                     </a>
                 </div>
             </li>
