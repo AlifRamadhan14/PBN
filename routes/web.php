@@ -8,6 +8,7 @@ use App\Http\Livewire\Product;
 use App\Http\Livewire\ProductCategory;
 use App\Http\Livewire\Service;
 use App\Http\Livewire\Slider;
+use App\Http\Livewire\Consultation;
 
 /*
 |--------------------------------------------------------------------------
@@ -39,3 +40,5 @@ Route::get('/product', product::class);
 Route::get('/productcategory', ProductCategory::class);
 Route::get('/service', Service::class);
 Route::get('/slider', Slider::class);
+Route::get('/consultation', Consultation::class);
+

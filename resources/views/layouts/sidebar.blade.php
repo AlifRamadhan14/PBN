@@ -24,15 +24,9 @@
                     <div class="nav-link-icon"><i data-feather="users"></i></div>
                     About
                 </a>
-
-                <div class="sidenav-menu-heading">manage Product</div>
-                <a class="nav-link" href="/productcategory">
+                <a class="nav-link" href="/consultation">
                     <div class="nav-link-icon"><i data-feather="list"></i></div>
-                    Product Category
-                </a>
-                <a class="nav-link" href="/product">
-                    <div class="nav-link-icon"><i data-feather="shopping-bag"></i></div>
-                    Product
+                    Consultation
                 </a>
 
             </div>

@@ -5,11 +5,11 @@ namespace App\Http\Livewire;
 use Livewire\Component;
 use Livewire\WithFileUploads;
 use Livewire\WithPagination;
-use App\Models\Service as ModelService;
+use App\Models\Consultation as ModelConsult;
 
-class Service extends Component
+class Consultation extends Component
 {
-    public $idService, $title, $image, $description, $isForm, $oldImage, $paginate = 5, $search;
+    public $idConsult, $name, $phone, $topic, $description, $image, $oldImage, $isForm, $paginate = 5, $search;
     use WithFileUploads;
     use WithPagination;
 
@@ -17,7 +17,9 @@ class Service extends Component
     protected $queryString = ['search'];
 
     protected $rules = [
-        'title' => 'required',
+        'name' => 'required',
+        'phone' => 'required',
+        'topic' => 'required',
         'description' => 'required',
         'image' => 'required', 
     ];
@@ -31,13 +33,13 @@ class Service extends Component
     {
         $this->resetPage();
     }
-    
+
     public function render()
-    {   
-        $service = ModelService::all();
-        return view('livewire.Service.service', [
-            'service'=>$service,
-            'service'=>ModelService::where('title', 'like', '%'.$this->search.'%')->paginate($this->paginate),
+    {
+        $consult = ModelConsult::all();
+        return view('livewire.Consultation.consultation', [
+            'consult'=>$consult,
+            'consult'=>ModelConsult::where('name', 'like', '%'.$this->search.'%')->paginate($this->paginate),
             ])->extends('layouts.master');
     }
 
@@ -49,36 +51,42 @@ class Service extends Component
     public function store()
     {
         $data = $this->validate([
-            'title' => 'required',
+            'name' => 'required',
+            'phone' => 'required',
+            'topic' => 'required',
             'description' => 'required',
             'image' => 'image|mimes:jpg,png,jpeg,bmp'
         ]);
 
-        if($this->idService){
+        if($this->idConsult){
 
-            if ($this->image){
+            if($this->image){
                 $data = $this->validate();
-                $data ['image'] = md5($this->image . microtime()) . '.' . $this->image->extension();;
+                $data ['image'] = md5($this->image . microtime()) . '.' . $this->image->extension();
                 $this->image->storeAS('image', $data['image']);
             }else{
                 $data = $this->validate([
-                    'title' => 'required',
-                    'description' => 'required'
+                'name' => 'required',
+                'phone' => 'required',
+                'topic' => 'required',
+                'description' => 'required',
                 ]);
                 $data['image'] = $this->oldImage;
             }
-        
-            $service = ModelService::find($this->idService);
-            $service->update($data);
-    
+
+            $consult = ModelConsult::find($this->idConsult);
+            $consult->update($data);
+
             $this->openForm();
 
         }else{
+
             $data = $this->validate();
             $data['image'] = md5($this->image . microtime()) . '.' . $data['image']->extension();
             $this->image->storeAs('image', $data['image']);
             
-            ModelService::create($data);
+            ModelConsult::create($data);
+
         }
 
         $this->closeForm();
@@ -86,22 +94,25 @@ class Service extends Component
 
     public function edit($id)
     {
-        $service = ModelService::find($id);
-        $this->idService = $id;
-        $this->title = $service->title;
-        $this->description = $service->description;
-        $this->oldImage = $service->image;
+        $consult = ModelConsult::find($id);
+        $this->idConsult = $id;
+        $this->name = $consult->name;
+        $this->phone = $consult->phone;
+        $this->topic = $consult->topic;
+        $this->description = $consult->description;
+        $this->oldImage = $consult->image;
 
         $this->openForm();
+
     }
 
     public function delete($id)
     {
-        $service = ModelService::where('id',$id)->first();
+        $consult = ModelConsult::where('id',$id)->first();
         
         if($id)
         {
-            ModelService::where('id', $id)->delete();
+            ModelConsult::where('id', $id)->delete();
         }
     }
 
@@ -116,13 +127,16 @@ class Service extends Component
     }
 
     public function back(){
-        redirect('service');
+        redirect('consultation');
     }
     
     private function resetInput()
     {
-        $this->title = null;
+        $this->name = null;
+        $this->phone = null;
+        $this->topic = null;
         $this->description =null;
         $this->image = null;
     }
+
 }

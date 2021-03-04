@@ -1,4 +1,5 @@
-@section('content')
+<div>
+
     <header class="page-header page-header-dark bg-gradient-primary-to-secondary pb-10">
         <div class="container">
             <div class="page-header-content pt-4">
@@ -9,14 +10,20 @@
                             Slider
                         </h1>
                     </div>
+                    
                 </div>
             </div>
         </div>
     </header>
-   <div class="container mt-n10">
+    <div class="container mt-n10">
         <div class="card mb-4">
-            <div class="card-header"></div>
-            <div class="card-body">
+            
+            @if ($isForm)
+                @include('livewire.Slider.create_slide')
+            @endif
+
+            @if ($isForm == false)
+            <div class="card-body">               
                 <table class="table table-bordered table-hover" width="100%" cellspacing="0">
                     <thead>
                         <tr>
@@ -28,10 +35,23 @@
                         </tr>
                     </thead>
                     <tbody>
-
+                        @foreach( $slide as $item )
+                            <tr>
+                                <td>{{$loop->iteration}}</td>
+                                <td>{{$item->title}}</td>
+                                <td>{{$item->description}}</td>
+                                <td><img src="{{asset('storage/image/'.$item->image)}}" alt="" srcset="" width="50"></td>
+                                <td>
+                                    <button class="btn btn-datatable btn-icon btn-transparent-dark mr-2" wire:click="edit({{ $item->id }})">
+                                        <i class="far fa-edit"></i>
+                                    </button>                             
+                                </td>
+                            </tr>
+                        @endforeach
                     </tbody>
                 </table>
             </div>
+            @endif
         </div>
     </div>
-@endsection
+</div>
