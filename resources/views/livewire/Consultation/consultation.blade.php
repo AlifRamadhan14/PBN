@@ -16,7 +16,6 @@
     </header>
     <div class="container mt-n10">
         <div class="card mb-4">
-            <div class="card-header"></div>
             @if ($isForm)
                 @include('livewire.Consultation.create_consultation')
             @endif
