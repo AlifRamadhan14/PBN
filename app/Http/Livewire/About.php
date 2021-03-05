@@ -48,11 +48,7 @@ class About extends Component
 
     public function store()
     {
-        $data = $this->validate([
-            'title' => 'required',
-            'description' => 'required',
-            'image' => 'image|mimes:jpg,png,jpeg,bmp'
-        ]);
+        
 
         if($this->idAbout){
 
@@ -103,6 +99,7 @@ class About extends Component
         {
             ModelAbout::where('id', $id)->delete();
         }
+        redirect("about");
     }
 
     public function openForm()

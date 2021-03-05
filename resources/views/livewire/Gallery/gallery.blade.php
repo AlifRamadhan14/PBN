@@ -38,7 +38,7 @@
                         <input wire:model="search" type="text" class="form-control sm " placeholder="search">
                     </div>
                 </div>
-                <table class="table table-bordered table-hover" width="100%" cellspacing="0">
+                <table class="table table-bordered table-hover text-center" width="100%" cellspacing="0">
                     <thead>
                         <tr>
                             <th>No</th>
@@ -53,18 +53,36 @@
                                 <td>{{$loop->iteration}}</td>
                                 <td>{{$item->title}}</td>
                                 <td><img src="{{asset('storage/image/'.$item->image)}}" alt="" srcset="" width="50"></td>
-                                <td>
-                                    <button class="btn btn-datatable btn-icon btn-transparent-dark mr-2" wire:click="edit({{ $item->id }})">
+                                <td>                                   
+                                    <button class="btn btn-success" wire:click="edit({{ $item->id }})">
                                         <i class="far fa-edit"></i>
-                                    </button>
-                                    <button class="btn btn-datatable btn-icon btn-transparent-dark" wire:click="delete({{ $item->id }})">
+                                    </button>                                   
+                                    <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal">
                                         <i class="far fa-trash-alt"></i>
-                                    </button> 
+                                    </button>
                                 </td>
                             </tr>
                         @endforeach
                     </tbody>
                 </table>
+                <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Anda yakin menghapus data ini ? </h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>                
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                             <button type="button" class="btn btn-danger" wire:click="delete({{ $item->id }})">
+                                Delete
+                            </button> 
+                        </div>
+                        </div>
+                    </div>
+                </div>
                 {{$gallery->links()}}
             </div>
             @endif

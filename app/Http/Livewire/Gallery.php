@@ -46,12 +46,7 @@ class Gallery extends Component
     }
 
     public function store()
-    {
-        $data = $this->validate([
-            'title' => 'required',
-            'image' => 'image|mimes:jpg,png,jpeg,bmp'
-        ]);
-
+    {    
         if($this->idGallery){
 
             if ($this->image){
@@ -100,6 +95,7 @@ class Gallery extends Component
         {
             ModelGallery::where('id', $id)->delete();
         }
+        redirect('gallery');
     }
 
     public function openForm()

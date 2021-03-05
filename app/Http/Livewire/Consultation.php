@@ -50,14 +50,6 @@ class Consultation extends Component
 
     public function store()
     {
-        $data = $this->validate([
-            'name' => 'required',
-            'phone' => 'required',
-            'topic' => 'required',
-            'description' => 'required',
-            'image' => 'image|mimes:jpg,png,jpeg,bmp'
-        ]);
-
         if($this->idConsult){
 
             if($this->image){
@@ -114,6 +106,7 @@ class Consultation extends Component
         {
             ModelConsult::where('id', $id)->delete();
         }
+        redirect('consultation');
     }
 
     public function openForm()

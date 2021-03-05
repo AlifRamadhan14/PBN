@@ -48,12 +48,6 @@ class Service extends Component
 
     public function store()
     {
-        $data = $this->validate([
-            'title' => 'required',
-            'description' => 'required',
-            'image' => 'image|mimes:jpg,png,jpeg,bmp'
-        ]);
-
         if($this->idService){
 
             if ($this->image){
@@ -103,6 +97,7 @@ class Service extends Component
         {
             ModelService::where('id', $id)->delete();
         }
+        redirect('service');
     }
 
     public function openForm()

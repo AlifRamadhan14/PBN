@@ -42,9 +42,10 @@
                                 <td>{{$item->description}}</td>
                                 <td><img src="{{asset('storage/image/'.$item->image)}}" alt="" srcset="" width="50"></td>
                                 <td>
-                                    <button class="btn btn-datatable btn-icon btn-transparent-dark mr-2" wire:click="edit({{ $item->id }})">
+                                       
+                                    <button class="btn btn-success" wire:click="edit({{ $item->id }})">
                                         <i class="far fa-edit"></i>
-                                    </button>                             
+                                    </button>                          
                                 </td>
                             </tr>
                         @endforeach

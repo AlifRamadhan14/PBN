@@ -9,6 +9,8 @@ use App\Http\Livewire\ProductCategory;
 use App\Http\Livewire\Service;
 use App\Http\Livewire\Slider;
 use App\Http\Livewire\Consultation;
+use App\Http\Livewire\Index;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -21,9 +23,12 @@ use App\Http\Livewire\Consultation;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('livewire.index');
+// });
+
+Route::get('/', Index::class);
+
 Route::get('/home', function () {
     return view('livewire.dashboard');
 });

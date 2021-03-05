@@ -30,10 +30,10 @@
                         @error('image') <span class="text-danger">{{ $message }}</span>@enderror
                     </div><br>
                     <input type="hidden" name="idConsult" wire:model="idConsult">
-                    <button type="submit" class="btn btn-success" wire:click="store()">Save</button>
-                    <button class="btn btn-datatable btn-icon btn-transparent-dark" wire:click="back">
-                        <i class="fas fa-arrow-left"></i>
-                    </button><br><br>
+                    <button class="btn btn-warning" wire:click="back">
+                        Kembali
+                    </button>
+                    <button type="submit" class="btn btn-success">Simpan</button><br><br>
                     </form>
                 </div>
             </div>

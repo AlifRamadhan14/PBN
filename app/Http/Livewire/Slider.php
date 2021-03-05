@@ -35,22 +35,17 @@ class Slider extends Component
 
     public function store()
     {
-        $data = $this->validate([
-            'title' => 'required',
-            'description' => 'required',
-            'image' => 'image|mimes:jpg,png,jpeg,bmp'
-        ]);
-
+        
         if($this->idSlide){
 
             if ($this->image){
                 $data = $this->validate();
-                $data ['image'] = md5($this->image . microtime()) . '.' . $this->image->extension();;
+                $data ['image'] = "slider" . '.' . $this->image->extension();;
                 $this->image->storeAS('image', $data['image']);
             }else{
                 $data = $this->validate([
                     'title' => 'required',
-                    'description' => 'required'
+                    'description' => 'required',
                 ]);
                 $data['image'] = $this->oldImage;
             }
@@ -67,7 +62,7 @@ class Slider extends Component
             
             ModelSlider::create($data);
         }
-
+        redirect('slider');
         $this->closeForm();
     }
 
