@@ -19,7 +19,13 @@ class Index extends Component
         $gallery = ModelGallery::all();
         $service = ModelService::all();
         $slide = ModelSlider::all();
-        
-        return view('index')->extends('livewire.index');
+
+        return view('livewire.Index.index', [
+            'about' => $about,
+            'consult' => $consult,
+            'gallery' => $gallery,
+            'service' => $service,
+            'slide' => $slide,
+        ]);
     }
 }

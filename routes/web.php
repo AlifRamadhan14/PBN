@@ -27,18 +27,18 @@ use App\Http\Livewire\Index;
 //     return view('livewire.index');
 // });
 
-Route::get('/', Index::class);
+Route::view('/', 'welcome')->middleware('guest');
 
 Route::get('/home', function () {
     return view('livewire.dashboard');
 });
 
-Route::view('/dashboard', "livewire.dashboard");
-
 Auth::routes();
 
 // Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
+Route::middleware(['auth'])->group(function () {
+Route::view('/dashboard', "livewire.dashboard");    
 Route::get('/about', About::class);
 Route::get('/gallery', Gallery::class);
 Route::get('/product', product::class);
@@ -46,4 +46,5 @@ Route::get('/productcategory', ProductCategory::class);
 Route::get('/service', Service::class);
 Route::get('/slider', Slider::class);
 Route::get('/consultation', Consultation::class);
+});
 

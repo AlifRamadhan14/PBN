@@ -52,6 +52,7 @@ class Service extends Component
 
             if ($this->image){
                 $data = $this->validate();
+                unlink(public_path('storage/image') . '/' . $this->oldImage);
                 $data ['image'] = md5($this->image . microtime()) . '.' . $this->image->extension();;
                 $this->image->storeAS('image', $data['image']);
             }else{
@@ -64,7 +65,10 @@ class Service extends Component
         
             $service = ModelService::find($this->idService);
             $service->update($data);
-    
+            session()->flash('message','data berhasil diubah');
+            
+            // return redirect()->to('/service');
+
             $this->openForm();
 
         }else{
@@ -73,6 +77,9 @@ class Service extends Component
             $this->image->storeAs('image', $data['image']);
             
             ModelService::create($data);
+            session()->flash('message','data berhasil ditambah');
+            
+            // return redirect()->to('/service');
         }
 
         $this->closeForm();
@@ -92,12 +99,17 @@ class Service extends Component
     public function delete($id)
     {
         $service = ModelService::where('id',$id)->first();
+        $this->image = $service->image;
         
         if($id)
-        {
+        {   
             ModelService::where('id', $id)->delete();
+            if($this->image <> ""){
+                unlink(public_path('storage/image').'/'.$this->image);
+            }                 
         }
-        redirect('service');
+        session()->flash('message','data berhasil dihapus');
+        $this->emit('confirm');
     }
 
     public function openForm()
@@ -111,7 +123,7 @@ class Service extends Component
     }
 
     public function back(){
-        redirect('service');
+        $this->closeForm();
     }
     
     private function resetInput()

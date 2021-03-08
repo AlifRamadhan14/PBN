@@ -1,4 +1,9 @@
 <div>
+    @if (session()->has('message'))
+        <div class="alert alert-success">
+            {{ session('message') }}
+        </div>
+    @endif
     <header class="page-header page-header-dark bg-gradient-primary-to-secondary pb-10">
         <div class="container">
             <div class="page-header-content pt-4">
@@ -66,30 +71,40 @@
                                     </button>
                                 </td>
                             </tr>
+                            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLabel">Anda yakin menghapus data ini ? </h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>                
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                        <button type="button" class="btn btn-danger" wire:click="delete({{ $item->id }})">
+                                            Delete
+                                        </button> 
+                                    </div>
+                                    </div>
+                                </div>
+                            </div>
                         @endforeach
                     </tbody>
                 </table>
-                <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                    <div class="modal-dialog" role="document">
-                        <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">Anda yakin menghapus data ini ? </h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>                
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                             <button type="button" class="btn btn-danger" wire:click="delete({{ $item->id }})">
-                                Delete
-                            </button> 
-                        </div>
-                        </div>
-                    </div>
-                </div>
+                
                 {{$about->links()}}
             </div>
             @endif
         </div>
     </div>
+    @push('scripts')
+        <script>
+            window.livewire.on('confirm', () => {
+                $('#exampleModal').modal('hide');
+                $('.modal-backdrop').hide();
+            });
+
+        </script>
+    @endpush
 </div>

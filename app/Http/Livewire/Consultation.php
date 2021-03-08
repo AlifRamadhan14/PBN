@@ -54,6 +54,7 @@ class Consultation extends Component
 
             if($this->image){
                 $data = $this->validate();
+                unlink(public_path('storage/image') . '/' . $this->oldImage);
                 $data ['image'] = md5($this->image . microtime()) . '.' . $this->image->extension();
                 $this->image->storeAS('image', $data['image']);
             }else{
@@ -68,6 +69,8 @@ class Consultation extends Component
 
             $consult = ModelConsult::find($this->idConsult);
             $consult->update($data);
+            session()->flash('message','data berhasil diubah');
+
 
             $this->openForm();
 
@@ -78,6 +81,7 @@ class Consultation extends Component
             $this->image->storeAs('image', $data['image']);
             
             ModelConsult::create($data);
+            session()->flash('message','data berhasil ditambah');
 
         }
 
@@ -101,12 +105,17 @@ class Consultation extends Component
     public function delete($id)
     {
         $consult = ModelConsult::where('id',$id)->first();
+        $this->image = $consult->image;
         
         if($id)
         {
             ModelConsult::where('id', $id)->delete();
+            if($this->image <> ""){
+                unlink(public_path('storage/image').'/'.$this->image);
+            }
         }
-        redirect('consultation');
+        session()->flash('message','data berhasil dihapus');
+        $this->emit('confirm');
     }
 
     public function openForm()
@@ -120,7 +129,7 @@ class Consultation extends Component
     }
 
     public function back(){
-        redirect('consultation');
+        $this->closeForm();
     }
     
     private function resetInput()

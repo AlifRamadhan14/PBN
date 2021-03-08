@@ -32,6 +32,7 @@
 	
 	<!-- Favicon  -->
     <link rel="icon" href="{{asset('images/gambar1.png')}}">
+    @livewireStyles
 </head>
 <body data-spy="scroll" data-target=".fixed-top">
     
@@ -64,51 +65,39 @@
         <div class="collapse navbar-collapse" id="navbarsExampleDefault">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
-                    <a class="nav-link page-scroll" href="#header">HOME <span class="sr-only">(current)</span></a>
+                    <a class="nav-link page-scroll" href="#beranda">Beranda<span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link page-scroll" href="#services">SERVICES</a>
+                    <a class="nav-link page-scroll" href="#servis">Servis</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link page-scroll" href="#projects">PROJECTS</a>
+                    <a class="nav-link page-scroll" href="#konsultasi">Konsutasi</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link page-scroll" href="#about">ABOUT</a>
+                    <a class="nav-link page-scroll" href="#galeri">Galeri</a>
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link page-scroll" href="#contact">CONTACT</a>
+                    <a class="nav-link page-scroll" href="#tentang">Tentang</a>
                 </li>
             </ul>
-            <span class="nav-item social-icons">
-                <span class="fa-stack">
-                    <a href="#your-link">
-                        <span class="hexagon"></span>
-                        <i class="fab fa-facebook-f fa-stack-1x"></i>
-                    </a>
-                </span>
-                <span class="fa-stack">
-                    <a href="#your-link">
-                        <span class="hexagon"></span>
-                        <i class="fab fa-twitter fa-stack-1x"></i>
-                    </a>
-                </span>
-            </span>
         </div>
     </nav> <!-- end of navbar -->
     <!-- end of navbar -->
 
 
     <!-- Header -->
-    <header id="header" class="header">
+    <header id="beranda" class="header">
         <div class="header-content">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="text-container">
-                            <h1>Contractor <span id="js-rotating">Home serve, Office serve, School serve</span></h1>
-                            <p class="p-heading p-large">building contractor services are companies that are ready to help build the house of your dreams </p>
-                            <a class="btn-solid-lg page-scroll" href="#home">DISCOVER</a>
+                        @foreach ($slide as $item)
+                            <h1>{{$item->title}}</h1>
+                            <p class="p-heading p-large">{{$item->description}}</p>
+                            <a class="btn-solid-lg page-scroll" href="#home">Learn More</a>
+                        @endforeach
                         </div>
                     </div> <!-- end of col -->
                 </div> <!-- end of row -->
@@ -118,78 +107,29 @@
     <!-- end of header -->
 
                     
-    <!-- Description -->
-    <div class="cards-1">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    
-                    <!-- Card -->
-                    <div class="card">
-                        <span class="fa-stack">
-                            <span class="hexagon"></span>
-                            <i class="fas fa-binoculars fa-stack-1x"></i>
-                        </span>
-                        <div class="card-body">
-                            <h4 class="card-title">House Foundation</h4>
-                            <p>we will make a solid home foundation for your home</p>
-                        </div>
-                    </div>
-                    <!-- end of card -->
-
-                    <!-- Card -->
-                    <div class="card">
-                        <span class="fa-stack">
-                            <span class="hexagon"></span>
-                            <i class="fas fa-list-alt fa-stack-1x"></i>
-                        </span>
-                        <div class="card-body">
-                            <h4 class="card-title">solid wall </h4>
-                            <p>we will build a wall that is strong and does not fall down easily </p>
-                        </div>
-                    </div>
-                    <!-- end of card -->
-
-                    <!-- Card -->
-                    <div class="card">
-                        <span class="fa-stack">
-                            <span class="hexagon"></span>
-                            <i class="fas fa-chart-pie fa-stack-1x"></i>
-                        </span>
-                        <div class="card-body">
-                            <h4 class="card-title">Safety and Comfort </h4>
-                            <p>Your safety and comfort is our priority </p>
-                        </div>
-                    </div>
-                    <!-- end of card -->
-
-                </div> <!-- end of col -->
-            </div> <!-- end of row -->
-        </div> <!-- end of container -->
-    </div> <!-- end of cards-1 -->
-    <!-- end of description -->
+   
 
 
     <!-- Services -->
-    <div id="services" class="cards-2">
+    <div id="servis" class="cards-2">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
                     <div class="section-title">SERVICES</div>
-                    <h2>Choose The Service Package<br> That Suits Your Needs</h2>
+                    <h2>Kami Menyediakan apa yang anda butuhkan</h2>
                 </div> <!-- end of col -->
             </div> <!-- end of row -->
             <div class="row">
                 <div class="col-lg-12">
                     
-
+                @foreach($service as $item)
                     <!-- Card -->
                     <div class="card">
                         <div class="card-image">
-                            <img class="img-fluid" src="{{asset('images/gambar18.jpg')}}" alt="alternative">
+                            <img class="img-fluid" src="{{asset('storage/image/'.$item->image)}}" alt="alternative">
                         </div>
                         <div class="card-body">
-                            <h3 class="card-title">build a house</h3>
+                            <h3 class="card-title">{{$item->title}}</h3>
                             <p>Starting from planning the RAB, IMB, to house design, you can consult with the building contractor.com team and our contractor partners.  </p>
                             <p class="price">Starting at <span>$299</span></p>
                         </div>
@@ -198,7 +138,7 @@
                         </div> <!-- end of button-container -->
                     </div>
                     <!-- end of card -->
-
+                @endforeach
                    
                     <!-- Card -->
                     <div class="card">
@@ -244,7 +184,7 @@
 
 
     <!-- Testimonials -->
-    <div class="slider">
+    <div class="slider" id="konsultasi">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
@@ -360,7 +300,7 @@
 
 
     <!-- Projects -->
-	<div id="projects" class="filter">
+	<div id="galeri" class="filter">
 		<div class="container">
             <div class="row">
                 <div class="col-lg-12">
@@ -595,7 +535,7 @@
     <!-- end of project lightboxes -->
 
     <!-- About -->
-    <div id="about" class="counter">
+    <div id="tentang" class="counter" >
         <div class="container">
             <div class="row">
                 <div class="col-lg-5 col-xl-6">
@@ -603,7 +543,7 @@
                         <img class="about" src="{{asset('images/gambar10.jpg')}}" style="height: 90%; width: 80%;" >
                     </div> <!-- end of image-container -->
                 </div> <!-- end of col -->
-                <div class="col-lg-7 col-xl-6">
+                <div class="col-lg-7 col-xl-6" >
                     <div class="text-container">
                         <div class="section-title">ABOUT</div>
                         <h2>We Are Engaged About Providing Home Construction Services </h2>
@@ -754,7 +694,7 @@
                                 <a class="white" href="#your-link">buildingcontractor.id</a>
                             </li>
                             <li>
-                               <a class="white" href="#your-link">buildingcontractor.id</a>
+                                <a class="white" href="#your-link">buildingcontractor.id</a>
                             </li>
                             <li class="media">
                                 <a class="white" href="#your-link">buildingcontractor.id</a>
@@ -796,7 +736,7 @@
     </div> <!-- end of copyright --> 
     <!-- end of copyright -->
     
-    	
+
     <!-- Scripts -->
     <script src="{{ asset('frontend/js/jquery.min.js')}}"></script> <!-- jQuery for Bootstrap's JavaScript plugins -->
     <script src="{{ asset('frontend/js/popper.min.js')}}"></script> <!-- Popper tooltip library for Bootstrap -->
@@ -808,6 +748,14 @@
     <script src="{{ asset('frontend/js/isotope.pkgd.min.js')}}"></script> <!-- Isotope for filter -->
     <script src="{{ asset('frontend/js/validator.min.js')}}"></script> <!-- Validator.js - Bootstrap plugin that validates forms -->
     <script src="{{ asset('frontend/js/scripts.js')}}"></script> <!-- Custom scripts -->
+    @livewireScripts
 </body>
 </html>
 </div>
+
+
+
+
+
+
+

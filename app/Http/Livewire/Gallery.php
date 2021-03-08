@@ -51,6 +51,7 @@ class Gallery extends Component
 
             if ($this->image){
                 $data = $this->validate();
+                unlink(public_path('storage/image') . '/' . $this->oldImage);
                 $data ['image'] = md5($this->image . microtime()) . '.' . $this->image->extension();;
                 $this->image->storeAS('image', $data['image']);
             }else{
@@ -62,6 +63,7 @@ class Gallery extends Component
         
             $gallery = ModelGallery::find($this->idGallery);
             $gallery->update($data);
+            session()->flash('message','data berhasil diubah');
     
             $this->openForm();
 
@@ -71,6 +73,7 @@ class Gallery extends Component
             $this->image->storeAs('image', $data['image']);
             
             ModelGallery::create($data);
+            session()->flash('message','data berhasil ditambah');
         }
 
         $this->closeForm();
@@ -90,12 +93,17 @@ class Gallery extends Component
     public function delete($id)
     {
         $gallery = ModelGallery::where('id',$id)->first();
+        $this->image = $gallery->image;
         
         if($id)
         {
             ModelGallery::where('id', $id)->delete();
+            if($this->image <> ""){
+                unlink(public_path('storage/image').'/'.$this->image);
+            }      
         }
-        redirect('gallery');
+        session()->flash('message','data berhasil dihapus');
+        $this->emit('confirm');
     }
 
     public function openForm()
@@ -109,7 +117,7 @@ class Gallery extends Component
     }
 
     public function back(){
-        redirect('gallery');
+        $this->closeForm();
     }
     
     private function resetInput()

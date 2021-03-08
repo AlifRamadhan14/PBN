@@ -40,6 +40,7 @@ class Slider extends Component
 
             if ($this->image){
                 $data = $this->validate();
+                unlink(public_path('storage/image') . '/' . $this->oldImage);
                 $data ['image'] = "slider" . '.' . $this->image->extension();;
                 $this->image->storeAS('image', $data['image']);
             }else{
@@ -52,18 +53,19 @@ class Slider extends Component
         
             $slide  = ModelSlider::find($this->idSlide);
             $slide->update($data);
+            session()->flash('message','data berhasil diubah');
     
             $this->openForm();
 
-        }else{
-            $data = $this->validate();
-            $data['image'] = md5($this->image . microtime()) . '.' . $data['image']->extension();
-            $this->image->storeAs('image', $data['image']);
-            
-            ModelSlider::create($data);
         }
-        redirect('slider');
-        $this->closeForm();
+        //else{
+        //     $data = $this->validate();
+        //     $data['image'] = md5($this->image . microtime()) . '.' . $data['image']->extension();
+        //     $this->image->storeAs('image', $data['image']);
+            
+        //     ModelSlider::create($data);
+        //}
+        // $this->closeForm();
     }
 
     public function edit($id)
@@ -77,15 +79,15 @@ class Slider extends Component
         $this->openForm();
     }
 
-    public function delete($id)
-    {
-        $slide = ModelSlider::where('id',$id)->first();
+    // public function delete($id)
+    // {
+    //     $slide = ModelSlider::where('id',$id)->first();
         
-        if($id)
-        {
-            ModelSlider::where('id', $id)->delete();
-        }
-    }
+    //     if($id)
+    //     {
+    //         ModelSlider::where('id', $id)->delete();
+    //     }
+    // }
 
     public function openForm()
     {
@@ -98,7 +100,7 @@ class Slider extends Component
     }
 
     public function back(){
-        redirect('slider');
+        $this->closeForm();
     }
     
     private function resetInput()

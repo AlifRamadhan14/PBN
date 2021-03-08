@@ -4,16 +4,18 @@
             <div class="card">
                 <div class="card-body">
                     <form wire:submit.prevent="store" >
-                        <div class="form-group">
-                        <label for="title">Name</label>
-                        <input type="text" name="title" wire:model="name" class="form-control" id="title" value="{{ old('title')}}">
-                        @error('title') <span class="text-danger">{{ $message }}</span>@enderror
-                    </div>
-                    <div class="form-group">
-                        <label for="description">phone</label>
-                        <input type="tel" wire:model=phone name="description" class="form-control" id="description" value="{{ old('description')}}">
-                        @error('description') <span class="text-danger">{{ $message }}</span>@enderror
-                    </div>
+                    <div class=" form- group row">
+                        <div class="col-sm 6">
+                            <label for="title">Name</label>
+                            <input type="text" name="title" wire:model="name" class="form-control" id="title" value="{{ old('title')}}">
+                            @error('title') <span class="text-danger">{{ $message }}</span>@enderror
+                        </div><br>
+                        <div class="col-sm 6">
+                            <label for="description">phone</label>
+                            <input type="tel" wire:model=phone name="description" class="form-control" id="description" value="{{ old('description')}}">
+                            @error('description') <span class="text-danger">{{ $message }}</span>@enderror
+                        </div>
+                    </div>                
                     <div class="form-group">
                         <label for="description">Topic</label>
                         <input type="text" wire:model="topic" name="description" class="form-control" id="description" value="{{ old('description')}}">
@@ -26,15 +28,19 @@
                     </div>
                     <div class="form-group">
                         <label for="image">Image</label>
-                        <input type="file" name="image" wire:model="image" class="customFile form-control" id="image" value="{{ old('image') }}">
+                        <div class="custom-file">
+                            <input type="file" name="image" wire:model="image" class="customFile form-control" id="image" value="{{ old('image') }}">
+                            <label class="custom-file-label" for="customFileLang"></label>                                                 
+                        </div>
                         @error('image') <span class="text-danger">{{ $message }}</span>@enderror
                     </div><br>
                     <input type="hidden" name="idConsult" wire:model="idConsult">
-                    <button class="btn btn-warning" wire:click="back">
-                        Kembali
-                    </button>
+                    
                     <button type="submit" class="btn btn-success">Simpan</button><br><br>
                     </form>
+                     <h6 class="btn btn-sm" wire:click="back">
+                        Kembali
+                    </h6>
                 </div>
             </div>
         </div>

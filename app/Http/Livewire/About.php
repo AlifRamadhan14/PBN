@@ -54,6 +54,7 @@ class About extends Component
 
             if ($this->image){
                 $data = $this->validate();
+                unlink(public_path('storage/image') . '/' . $this->oldImage);
                 $data ['image'] = md5($this->image . microtime()) . '.' . $this->image->extension();;
                 $this->image->storeAS('image', $data['image']);
             }else{
@@ -66,6 +67,7 @@ class About extends Component
         
             $about  = ModelAbout::find($this->idAbout);
             $about->update($data);
+            session()->flash('message','data berhasil diubah');
     
             $this->openForm();
 
@@ -75,6 +77,7 @@ class About extends Component
             $this->image->storeAs('image', $data['image']);
             
             ModelAbout::create($data);
+            session()->flash('message','data berhasil ditambah');
         }
 
         $this->closeForm();
@@ -94,12 +97,17 @@ class About extends Component
     public function delete($id)
     {
         $about = ModelAbout::where('id',$id)->first();
+        $this->image = $about->image;
         
         if($id)
         {
             ModelAbout::where('id', $id)->delete();
+            if($this->image <> ""){
+                unlink(public_path('storage/image').'/'.$this->image);
+            }                          
         }
-        redirect("about");
+        session()->flash('message','data berhasil dihapus');
+        $this->emit('confirm');
     }
 
     public function openForm()
@@ -113,7 +121,7 @@ class About extends Component
     }
 
     public function back(){
-        redirect('about');
+        $this->closeForm();
     }
     
     private function resetInput()
@@ -122,5 +130,4 @@ class About extends Component
         $this->description =null;
         $this->image = null;
     }
-
 }

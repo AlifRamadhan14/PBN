@@ -1,4 +1,9 @@
 <div>
+    @if (session()->has('message'))
+            <div class="alert alert-success">
+                {{ session('message') }}
+            </div>
+    @endif
     <header class="page-header page-header-dark bg-gradient-primary-to-secondary pb-10">
         <div class="container">
             <div class="page-header-content pt-4">
@@ -13,6 +18,8 @@
             </div>
         </div>
     </header>
+    <div>
+    </div>
     <div class="container mt-n10">
         <div class="card mb-4">
             @if ($isForm)
@@ -93,4 +100,13 @@
             @endif
         </div>
     </div>
+    @push('scripts')
+        <script>
+            window.livewire.on('confirm', () => {
+                $('#exampleModal').modal('hide');
+                $('.modal-backdrop').hide();
+            });
+
+        </script>
+    @endpush
 </div>
