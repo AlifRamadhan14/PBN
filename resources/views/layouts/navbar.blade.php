@@ -1,5 +1,5 @@
     <nav class="topnav navbar navbar-expand shadow navbar-primary bg-white" id="sidenavAccordion">
-        <a class="navbar-brand" href="index-2.html">Admin Page</a>
+        <h5 class="navbar-brand text-primary">Admin Page</h5>
         <button class="btn btn-icon btn-transparent-dark order-1 order-lg-0 mr-lg-2" id="sidebarToggle" href="#"><i
                 data-feather="menu"></i></button>
         <form class="form-inline mr-auto d-none d-md-block">

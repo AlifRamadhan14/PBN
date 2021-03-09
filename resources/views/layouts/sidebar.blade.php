@@ -25,7 +25,7 @@
                     About
                 </a>
                 <a class="nav-link" href="/consultation">
-                    <div class="nav-link-icon"><i data-feather="list"></i></div>
+                    <div class="nav-link-icon"><i data-feather="phone"></i></div>
                     Consultation
                 </a>
 

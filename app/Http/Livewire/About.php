@@ -48,7 +48,6 @@ class About extends Component
 
     public function store()
     {
-        
 
         if($this->idAbout){
 

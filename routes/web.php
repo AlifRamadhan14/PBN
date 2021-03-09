@@ -10,6 +10,7 @@ use App\Http\Livewire\Service;
 use App\Http\Livewire\Slider;
 use App\Http\Livewire\Consultation;
 use App\Http\Livewire\Index;
+use App\Http\Livewire\Dashboard;
 
 
 /*
@@ -29,16 +30,17 @@ use App\Http\Livewire\Index;
 
 Route::view('/', 'welcome')->middleware('guest');
 
-Route::get('/home', function () {
-    return view('livewire.dashboard');
-});
+// Route::get('/home', function () {
+//     return view('livewire.dashboard');
+// });
 
 Auth::routes();
 
 // Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::middleware(['auth'])->group(function () {
-Route::view('/dashboard', "livewire.dashboard");    
+Route::view('/dashboard', Dashboard::class);
+Route::get('/home', Dashboard::class);
 Route::get('/about', About::class);
 Route::get('/gallery', Gallery::class);
 Route::get('/product', product::class);
