@@ -22,7 +22,7 @@
                         </div>
                         @error('image') <span class="text-danger">{{ $message }}</span>@enderror
                     </div><br>
-                    <input type="hidden" name="idService" wire:model="idGallery">                              
+                    <input type="hidden" name="idService" wire:model="idService">                              
                     <button type="submit" class="btn btn-success">Simpan</button><br><br>
                     </form>
                     <h6 class="btn btn-sm" wire:click="back">

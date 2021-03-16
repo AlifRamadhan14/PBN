@@ -28,7 +28,10 @@
                     <div class="nav-link-icon"><i data-feather="phone"></i></div>
                     Consultation
                 </a>
-
+                <a class="nav-link" href="/setting">
+                    <div class="nav-link-icon"><i data-feather="tool"></i></div>
+                    Setting
+                </a>
             </div>
         </div>
         <div class="sidenav-footer">

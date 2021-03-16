@@ -20,7 +20,7 @@
     </header>
     <div class="container mt-n10">
         <div class="card mb-4">
-            <div class="card-header"></div>
+            
             @if ($isForm)
                 @include('livewire.About.create_about')
             @endif
@@ -44,55 +44,56 @@
                         <input wire:model="search" type="text" class="form-control sm " placeholder="search">
                     </div>
                 </div>
-                <table class="table table-bordered table-hover text-center" width="100%" cellspacing="0">
-                    <thead>
-                        <tr >
-                            <th>No</th>
-                            <th>Title</th>
-                            <th>Description</th>
-                            <th>Image</th>
-                            <th>Action</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @foreach( $about as $item )
-                            <tr>
-                                <td>{{$loop->iteration}}</td>
-                                <td>{{$item->title}}</td>
-                                <td>{{$item->description}}</td>
-                                <td><img src="{{asset('storage/image/'.$item->image)}}" alt="" srcset="" width="50"></td>
-                                <td>
-                                    <button class="btn btn-success" wire:click="edit({{ $item->id }})">
-                                        <i class="far fa-edit"></i>
-                                    </button>
-                                   
-                                    <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal">
-                                        <i class="far fa-trash-alt"></i>
-                                    </button>
-                                </td>
+                <div class="datatable">
+                    <table class="table table-bordered table-hover text-center" width="100%" cellspacing="0">
+                        <thead>
+                            <tr >
+                                <th>No</th>
+                                <th>Title</th>
+                                <th>Description</th>
+                                <th>Image</th>
+                                <th>Action</th>
                             </tr>
-                            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                <div class="modal-dialog" role="document">
-                                    <div class="modal-content">
-                                    <div class="modal-header">
-                                        <h5 class="modal-title" id="exampleModalLabel">Anda yakin menghapus data ini ? </h5>
-                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
+                        </thead>
+                        <tbody>
+                            @foreach( $about as $item )
+                                <tr>
+                                    <td>{{$loop->iteration}}</td>
+                                    <td>{{$item->title}}</td>
+                                    <td>{{$item->description}}</td>
+                                    <td><img src="{{asset('storage/image/'.$item->image)}}" alt="" srcset="" width="50"></td>
+                                    <td>
+                                        <button class="btn btn-success" wire:click="edit({{ $item->id }})">
+                                            <i class="far fa-edit"></i>
                                         </button>
-                                    </div>                
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                        <button type="button" class="btn btn-danger" wire:click="delete({{ $item->id }})">
-                                            Delete
-                                        </button> 
-                                    </div>
+                                    
+                                        <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal">
+                                            <i class="far fa-trash-alt"></i>
+                                        </button>
+                                    </td>
+                                </tr>
+                                <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog" role="document">
+                                        <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalLabel">Anda yakin menghapus data ini ? </h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>                
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                            <button type="button" class="btn btn-danger" wire:click="delete({{ $item->id }})">
+                                                Delete
+                                            </button> 
+                                        </div>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                        @endforeach
-                    </tbody>
-                </table>
-                
+                            @endforeach
+                        </tbody>
+                    </table>
+                </div>
                 {{$about->links()}}
             </div>
             @endif

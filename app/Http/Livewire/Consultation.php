@@ -21,7 +21,7 @@ class Consultation extends Component
         'phone' => 'required',
         'topic' => 'required',
         'description' => 'required',
-        'image' => 'required', 
+        'image' => 'required|mimes:jpg,png,jpeg,bmp', 
     ];
 
     public function updated($propertyName)
@@ -70,8 +70,7 @@ class Consultation extends Component
             $consult = ModelConsult::find($this->idConsult);
             $consult->update($data);
             session()->flash('message','data berhasil diubah');
-
-
+            $this->resetInput();
             $this->openForm();
 
         }else{
@@ -82,7 +81,7 @@ class Consultation extends Component
             
             ModelConsult::create($data);
             session()->flash('message','data berhasil ditambah');
-
+            $this->resetInput();
         }
 
         $this->closeForm();

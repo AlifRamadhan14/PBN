@@ -14,12 +14,11 @@ class Service extends Component
     use WithPagination;
 
     protected $paginationTheme = 'bootstrap';
-    protected $queryString = ['search'];
 
     protected $rules = [
         'title' => 'required',
         'description' => 'required',
-        'image' => 'required', 
+        'image' => 'required|mimes:jpg,png,jpeg,bmp', 
     ];
 
     public function updated($propertyName)
@@ -53,7 +52,7 @@ class Service extends Component
             if ($this->image){
                 $data = $this->validate();
                 unlink(public_path('storage/image') . '/' . $this->oldImage);
-                $data ['image'] = md5($this->image . microtime()) . '.' . $this->image->extension();;
+                $data ['image'] = md5($this->image . microtime()) . '.' . $this->image->extension();
                 $this->image->storeAS('image', $data['image']);
             }else{
                 $data = $this->validate([
@@ -66,10 +65,10 @@ class Service extends Component
             $service = ModelService::find($this->idService);
             $service->update($data);
             session()->flash('message','data berhasil diubah');
-            
+            $this->resetInput();
             // return redirect()->to('/service');
 
-            $this->openForm();
+            $this->closeForm();
 
         }else{
             $data = $this->validate();
@@ -78,7 +77,7 @@ class Service extends Component
             
             ModelService::create($data);
             session()->flash('message','data berhasil ditambah');
-            
+            $this->resetInput();
             // return redirect()->to('/service');
         }
 

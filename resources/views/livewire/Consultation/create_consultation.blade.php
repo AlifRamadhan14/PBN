@@ -4,7 +4,7 @@
             <div class="card">
                 <div class="card-body">
                     <form wire:submit.prevent="store" >
-                    <div class=" form- group row">
+                    <div class=" form-group row">
                         <div class="col-sm 6">
                             <label for="title">Name</label>
                             <input type="text" name="title" wire:model="name" class="form-control" id="title" value="{{ old('title')}}">
@@ -29,11 +29,12 @@
                     <div class="form-group">
                         <label for="image">Image</label>
                         <div class="custom-file">
-                            <input type="file" name="image" wire:model="image" class="customFile form-control" id="image" value="{{ old('image') }}">
+                            <input type="file" name="image" wire:model="image" class="custom-file-input" id="image" value="{{ old('image') }}">
                             <label class="custom-file-label" for="customFileLang"></label>                                                 
                         </div>
                         @error('image') <span class="text-danger">{{ $message }}</span>@enderror
                     </div><br>
+                    
                     <input type="hidden" name="idConsult" wire:model="idConsult">
                     
                     <button type="submit" class="btn btn-success">Simpan</button><br><br>

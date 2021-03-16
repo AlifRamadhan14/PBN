@@ -25,7 +25,7 @@
                 @include('livewire.Consultation.create_consultation')
             @endif
 
-            @if ($isForm == false)
+            @if ($isForm == false)        
             <div class="card-body">
                 <div>
                     <a wire:click.prevent="create" class="btn btn-outline-primary">add row</a><br><br>
@@ -44,58 +44,59 @@
                         <input wire:model="search" type="text" class="form-control sm " placeholder="search">
                     </div>
                 </div>
-                <table class="table table-bordered table-hover text-center" width="100%" cellspacing="0">
-                    <thead>
-                        <tr>
-                            <th>No</th>
-                            <th>Name</th>
-                            <th>Phone</th>
-                            <th>Topic</th>
-                            <th>Description</th>
-                            <th>Image</th>
-                            <th>Action</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @foreach( $consult as $item )
+                <div class="datatable">
+                    <table class="table table-bordered table-hover text-center" width="100%" cellspacing="0">
+                        <thead>
                             <tr>
-                                <td>{{$loop->iteration}}</td>
-                                <td>{{$item->name}}</td>
-                                <td>{{$item->phone}}</td>
-                                <td>{{$item->topic}}</td>
-                                <td>{{$item->description}}</td>
-                                <td><img src="{{asset('storage/image/'.$item->image)}}" alt="" srcset="" width="50"></td>
-                                <td>
-                                    <button class="btn btn-success" wire:click="edit({{ $item->id }})">
-                                        <i class="far fa-edit"></i>
-                                    </button>                             
-                                     <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal">
-                                        <i class="far fa-trash-alt"></i>
-                                    </button>
-                                </td>
+                                <th>No</th>
+                                <th>Name</th>
+                                <th>Phone</th>
+                                <th>Topic</th>
+                                <th>Description</th>
+                                <th>Image</th>
+                                <th>Action</th>
                             </tr>
-                            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                <div class="modal-dialog" role="document">
-                                    <div class="modal-content">
-                                    <div class="modal-header">
-                                        <h5 class="modal-title" id="exampleModalLabel">Anda yakin menghapus data ini ? </h5>
-                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
+                        </thead>
+                        <tbody>
+                            @foreach( $consult as $item )
+                                <tr>
+                                    <td>{{$loop->iteration}}</td>
+                                    <td>{{$item->name}}</td>
+                                    <td>{{$item->phone}}</td>
+                                    <td>{{$item->topic}}</td>
+                                    <td>{{$item->description}}</td>
+                                    <td><img src="{{asset('storage/image/'.$item->image)}}" alt="" srcset="" width="50"></td>
+                                    <td>
+                                        <button class="btn btn-success" wire:click="edit({{ $item->id }})">
+                                            <i class="far fa-edit"></i>
+                                        </button>                             
+                                        <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal">
+                                            <i class="far fa-trash-alt"></i>
                                         </button>
-                                    </div>                
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                        <button type="button" class="btn btn-danger" wire:click="delete({{ $item->id }})">
-                                            Delete
-                                        </button> 
-                                    </div>
+                                    </td>
+                                </tr>
+                                <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog" role="document">
+                                        <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalLabel">Anda yakin menghapus data ini ? </h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>                
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                            <button type="button" class="btn btn-danger" wire:click="delete({{ $item->id }})">
+                                                Delete
+                                            </button> 
+                                        </div>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                        @endforeach
-                    </tbody>
-                </table>
-                
+                            @endforeach
+                        </tbody>
+                    </table>
+                </div>
                 {{$consult->links()}}
             </div>
             @endif

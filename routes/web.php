@@ -11,6 +11,7 @@ use App\Http\Livewire\Slider;
 use App\Http\Livewire\Consultation;
 use App\Http\Livewire\Index;
 use App\Http\Livewire\Dashboard;
+use App\Http\Livewire\Setting;
 
 
 /*
@@ -48,5 +49,6 @@ Route::get('/productcategory', ProductCategory::class);
 Route::get('/service', Service::class);
 Route::get('/slider', Slider::class);
 Route::get('/consultation', Consultation::class);
+Route::get('/setting', Setting::class);
 });
 

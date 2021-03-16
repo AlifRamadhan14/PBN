@@ -27,34 +27,36 @@
             @endif
 
             @if ($isForm == false)
-            <div class="card-body">               
-                <table class="table table-bordered table-hover" width="100%" cellspacing="0">
-                    <thead>
-                        <tr>
-                            <th>No</th>
-                            <th>Title</th>
-                            <th>Description</th>
-                            <th>Image</th>
-                            <th>Action</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @foreach( $slide as $item )
+            <div class="card-body">
+                <div class="datatable">               
+                    <table class="table table-bordered table-hover text-center" width="100%" cellspacing="0">
+                        <thead>
                             <tr>
-                                <td>{{$loop->iteration}}</td>
-                                <td>{{$item->title}}</td>
-                                <td>{{$item->description}}</td>
-                                <td><img src="{{asset('storage/image/'.$item->image)}}" alt="" srcset="" width="50"></td>
-                                <td>
-                                       
-                                    <button class="btn btn-success" wire:click="edit({{ $item->id }})">
-                                        <i class="far fa-edit"></i>
-                                    </button>                          
-                                </td>
+                                <th>No</th>
+                                <th>Title</th>
+                                <th>Description</th>
+                                <th>Image</th>
+                                <th>Action</th>
                             </tr>
-                        @endforeach
-                    </tbody>
-                </table>
+                        </thead>
+                        <tbody>
+                            @foreach( $slide as $item )
+                                <tr>
+                                    <td>{{$loop->iteration}}</td>
+                                    <td>{{$item->title}}</td>
+                                    <td>{{$item->description}}</td>
+                                    <td><img src="{{asset('storage/image/'.$item->image)}}" alt="" srcset="" width="50"></td>
+                                    <td>
+                                        
+                                        <button class="btn btn-success" wire:click="edit({{ $item->id }})">
+                                            <i class="far fa-edit"></i>
+                                        </button>                          
+                                    </td>
+                                </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
+                </div>    
             </div>
             @endif
         </div>

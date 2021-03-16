@@ -17,7 +17,7 @@
                     <div class="form-group">
                         <label for="image">Image</label>
                         <div class="custom-file">
-                            <input type="file" name="image" wire:model="image" class="form-control" id="image" value="{{ old('image')}}">
+                            <input type="file" name="image" wire:model="image" class="custom-file-input" id="image" value="{{ old('image')}}">
                             <label class="custom-file-label" for="customFileLang"></label>
                         </div>
                         @error('image') <span class="text-danger">{{ $message }}</span>@enderror

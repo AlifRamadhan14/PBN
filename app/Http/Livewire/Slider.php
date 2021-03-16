@@ -14,7 +14,7 @@ class Slider extends Component
     protected $rules = [
         'title' => 'required',
         'description' => 'required',
-        'image' => 'required', 
+        'image' => 'required|mimes:jpg,png,jpeg,bmp', 
     ];
 
     public function updated($propertyName)
@@ -54,8 +54,8 @@ class Slider extends Component
             $slide  = ModelSlider::find($this->idSlide);
             $slide->update($data);
             session()->flash('message','data berhasil diubah');
-    
-            $this->openForm();
+            $this->resetInput();
+            redirect("/slider");
 
         }
         //else{

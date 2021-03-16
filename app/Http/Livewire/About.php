@@ -5,21 +5,22 @@ namespace App\Http\Livewire;
 use Livewire\Component;
 use Livewire\WithFileUploads;
 use Livewire\WithPagination;
+
 use App\Models\About as ModelAbout;
 
 class About extends Component
 {
     public $idAbout, $title, $image, $description, $isForm, $oldImage, $paginate = 5, $search;
+
     use WithFileUploads;
     use WithPagination;
 
     protected $paginationTheme = 'bootstrap';
-    protected $queryString = ['search'];
 
     protected $rules = [
         'title' => 'required',
         'description' => 'required',
-        'image' => 'required', 
+        'image' => 'required|mimes:jpg,png,jpeg,bmp', 
     ];
 
     public function updated($propertyName)
@@ -35,6 +36,7 @@ class About extends Component
     public function render()
     {
         $about = ModelAbout::all();
+    
         return view('livewire.About.about', [
             'about'=>$about,
             'about'=>ModelAbout::where('title', 'like', '%'.$this->search.'%')->paginate($this->paginate),
@@ -67,7 +69,7 @@ class About extends Component
             $about  = ModelAbout::find($this->idAbout);
             $about->update($data);
             session()->flash('message','data berhasil diubah');
-    
+            $this->resetInput();
             $this->openForm();
 
         }else{
@@ -77,6 +79,7 @@ class About extends Component
             
             ModelAbout::create($data);
             session()->flash('message','data berhasil ditambah');
+            $this->resetInput();
         }
 
         $this->closeForm();

@@ -18,7 +18,7 @@ class Gallery extends Component
 
     protected $rules = [
         'title' => 'required',
-        'image' => 'required', 
+        'image' => 'required|mimes:jpg,png,jpeg,bmp', 
     ];
 
      public function updated($propertyName)
@@ -64,9 +64,8 @@ class Gallery extends Component
             $gallery = ModelGallery::find($this->idGallery);
             $gallery->update($data);
             session()->flash('message','data berhasil diubah');
-    
-            $this->openForm();
-
+            $this->resetInput();
+            $this->closeForm();
         }else{
             $data = $this->validate();
             $data['image'] = md5($this->image . microtime()) . '.' . $data['image']->extension();
@@ -74,6 +73,7 @@ class Gallery extends Component
             
             ModelGallery::create($data);
             session()->flash('message','data berhasil ditambah');
+            $this->resetInput();
         }
 
         $this->closeForm();
