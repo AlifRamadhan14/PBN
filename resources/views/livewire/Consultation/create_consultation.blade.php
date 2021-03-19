@@ -1,25 +1,23 @@
-<div>
-    <div class="card">
-        <div class="card-body">
+<div>   
             <div class="card">
                 <div class="card-body">
                     <form wire:submit.prevent="store" >
                     <div class=" form-group row">
                         <div class="col-sm 6">
-                            <label for="title">Name</label>
-                            <input type="text" name="title" wire:model="name" class="form-control" id="title" value="{{ old('title')}}">
-                            @error('title') <span class="text-danger">{{ $message }}</span>@enderror
+                            <label for="name">Nama Lengkap</label>
+                            <input type="text" name="name" wire:model="name" class="form-control" id="name" value="{{ old('name')}}">
+                            @error('name') <span class="text-danger">{{ $message }}</span>@enderror
                         </div><br>
                         <div class="col-sm 6">
-                            <label for="description">phone</label>
-                            <input type="tel" wire:model=phone name="description" class="form-control" id="description" value="{{ old('description')}}">
-                            @error('description') <span class="text-danger">{{ $message }}</span>@enderror
+                            <label for="phone">No telepon</label>
+                            <input type="tel" wire:model=phone name="phone" class="form-control" id="phone" value="{{ old('phone')}}">
+                            @error('phone') <span class="text-danger">{{ $message }}</span>@enderror
                         </div>
                     </div>                
                     <div class="form-group">
-                        <label for="description">Topic</label>
-                        <input type="text" wire:model="topic" name="description" class="form-control" id="description" value="{{ old('description')}}">
-                        @error('description') <span class="text-danger">{{ $message }}</span>@enderror
+                        <label for="topic">Topic</label>
+                        <input type="text" wire:model="topic" name="topic" class="form-control" id="topic" value="{{ old('topic')}}">
+                        @error('topic') <span class="text-danger">{{ $message }}</span>@enderror
                     </div>
                     <div class="form-group">
                         <label for="description">Description</label>
@@ -43,8 +41,6 @@
                         Kembali
                     </h6>
                 </div>
-            </div>
-        </div>
-    </div> 
+            </div>     
 </div>
     

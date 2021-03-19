@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1080" height="1080" viewBox="0 0 1080 1080">
+  <defs>
+    <clipPath id="clip-mask">
+      <rect width="1080" height="1080"/>
+    </clipPath>
+  </defs>
+  <g id="mask" clip-path="url(#clip-mask)">
+    <rect width="1080" height="1080" fill="#fff"/>
+    <image id="mask-2" data-name="mask" width="2000" height="2000" transform="translate(-785 -813)" xlink:href="../Desktop/frontend/assets/img/mask.PNG"/>
+  </g>
+</svg>

@@ -8,7 +8,7 @@ use App\Models\Consultation as ModelConsult;
 use App\Models\Gallery as ModelGallery;
 use App\Models\Service as ModelService;
 use App\Models\Slider as ModelSlider;
-
+use App\Models\Setting as ModelSetting;
 
 class Index extends Component
 {
@@ -19,6 +19,7 @@ class Index extends Component
         $gallery = ModelGallery::all();
         $service = ModelService::all();
         $slide = ModelSlider::all();
+        $setting = ModelSetting::all();
 
         return view('livewire.Index.index', [
             'about' => $about,
@@ -26,6 +27,7 @@ class Index extends Component
             'gallery' => $gallery,
             'service' => $service,
             'slide' => $slide,
+            'setting' => $setting
         ]);
     }
 }

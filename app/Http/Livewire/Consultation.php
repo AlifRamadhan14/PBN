@@ -21,7 +21,7 @@ class Consultation extends Component
         'phone' => 'required',
         'topic' => 'required',
         'description' => 'required',
-        'image' => 'required|mimes:jpg,png,jpeg,bmp', 
+        'image' => 'required|mimes:jpg,png,jpeg,bmp,svg', 
     ];
 
     public function updated($propertyName)

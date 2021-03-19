@@ -8,6 +8,7 @@ use App\Models\Consultation as ModelConsult;
 use App\Models\Gallery as ModelGallery;
 use App\Models\Service as ModelService;
 use App\Models\Slider as ModelSlider;
+use App\Models\Setting as ModelSetting;
 
 class Dashboard extends Component
 {
@@ -19,6 +20,7 @@ class Dashboard extends Component
             'consult' => ModelConsult::get()->count(),
             'gallery' => ModelGallery::get()->count(),
             'service' => ModelService::get()->count(),
+            'setting' => ModelSetting::get()->count(),
         ])->extends('layouts.master');
     }
 }

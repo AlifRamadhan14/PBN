@@ -14,7 +14,7 @@ class Slider extends Component
     protected $rules = [
         'title' => 'required',
         'description' => 'required',
-        'image' => 'required|mimes:jpg,png,jpeg,bmp', 
+        'image' => 'required|mimes:jpg,png,jpeg,bmp,svg', 
     ];
 
     public function updated($propertyName)

@@ -29,7 +29,7 @@ use App\Http\Livewire\Setting;
 //     return view('livewire.index');
 // });
 
-Route::view('/', 'welcome')->middleware('guest');
+Route::view('/', 'index')->middleware('guest');
 
 // Route::get('/home', function () {
 //     return view('livewire.dashboard');

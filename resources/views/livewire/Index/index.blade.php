@@ -1,761 +1,367 @@
-<div>
-<!DOCTYPE html>
+ 
 <html lang="en">
+
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    
-    <!-- SEO Meta Tags -->
-    <meta name="description" content="Aria is a business focused HTML landing page template built with Bootstrap to help you create lead generation websites for companies and their services.">
-    <meta name="author" content="Inovatik">
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-    <!-- OG Meta Tags to improve the way the post looks when you share the page on LinkedIn, Facebook, Google+ -->
-	<meta property="og:site_name" content="" /> <!-- website name -->
-	<meta property="og:site" content="" /> <!-- website link -->
-	<meta property="og:title" content=""/> <!-- title shown in the actual shared post -->
-	<meta property="og:description" content="" /> <!-- description shown in the actual shared post -->
-	<meta property="og:image" content="" /> <!-- image link, make sure it's jpg -->
-	<meta property="og:url" content="" /> <!-- where do you want your post to link to -->
-	<meta property="og:type" content="article" />
+  <title>Prima Baru Nusantara</title>
+  <meta content="" name="description">
 
-    <!-- Website Title -->
-    <title> building contractor serve</title>
-    
-    <!-- Styles -->
-    <link href="https://fonts.googleapis.com/css?family=Montserrat:500,700&display=swap&subset=latin-ext" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,600&display=swap&subset=latin-ext" rel="stylesheet">
-    <link href="{{ asset('frontend/css/bootstrap.css')}}" rel="stylesheet">
-    <link href="{{ asset('frontend/css/fontawesome-all.css')}}" rel="stylesheet">
-    <link href="{{ asset('frontend/css/swiper.css')}}" rel="stylesheet">
-	<link href="{{ asset('frontend/css/magnific-popup.css')}}" rel="stylesheet">
-	<link href="{{ asset('frontend/css/styles.css')}}" rel="stylesheet">
-	
-	<!-- Favicon  -->
-    <link rel="icon" href="{{asset('images/gambar1.png')}}">
-    @livewireStyles
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="{{'frontend/image/stempel PBN.png'}}" rel="icon">
+
+  <!-- Google Fonts -->
+  <link
+    href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+    rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="{{'frontend/vendor/bootstrap/css/bootstrap.min.css'}}" rel="stylesheet">
+  <link href="{{'frontend/vendor/bootstrap-icons/bootstrap-icons.css'}}" rel="stylesheet">
+  <link href="{{'frontend/vendor/aos/aos.css'}}" rel="stylesheet">
+  <link href="{{'frontend/vendor/remixicon/remixicon.css'}}" rel="stylesheet">
+  <link href="{{'frontend/vendor/swiper/swiper-bundle.min.css'}}" rel="stylesheet">
+  <link href="{{'frontend/vendor/glightbox/css/glightbox.min.css'}}" rel="stylesheet">
+  <link href="{{'frontend/css/style.css'}}" rel="stylesheet">
+
+  @livewireStyles
+
 </head>
-<body data-spy="scroll" data-target=".fixed-top">
-    
-    <!-- Preloader -->
-	<div class="spinner-wrapper">
-        <div class="spinner">
-            <div class="bounce1"></div>
-            <div class="bounce2"></div>
-            <div class="bounce3"></div>
-        </div>
+
+<body>
+
+  <header id="header" class="header fixed-top">
+    <div class="container-fluid header-container container-xl d-flex align-items-center justify-content-between">
+
+      <a href="index.html" class="logo d-flex align-items-center">
+        <img src="{{'frontend/image/stempel PBN.png'}}" alt="">
+      </a>
+
+      <nav id="navbar" class="navbar">
+        <ul class="justify-content-center">
+          <li><a class="nav-link scrollto active" href="#hero">Home</a></li>
+          <li><a class="nav-link scrollto" href="#service">Service</a></li>
+          <li><a class="nav-link scrollto" href="#gallery">Gallery</a></li>
+          <li>
+            <a class="nav-link scrollto" data-bs-toggle="modal" data-bs-target=".bd-example-modal-lg">konsultasi</a>
+          </li>
+        </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav><!-- .navbar -->
+
     </div>
-    <!-- end of preloader -->
-    
+  </header><!-- End Header -->
 
-    <!-- Navbar -->
-    <nav class="navbar navbar-expand-md navbar-dark navbar-custom fixed-top">
-        <!-- Text Logo - Use this if you don't have a graphic logo -->
-        <!-- <a class="navbar-brand logo-text page-scroll" href="index.html">Aria</a> -->
+  <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
+    aria-hidden="true">
 
-        <!-- Image Logo -->
-        <a class="navbar-brand logo-image" href="index.html"><img src="{{asset('images/gambar1.png')}}" alt="alternative" style="padding: auto;"></a>
-        
-        <!-- Mobile Menu Toggle Button -->
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-awesome fas fa-bars"></span>
-            <span class="navbar-toggler-awesome fas fa-times"></span>
-        </button>
-        <!-- end of mobile menu toggle button -->
+    <div class="modal-dialog modal-lg" style="border-radius: 40px;">
+      <div class="modal-content">
 
-        <div class="collapse navbar-collapse" id="navbarsExampleDefault">
-            <ul class="navbar-nav ml-auto">
-                <li class="nav-item">
-                    <a class="nav-link page-scroll" href="#beranda">Beranda<span class="sr-only">(current)</span></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link page-scroll" href="#servis">Servis</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link page-scroll" href="#konsultasi">Konsutasi</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link page-scroll" href="#galeri">Galeri</a>
-                </li>
+        <div class="row">
+          <div class="col-sm">
+            <div class="modal-body">
+              <div class="title-modal">
+                <h2> <b>PBN</b> </h2>
+                <h3 style="color: white;">mulai konsultasimu <br> hari ini bersama <br> kami
+                </h3>
+                <img src="{{'frontend/image/mask.PNG'}}">
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            <div class="col-sm">
+              <h3>
+                <b>Isi dengan lengkap</b>
+              </h3>
+            </div>
+            <br>
+            <form>
+              <div class="row">
+                <div class="col-sm-5">
+                  <div class="form-group">
+                    <label for="name">Nama Lengkap</label>
+                    <input type="text" name="name" wire:model="name" class="form-control" id="name" value="{{ old('name')}}">
+                    @error('name') <span class="text-danger">{{ $message }}</span>@enderror
+                  </div>
+                </div>
+                <div class="col-sm-5 tlpn">
+                  <div class="form-group">
+                    <label for="phone">No telepon</label>
+                    <input type="tel" wire:model=phone name="phone" class="form-control" id="phone" value="{{ old('phone')}}">
+                    @error('phone') <span class="text-danger">{{ $message }}</span>@enderror
+                  </div>
+                </div>
+              </div><br>
+              <div class="form-group col-sm-8">
+                <label for="topic">Topik konsultasi</label>
+                <input type="text" wire:model="topic" name="topic" class="form-control" id="topic" value="{{ old('topic')}}">
+                @error('topic') <span class="text-danger">{{ $message }}</span>@enderror
+              </div><br>
+              <div class="form-group col-sm-10">
+                <label for="description">Deskripsi</label>
+                <textarea type="text" wire:model="description" name="description" class="form-control" id="description" value="{{ old('description')}}"></textarea>
+                @error('description') <span class="text-danger">{{ $message }}</span>@enderror                
+              </div><br>
+              <div class="form-group col-sm-8">
+                <label for="image">Foto pendukung</label>
+                <i class="fa fa-camera" aria-hidden="false"></i>
+                <input class="form-control" id="image">
+              </div>
+              <br>
+              <button type="submit" class="btn btn-primary">Kirim</button>
+            </form>
+          </div>
 
-                <li class="nav-item">
-                    <a class="nav-link page-scroll" href="#tentang">Tentang</a>
-                </li>
-            </ul>
+
         </div>
-    </nav> <!-- end of navbar -->
-    <!-- end of navbar -->
 
+      </div>
+    </div>
+  </div>
 
-    <!-- Header -->
-    <header id="beranda" class="header">
-        <div class="header-content">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div class="text-container">
-                        @foreach ($slide as $item)
-                            <h1>{{$item->title}}</h1>
-                            <p class="p-heading p-large">{{$item->description}}</p>
-                            <a class="btn-solid-lg page-scroll" href="#home">Learn More</a>
-                        @endforeach
-                        </div>
-                    </div> <!-- end of col -->
-                </div> <!-- end of row -->
-            </div> <!-- end of container -->
-        </div> <!-- end of header-content -->
-    </header> <!-- end of header -->
-    <!-- end of header -->
+  <!-- ======= Hero Section ======= -->
+  <section id="hero" class="hero d-flex align-items-center">
+    @foreach($slide as $item)
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6 d-flex flex-column justify-content-center">
+          <h2 data-aos="fade-up">{{$item->title}}</h2><br>
+          <p data-aos="fade-up" data-aos-delay="400" class="col-10 ">{{$item->description}}</p>
+          <div data-aos="fade-up" data-aos-delay="600">
+            <div class="text-center text-lg-start">
+              <a href="#about"
+                class="btn-get-started scrollto d-inline-flex align-items-center justify-content-center align-self-center">
+                <span>Yuk Konsultasi </span>
+                <i class="bi bi-arrow-right"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6 hero-img" data-aos="zoom-out" data-aos-delay="200">
+          <img src="{{asset('storage/image/'.$item->image)}}" class="img-fluid" style="height: 90%; margin-top: 20%;">
+        </div>
+      </div>
+    </div>
+    @endforeach
+  </section><!-- End Hero -->
 
-                    
-   
+  <section class="service d-flex align-items-center ml-30" id="service">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm standing-img">
+          <img src="{{'frontend/image/standing.png'}}" alt="" class="bg-standing" width="280">
+        </div>
+        <div class="col-sm title-service-kami">
+          <div>
+            <h1 class="title-service">Service</h1>
+            <h1 class="title-kami">Kami</h1>
+          </div>
+          <div class="col-8">
+            <p>
+              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolorum quam laudantium nostrum, praesentium
+              ipsam itaque ullam.
+            </p>
+          </div>
+        </div>
+        <div class="col-sm service-item">
+          <div class="row">
+            @foreach($service as $item)
+            <div class="col-6 text-center">
+              <img src="{{asset('storage/image/'.$item->image)}}" alt="" width="100"><br><br>
+              <h6>{{$item->title}}</h6>
+              <p>{{$item->description}}</p>
+            </div>
+            @endforeach
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-
-    <!-- Services -->
-    <div id="servis" class="cards-2">
-        <div class="container">
+  <section class="gallery d-flex align-items-center " id="gallery">
+    <div class="container">
+      <div class="col">
+        <div class="row">
+          <div class="col-12 title-galeri text-center">
             <div class="row">
-                <div class="col-lg-12">
-                    <div class="section-title">SERVICES</div>
-                    <h2>Kami Menyediakan apa yang anda butuhkan</h2>
-                </div> <!-- end of col -->
-            </div> <!-- end of row -->
-            <div class="row">
-                <div class="col-lg-12">
-                    
-                @foreach($service as $item)
-                    <!-- Card -->
-                    <div class="card">
-                        <div class="card-image">
-                            <img class="img-fluid" src="{{asset('storage/image/'.$item->image)}}" alt="alternative">
-                        </div>
-                        <div class="card-body">
-                            <h3 class="card-title">{{$item->title}}</h3>
-                            <p>Starting from planning the RAB, IMB, to house design, you can consult with the building contractor.com team and our contractor partners.  </p>
-                            <p class="price">Starting at <span>$299</span></p>
-                        </div>
-                        <div class="button-container">
-                            <a class="btn-solid-reg page-scroll" href="#callMe">DETAILS</a>
-                        </div> <!-- end of button-container -->
+              <div class="col-sm-4 title-gallery "></div>
+              <H2 class="col col-sm-2 title-galeri-1 ">Galeri</H2>
+              <h2 class="col col-sm-1 title-galeri-2 ">PBN</h2>
+            </div>
+            <div class="row desc-title">
+              <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolorum</p>
+            </div>
+            <section id="portfolio" class="portfolio">
+
+              <div class="container" data-aos="fade-up">
+
+                <div class="row gy-4 portfolio-container" data-aos="fade-up" data-aos-delay="200">
+                @foreach($gallery as $item)
+                  <div class="col-lg-4 col-md-6 portfolio-item filter-app">
+                    <div class="portfolio-wrap">
+                      <img src="{{asset('storage/image/'.$item->image)}}" class="img-fluid" alt="">
+                      <div class="portfolio-info">
+                        <h3>{{$item->title}}</h3>
+                      </div>
                     </div>
-                    <!-- end of card -->
+                  </div>
                 @endforeach
-                   
-                    <!-- Card -->
-                    <div class="card">
-                        <div class="card-image">
-                            <img class="img-fluid" src="{{asset('images/gambar19.webp')}}" alt="alternative">
-                        </div>
-                        <div class="card-body">
-                            <h3 class="card-title">ADD FLOOR </h3>
-                            <p>Adding floors certainly requires professional services and legal IMB management. We will offer you the best price.</p>
-                            <br>
-                            <p class="price">Starting at <span>$299</span></p>
-                        </div>
-                        <div class="button-container">
-                            <a class="btn-solid-reg page-scroll" href="#callMe">DETAILS</a>
-                        </div> <!-- end of button-container -->
-                    </div>
-                    <!-- end of card -->
-
-                    <!-- Card -->
-                    <div class="card">
-                        <div class="card-image">
-                            <img class="img-fluid" src="{{asset('images/gambar22.jpg')}}" alt="alternative">
-                        </div>
-                        <div class="card-body">
-                            <h3 class="card-title">RENOVATION </h3>
-                            <p>Leaking roof or cracked walls? Don't hesitate to consult so that your home problems can be resolved quickly.</p>
-                            <br>
-                            <br>
-                            <p class="price">Starting at <span>$299</span></p>
-                        </div>
-                        <div class="button-container">
-                            <a class="btn-solid-reg page-scroll" href="#callMe">DETAILS</a>
-                        </div> <!-- end of button-container -->
-                    </div>
-                    <!-- end of card -->
-
-                </div> <!-- end of col -->
-            </div> <!-- end of row -->
-        </div> <!-- end of container -->
-    </div> <!-- end of cards-2 -->
-    <!-- end of services -->
-
-
-
-    <!-- Testimonials -->
-    <div class="slider" id="konsultasi">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <h2>Read Our Customer Testimonials</h2>
-                    <p class="p-heading">Our clients are our partners and we can not imagine a better future for our company without helping them reach their objectives</p>
-                </div> <!-- end of col -->
-            </div> <!-- end of row -->
-            <div class="row">
-                <div class="col-lg-12">
-
-                    <!-- Card Slider -->
-                    <div class="slider-container">
-                        <div class="swiper-container card-slider">
-                            <div class="swiper-wrapper">
-                                
-                                <!-- Slide -->
-                                <div class="swiper-slide">
-                                    <div class="card">
-                                        <img class="card-image" src="{{asset('images/testimonial-1.jpg')}}" alt="alternative">
-                                        <div class="card-body">
-                                            <div class="testimonial-text">The people from the building contractor helped build the house of my dreams </div>
-                                            <div class="testimonial-author">Mrs.Astuti</div>
-                                        </div>
-                                    </div>
-                                </div> <!-- end of swiper-slide -->
-                                <!-- end of slide -->
-        
-                                <!-- Slide -->
-                                <div class="swiper-slide">
-                                    <div class="card">
-                                        <img class="card-image" src="{{asset('images/testimonial-2.jpg')}}" alt="alternative">
-                                        <div class="card-body">
-                                            <div class="testimonial-text">I used a building contractor to renovate my house and now my dream house is coming true  </div>
-                                            <div class="testimonial-author">Mrs.puji</div>
-                                        </div>
-                                    </div>        
-                                </div> <!-- end of swiper-slide -->
-                                <!-- end of slide -->
-        
-                                <!-- Slide -->
-                                <div class="swiper-slide">
-                                    <div class="card">
-                                        <img class="card-image" src="{{asset('images/testimonial-3.jpg')}}" alt="alternative">
-                                        <div class="card-body">
-                                            <div class="testimonial-text">I use the services of a building contractor to build my home garage, thank you the building contractor, I am very satisfied </div>
-                                            <div class="testimonial-author">Mr.Samsul</div>
-                                        </div>
-                                    </div>        
-                                </div> <!-- end of swiper-slide -->
-                                <!-- end of slide -->
-        
-                                <!-- Slide -->
-                                <div class="swiper-slide">
-                                    <div class="card">
-                                        <img class="card-image" src="{{asset('images/testimonial-4.jpg')}}" alt="alternative">
-                                        <div class="card-body">
-                                            <div class="testimonial-text">I chose a building contractor service because it has been trusted since 20 years ago</div>
-                                            <div class="testimonial-author">Mr.Arifin</div>
-                                        </div>
-                                    </div>
-                                </div> <!-- end of swiper-slide -->
-                                <!-- end of slide -->
-        
-                                <!-- Slide -->
-                                <div class="swiper-slide">
-                                    <div class="card">
-                                        <img class="card-image" src="{{asset('images/testimonial-5.jpg')}}" alt="alternative">
-                                        <div class="card-body">
-                                            <div class="testimonial-text">I build a house level on the building contractor serve, the price is very affordable, really cheap </div>
-                                            <div class="testimonial-author">Mrs.Sari</div>
-                                        </div>
-                                    </div>        
-                                </div> <!-- end of swiper-slide -->
-                                <!-- end of slide -->
-        
-                                <!-- Slide -->
-                                <div class="swiper-slide">
-                                    <div class="card">
-                                        <img class="card-image" src="{{asset('images/testimonial-6.jpg')}}" alt="alternative">
-                                        <div class="card-body">
-                                            <div class="testimonial-text">steady soul</div>
-                                            <div class="testimonial-author">Mr.dodo</div>
-                                        </div>
-                                    </div>        
-                                </div> <!-- end of swiper-slide -->
-                                <!-- end of slide -->
-                            
-                            </div> <!-- end of swiper-wrapper -->
-        
-                            <!-- Add Arrows -->
-                            <div class="swiper-button-next"></div>
-                            <div class="swiper-button-prev"></div>
-                            <!-- end of add arrows -->
-        
-                        </div> <!-- end of swiper-container -->
-                    </div> <!-- end of sliedr-container -->
-                    <!-- end of card slider -->
-
-                </div> <!-- end of col -->
-            </div> <!-- end of row -->
-        </div> <!-- end of container -->
-    </div> <!-- end of slider -->
-    <!-- end of testimonials -->
-
-
-    
-                    
-                </div> <!-- end of col -->
-            </div> <!-- end of row -->
-        </div> <!-- end of container -->
-    </div> <!-- end of form-1 -->
-    <!-- end of call me -->
-
-
-    <!-- Projects -->
-	<div id="galeri" class="filter">
-		<div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="section-title">PROJECTS</div>
-                    <h2>Projects That We're Proud Of</h2>
-                </div> <!-- end of col -->
-            </div> <!-- end of row -->
-            <div class="row">
-                <div class="col-lg-12">
-                    <!-- Filter -->
-                    <div class="button-group filters-button-group">
-                        <a class="button is-checked" data-filter="*"><span>SHOW ALL</span></a>
-                        <a class="button" data-filter=".design"><span>DESIGN</span></a>
-                        <a class="button" data-filter=".development"><span>DEVELOPMENT</span></a>
-                        <a class="button" data-filter=".marketing"><span>MARKETING</span></a>
-                        <a class="button" data-filter=".seo"><span>SEO</span></a>
-                    </div> <!-- end of button group -->
-                    <div class="grid">
-                        <div class="element-item development">
-                            <a class="popup-with-move-anim" href="#project-1"><div class="element-item-overlay"><span>minimalis home</span></div><img src="{{asset('images/gambar0.jpg')}}" alt="alternative" style="height: 100%;"></a>
-                        </div>
-                        <div class="element-item development">
-                            <a class="popup-with-move-anim" href="#project-2"><div class="element-item-overlay"><span>Classic home</span></div><img src="{{asset('images/gambar1.jpg')}}" alt="alternative" style="height: 100%;"></a>
-                        </div>
-                        <div class="element-item design development marketing">
-                            <a class="popup-with-move-anim" href="#project-3"><div class="element-item-overlay"><span>modern home</span></div><img src="{{asset('images/gambar2.png')}}" alt="alternative" style="height: 100%;"></a>
-                        </div>
-                        <div class="element-item design development marketing">
-                            <a class="popup-with-move-anim" href="#project-4"><div class="element-item-overlay"><span>modern tropical home</span></div><img src="{{asset('images/gambar3.jpg')}}" alt="alternative" style="height: 100%;"></a>
-                        </div>
-                        <div class="element-item design development marketing seo">
-                            <a class="popup-with-move-anim" href="#project-5"><div class="element-item-overlay"><span>classic kolonial home</span></div><img src="{{asset('images/gambar4.jpg')}}" alt="alternative" style="height: 100%;"></a>
-                        </div>
-                        <div class="element-item design marketing seo">
-                            <a class="popup-with-move-anim" href="#project-6"><div class="element-item-overlay"><span>classic american home </span></div><img src="{{asset('images/gambar5.jpg')}}" alt="alternative" style="height: 100%;"></a>
-                        </div>
-                        <div class="element-item design marketing">
-                            <a class="popup-with-move-anim" href="#project-7"><div class="element-item-overlay"><span>minimalis home</span></div><img src="{{asset('images/gambar15.jpg')}}" alt="alternative" style="height: 100%;"></a>
-                        </div>
-                        <div class="element-item design marketing">
-                            <a class="popup-with-move-anim" href="#project-8"><div class="element-item-overlay"><span>minimalis mewah home</span></div><img src="{{asset('images/gambar17.jpeg')}}" alt="alternative" style="height: 100%;"    ></a>
-                        </div>
-                    </div> <!-- end of grid -->
-                    <!-- end of filter -->
-                    
-                </div> <!-- end of col -->
-            </div> <!-- end of row -->
-		</div> <!-- end of container -->
-    </div> <!-- end of filter -->
-    <!-- end of projects -->
-
-
-    <!-- Project Lightboxes -->
-    <!-- Lightbox -->
-    <div id="project-1" class="lightbox-basic zoom-anim-dialog mfp-hide">
-        <div class="row">
-            <button title="Close (Esc)" type="button" class="mfp-close x-button">×</button>
-            <div class="col-lg-8">
-                <img class="img-fluid" src="images/gambar0.jpg" alt="alternative">
-            </div> <!-- end of col -->
-            <div class="col-lg-4">
-                <h3>Minimalist homes</h3>
-                <hr class="line-heading">
-                <h6>dream house in the present </h6>
-                <p>We are here to make all your wishes come true, affordable prices, guaranteed security, safe houses, cleanliness we always take care of. This example of a vacation story at home in English is also an example of English holiday stories and their meanings. The goal is simple, the English legend story that you know for the first time is a legend from Indonesia which is translated into English. The following is a story about my house in English.</p>
-                <p>The following story is a story that takes the theme of work or about work or home. For those of you who are looking for legeda stories in English, maybe the first thing you should know is the original Indonesian English legend. English assignments about ideals, examples of English stories about experiences.</p>
-                <div class="testimonial-container">
-                    <p class="testimonial-text">Need a solid foundation for your business growth plans? Aria will help you manage sales and meet your current requirements.</p>
-                    <p class="testimonial-author">General Manager</p>
                 </div>
-                <a class="btn-solid-reg" href="#your-link">DETAILS</a> <a class="btn-outline-reg mfp-close as-button" href="#projects">BACK</a> 
-            </div> <!-- end of col -->
-        </div> <!-- end of row -->
-    </div> <!-- end of lightbox-basic -->
-    <!-- end of lightbox -->
+              </div>
+            </section>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section><br><br><br>
 
-    <!-- Lightbox -->
-    <div id="project-2" class="lightbox-basic zoom-anim-dialog mfp-hide">
-        <div class="row">
-            <button title="Close (Esc)" type="button" class="mfp-close x-button">×</button>
-            <div class="col-lg-8">
-                <img class="img-fluid" src="{{asset('images/gambar1.jpg')}}" alt="alternative">
-            </div> <!-- end of col -->
-            <div class="col-lg-4">
-                <h3>Classic homes</h3>
-                <hr class="line-heading">
-                <h6>dream house in the present</h6>
-                <p>Need a solid foundation for your business growth plans? Aria will help you manage sales and meet your current needs</p>
-                <p>By offering the best professional services and quality products in the market. Don't hesitate and get in touch with us.</p>
-                <div class="testimonial-container">
-                    <p class="testimonial-text">Need a solid foundation for your business growth plans? Aria will help you manage sales and meet your current requirements.</p>
-                    <p class="testimonial-author">General Manager</p>
-                </div>
-                <a class="btn-solid-reg" href="#your-link">DETAILS</a> <a class="btn-outline-reg mfp-close as-button" href="#projects">BACK</a> 
-            </div> <!-- end of col -->
-        </div> <!-- end of row -->
-    </div> <!-- end of lightbox-basic -->
-    <!-- end of lightbox -->
+  <section class="tentang">
+    <div class="container">
+      <div class="row">
+        <div class="col">
+          <div>
+            <h1 class="title-tentang">Tentang</h1>
+            <h1 class="title-kami">Kami</h1>
+          </div>
+        </div>
+        <div class="col tt">
+          <div class="tentang-text">
+            <p data-aos="fade-up" data-aos-delay="400" class="col-12">Lorem ipsum dolor sit amet consectetur,
+              adipisicing
+              elit. Voluptas alias in accusamus ipsam! Deleniti quam soluta praesentium, quas excepturi vitae facere
+              eligendi rem explicabo optio ad quis animi</p>
+            <p data-aos="fade-up" data-aos-delay="400" class="col-12">Lorem ipsum dolor sit amet consectetur,
+              adipisicing
+              elit. Voluptas alias in accusamus ipsam! Deleniti quam soluta praesentium, quas excepturi vitae facere
+              eligendi rem explicabo optio ad quis animi</p>
+          </div>
+          <div data-aos="fade-up" data-aos-delay="600">
+            <div class="text-center text-lg-start ">
+              <a
+                class="btn-get-started scrollto d-inline-flex align-items-center justify-content-center align-self-center baca">
+                <span>Baca Selanjutnya</span>
+                <i class="bi bi-arrow-right"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="col text-end">
+          <img src="{{'frontend/image/laptop-peep.png'}}" alt="" width="280">
+        </div>
+      </div><br><br><br>
+      <!-- <div class="row">
+      <div class="col-sm-4 text-center">
+        <img src="{{'frontend/image/redbox.png'}}" alt="" width="100"><br><br>
+        <h6>Judul service</h6>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+      </div><br>
+      <div class="col-sm-4 text-center">
+        <img src="{{'frontend/image/redbox.png'}}" alt="" width="100"><br><br>
+        <h6>Judul service</h6>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+      </div><br>
+      <div class="col-sm-4 text-center">
+        <img src="{{'frontend/image/redbox.png'}}" alt="" width="100"><br><br>
+        <h6>Judul service</h6>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+      </div><br>
 
-    <!-- Lightbox -->
-    <div id="project-3" class="lightbox-basic zoom-anim-dialog mfp-hide">
-        <div class="row">
-            <button title="Close (Esc)" type="button" class="mfp-close x-button">×</button>
-            <div class="col-lg-8">
-                <img class="img-fluid" src="images/gambar2.png" alt="alternative">
-            </div> <!-- end of col -->
-            <div class="col-lg-4">
-                <h3>modern home</h3>
-                <hr class="line-heading">
-                <h6>Strategy Development</h6>
-                <p>We are here to make all your wishes come true, affordable prices, guaranteed security, safe houses, cleanliness we always take care of. This example of a vacation story at home in English is also an example of English holiday stories and their meanings. The goal is simple, the English legend story that you know for the first time is a legend from Indonesia which is translated into English. The following is a story about my house in English.</p>
-                <p>The following story is a story that takes the theme of work or about work or home. For those of you who are looking for legeda stories in English, maybe the first thing you should know is the original Indonesian English legend. English assignments about ideals, examples of English stories about experiences.</p>
-                <div class="testimonial-container">
-                    <p class="testimonial-text">Need a solid foundation for your business growth plans? Aria will help you manage sales and meet your current requirements.</p>
-                    <p class="testimonial-author">General Manager</p>
-                </div>
-                <a class="btn-solid-reg" href="#your-link">DETAILS</a> <a class="btn-outline-reg mfp-close as-button" href="#projects">BACK</a> 
-            </div> <!-- end of col -->
-        </div> <!-- end of row -->
-    </div> <!-- end of lightbox-basic -->
-    <!-- end of lightbox -->
+      </div> -->
+    </div>
+  </section><br><br><br><br>
 
-    <!-- Lightbox -->
-    <div id="project-4" class="lightbox-basic zoom-anim-dialog mfp-hide">
-        <div class="row">
-            <button title="Close (Esc)" type="button" class="mfp-close x-button">×</button>
-            <div class="col-lg-8">
-                <img class="img-fluid" src="{{asset('images/gambar3.jpg')}}" alt="alternative">
-            </div> <!-- end of col -->
-            <div class="col-lg-4">
-                <h3>modern tropical home</h3>
-                <hr class="line-heading">
-                <p>Need a solid foundation for your business growth plans? Aria will help you manage sales and meet your current needs</p>
-                <p>The following story is a story that takes the theme of work or about work or home. For those of you who are looking for legeda stories in English, maybe the first thing you should know is the original Indonesian English legend. English assignments about ideals, examples of English stories about experiences.</p>
-                <div class="testimonial-container">
-                    <p class="testimonial-text">Need a solid foundation for your business growth plans? Aria will help you manage sales and meet your current requirements.</p>
-                    <p class="testimonial-author">General Manager</p>
-                </div>
-                <a class="btn-solid-reg" href="#your-link">DETAILS</a> <a class="btn-outline-reg mfp-close as-button" href="#projects">BACK</a> 
-            </div> <!-- end of col -->
-        </div> <!-- end of row -->
-    </div> <!-- end of lightbox-basic -->
-    <!-- end of lightbox -->
+  <section class="siap">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-6">
+          <img src="{{'frontend/image/Group 8.svg'}}" alt="" width="500">
+        </div>
+        <div class="col-sm-6">
+          <div>
+            <h1 class="title-tentang">Tertarik ?</h1>
+            <h1 class="title-kami-siap-bantu">Kami siap bantu!</h1><br>
+            <p data-aos="fade-up" data-aos-delay="400" class="col-12">Lorem ipsum dolor sit amet consectetur,
+              adipisicing elit. Voluptas alias in accusamus ipsam! Deleniti quam soluta praesentium, quas excepturi
+              vitae facere eligendi rem explicabo optio ad quis animi</p>
+            <div data-aos="fade-up" data-aos-delay="600">
+              <div class="text-center text-lg-start">
+                <a
+                  class="btn-get-started scrollto d-inline-flex align-items-center justify-content-center align-self-center">
+                  <span>Baca Selanjutnya</span>
+                  <i class="bi bi-arrow-right"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+    <path fill="#ed1c24" fill-opacity="0.2"
+      d="M0,128L48,149.3C96,171,192,213,288,224C384,235,480,213,576,181.3C672,149,768,107,864,106.7C960,107,1056,149,1152,181.3C1248,213,1344,235,1392,245.3L1440,256L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z">
+    </path>
+  </svg>
+  <section class="footer-top">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-3 text-start footer-info">
+          <h2>
+            PBN
+          </h2>
+          <p>Cras fermentum odio eu feugiat lide par naso tierra. Justo eget nada terra videa</p>
+          <div class="social-links mt-3">
+            <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
+            <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
+            <a href="#" class="instagram"><i class="bi bi-instagram bx bxl-instagram"></i></a>
+            <a href="#" class="linkedin"><i class="bi bi-linkedin bx bxl-linkedin"></i></a>
+          </div>
+        </div>
+        <div class="col-lg-1"></div>
+        <div class="col-md-2 footer-links">
+          <h4>Quick Links</h4>
+          <div class="link">
+            <div><a href="#">Home</a></div>
+            <div><a href="#">Service kami</a></div>
+            <div><a href="#">Galeri</a></div>
+            <div><a href="#">Testimonial</a></div>
+          </div>
+        </div>
+        <div class="col-md-2 footer-links">
+          <h4>About Us</h4>
+          <div class="link">
+            <div><a href="#">Detail Perusahaan</a></div>
+            <div><a href="#">Tim Kami</a></div>
+            <div><a href="#">Servis</a></div>
+            <div><a href="#">estimonial</a></div>
+          </div>
+        </div>
+        <div class="col-lg-4 text-end footer-img">
+          <img src="{{'frontend/image/peeps.svg'}}" alt="" width="250">
+        </div>
+      </div>
+    </div>
+    <!-- <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#ed1c24" fill-opacity="0.2" d="M0,64L48,74.7C96,85,192,107,288,128C384,149,480,171,576,160C672,149,768,107,864,85.3C960,64,1056,64,1152,69.3C1248,75,1344,85,1392,90.7L1440,96L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg> -->
+  </section>
 
-    <!-- Lightbox -->
-    <div id="project-5" class="lightbox-basic zoom-anim-dialog mfp-hide">
-        <div class="row">
-            <button title="Close (Esc)" type="button" class="mfp-close x-button">×</button>
-            <div class="col-lg-8">
-                <img class="img-fluid" src="{{asset('images/gambar4.jpg')}}" alt="alternative">
-            </div> <!-- end of col -->
-            <div class="col-lg-4">
-                <h3>classic american home</h3>
-                <hr class="line-heading">
-                <p>Need a solid foundation for your business growth plans? Aria will help you manage sales and meet your current needs</p>
-                <p>The following story is a story that takes the theme of work or about work or home. For those of you who are looking for legeda stories in English, maybe the first thing you should know is the original Indonesian English legend. English assignments about ideals, examples of English stories about experiences.</p>
-                <div class="testimonial-container">
-                    <p class="testimonial-text">Need a solid foundation for your business growth plans? Aria will help you manage sales and meet your current requirements.</p>
-                    <p class="testimonial-author">General Manager</p>
-                </div>
-                <a class="btn-solid-reg" href="#your-link">DETAILS</a> <a class="btn-outline-reg mfp-close as-button" href="#projects">BACK</a> 
-            </div> <!-- end of col -->
-        </div> <!-- end of row -->
-    </div> <!-- end of lightbox-basic -->
-    <!-- end of lightbox -->
+  <!-- Vendor JS Files -->
+  <script src="{{'frontend/vendor/bootstrap/js/bootstrap.bundle.js'}}"></script>
+  <script src="{{'frontend/vendor/aos/aos.js'}}"></script>
+  <script src="{{'frontend/vendor/php-email-form/validate.js'}}"></script>
+  <script src="{{'frontend/vendor/swiper/swiper-bundle.min.js'}}"></script>
+  <script src="{{'frontend/vendor/purecounter/purecounter.js'}}"></script>
+  <script src="{{'frontend/vendor/isotope-layout/isotope.pkgd.min.js'}}"></script>
+  <script src="{{'frontend/vendor/glightbox/js/glightbox.min.js'}}"></script>
 
-    <!-- Lightbox -->
-    <div id="project-6" class="lightbox-basic zoom-anim-dialog mfp-hide">
-        <div class="row">
-            <button title="Close (Esc)" type="button" class="mfp-close x-button">×</button>
-            <div class="col-lg-8">
-                <img class="img-fluid" src="{{asset('images/gambar5.jpg')}}" alt="alternative">
-            </div> <!-- end of col -->
-            <div class="col-lg-4">
-                <h3>classic kolonial home</h3>
-                <hr class="line-heading">
-                <p>Need a solid foundation for your business growth plans? Aria will help you manage sales and meet your current needs</p>
-                <p>By offering the best professional services and quality products in the market. Don't hesitate and get in touch with us.</p>
-                <div class="testimonial-container">
-                    <p class="testimonial-text">Need a solid foundation for your business growth plans? Aria will help you manage sales and meet your current requirements.</p>
-                    <p class="testimonial-author">General Manager</p>
-                </div>
-                <a class="btn-solid-reg" href="#your-link">DETAILS</a> <a class="btn-outline-reg mfp-close as-button" href="#projects">BACK</a> 
-            </div> <!-- end of col -->
-        </div> <!-- end of row -->
-    </div> <!-- end of lightbox-basic -->
-    <!-- end of lightbox -->
+  <!-- Template Main JS File -->
+  <script src="{{'frontend/js/main.js'}}"></script>
+  @livewireScripts
 
-    <!-- Lightbox -->
-    <div id="project-7" class="lightbox-basic zoom-anim-dialog mfp-hide">
-        <div class="row">
-            <button title="Close (Esc)" type="button" class="mfp-close x-button">×</button>
-            <div class="col-lg-8">
-                <img class="img-fluid" src="{{asset('images/gambar15.jpg')}}" alt="alternative">
-            </div> <!-- end of col -->
-            <div class="col-lg-4">
-                <h3>minimalis home</h3>
-                <hr class="line-heading">
-                <p>Need a solid foundation for your business growth plans? Aria will help you manage sales and meet your current needs</p>
-                <p>The following story is a story that takes the theme of work or about work or home. For those of you who are looking for legeda stories in English, maybe the first thing you should know is the original Indonesian English legend. English assignments about ideals, examples of English stories about experiences.</p>
-                <div class="testimonial-container">
-                    <p class="testimonial-text">Need a solid foundation for your business growth plans? Aria will help you manage sales and meet your current requirements.</p>
-                    <p class="testimonial-author">General Manager</p>
-                </div>
-                <a class="btn-solid-reg" href="#your-link">DETAILS</a> <a class="btn-outline-reg mfp-close as-button" href="#projects">BACK</a> 
-            </div> <!-- end of col -->
-        </div> <!-- end of row -->
-    </div> <!-- end of lightbox-basic -->
-    <!-- end of lightbox -->
-
-    <!-- Lightbox -->
-    <div id="project-8" class="lightbox-basic zoom-anim-dialog mfp-hide">
-        <div class="row">
-            <button title="Close (Esc)" type="button" class="mfp-close x-button">×</button>
-            <div class="col-lg-8">
-                <img class="img-fluid" src="{{asset('images/gambar17.jpeg')}}" alt="alternative">
-            </div> <!-- end of col -->
-            <div class="col-lg-4">
-                <h3>minimalis mewah home</h3>
-                <hr class="line-heading">
-                <p>Need a solid foundation for your business growth plans? Aria will help you manage sales and meet your current needs</p>
-                <p>By offering the best professional services and quality products in the market. Don't hesitate and get in touch with us.</p>
-                <div class="testimonial-container">
-                    <p class="testimonial-text">Need a solid foundation for your business growth plans? Aria will help you manage sales and meet your current requirements.</p>
-                    <p class="testimonial-author">General Manager</p>
-                </div>
-                <a class="btn-solid-reg" href="#your-link">DETAILS</a> <a class="btn-outline-reg mfp-close as-button" href="#projects">BACK</a> 
-            </div> <!-- end of col -->
-        </div> <!-- end of row -->
-    </div> <!-- end of lightbox-basic -->
-    <!-- end of lightbox -->
-    <!-- end of project lightboxes -->
-
-    <!-- About -->
-    <div id="tentang" class="counter" >
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-5 col-xl-6">
-                    <div class="image-container">
-                        <img class="about" src="{{asset('images/gambar10.jpg')}}" style="height: 90%; width: 80%;" >
-                    </div> <!-- end of image-container -->
-                </div> <!-- end of col -->
-                <div class="col-lg-7 col-xl-6" >
-                    <div class="text-container">
-                        <div class="section-title">ABOUT</div>
-                        <h2>We Are Engaged About Providing Home Construction Services </h2>
-                        <p>Our goal is to provide building materials, building tools, as well as workers to build your house </p>
-                        <ul class="list-unstyled li-space-lg">
-                            <li class="media">
-                                <i class="fas fa-square"></i>
-                                <div class="media-body">Everything we recommend has direct positive impact</div>
-                            </li>
-                            <li class="media">
-                                <i class="fas fa-square"></i>
-                                <div class="media-body">You will become an important partner of our company</div>
-                            </li>
-                        </ul>
-
-                        <!-- Counter -->
-                        <div id="counter">
-                            <div class="cell">
-                                <div class="counter-value number-count" data-count="100">0</div>
-                                <div class="counter-info">Happy<br>Users</div>
-                            </div>
-                            <div class="cell">
-                                <div class="counter-value number-count" data-count="100">0</div>
-                                <div class="counter-info">Issues<br>Solved</div>
-                            </div>
-                            <div class="cell">
-                                <div class="counter-value number-count" data-count="100">0</div>
-                                <div class="counter-info">Good<br>Reviews</div>
-                            </div>
-                        </div>
-                        <!-- end of counter -->
-
-                    </div> <!-- end of text-container -->      
-                </div> <!-- end of col -->
-            </div> <!-- end of row -->
-        </div> <!-- end of container -->
-    </div> <!-- end of counter -->
-    <!-- end of about -->
-
-
-    <!-- Contact -->
-    <div id="contact" class="form-2">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-6">
-                    <div class="text-container">
-                        <div class="section-title">CONTACT</div>
-                        <h2>Get In Touch Using The Form</h2>
-                        <p>You can stop by our office for a cup of coffee and just use the contact form below for any questions and inquiries</p>
-                        <ul class="list-unstyled li-space-lg">
-                            <li class="address"><i class="fas fa-map-marker-alt"></i>Jln.Dr.Sutomo Gg,Majestic,No.262,Badean,Bondowoso</li>
-                            <li><i class="fas fa-phone"></i><a href="tel:082245093787">+62 2245093787</a></li>
-                            <li><i class="fas fa-phone"></i><a href="tel:082246082456">+82 2246082456</a></li>
-                            <li><i class="fas fa-envelope"></i><a href="mailto:office@aria.com">office@buildingcontractor.com</a></li>
-                        </ul>
-                        <h3>Follow buildingcontractor On Social Media</h3>
-
-                        <span class="fa-stack">
-                            <a href="#your-link">
-                                <span class="hexagon"></span>
-                                <i class="fab fa-facebook-f fa-stack-1x"></i>
-                            </a>
-                        </span>
-                        <span class="fa-stack">
-                            <a href="#your-link">
-                                <span class="hexagon"></span>
-                                <i class="fab fa-twitter fa-stack-1x"></i>
-                            </a>
-                        </span>
-                        <span class="fa-stack">
-                            <a href="#your-link">
-                                <span class="hexagon"></span>
-                                <i class="fab fa-instagram fa-stack-1x"></i>
-                            </a>
-                        </span>
-                    </div> <!-- end of text-container -->
-                </div> <!-- end of col -->
-                <div class="col-lg-6">
-                    
-                    <!-- Contact Form -->
-                    <form id="contactForm" data-toggle="validator" data-focus="false">
-                        <div class="form-group">
-                            <input type="text" class="form-control-input" id="cname" required>
-                            <label class="label-control" for="cname">Name</label>
-                            <div class="help-block with-errors"></div>
-                        </div>
-                        <div class="form-group">
-                            <input type="email" class="form-control-input" id="cemail" required>
-                            <label class="label-control" for="cemail">Email</label>
-                            <div class="help-block with-errors"></div>
-                        </div>
-                        <div class="form-group">
-                            <textarea class="form-control-textarea" id="cmessage" required></textarea>
-                            <label class="label-control" for="cmessage">Your message</label>
-                            <div class="help-block with-errors"></div>
-                        </div>
-                        <div class="form-group checkbox">
-                            <input type="checkbox" id="cterms" value="Agreed-to-Terms" required>I agree with Aria's stated <a href="privacy-policy.html">Privacy Policy</a> and <a href="terms-conditions.html">Terms Conditions</a> 
-                            <div class="help-block with-errors"></div>
-                        </div>
-                        <div class="form-group">
-                            <button type="submit" class="form-control-submit-button">SUBMIT MESSAGE</button>
-                        </div>
-                        <div class="form-message">
-                            <div id="cmsgSubmit" class="h3 text-center hidden"></div>
-                        </div>
-                    </form>
-                    <!-- end of contact form -->
-
-                </div> <!-- end of col -->
-            </div> <!-- end of row -->
-        </div> <!-- end of container -->
-    </div> <!-- end of form-2 -->
-    <!-- end of contact -->
-
-
-    <!-- Footer -->
-    <div class="footer">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-6">
-                    <div class="text-container about">
-                        <h4>Few Words About buildingcontractor</h4>
-                        <p class="white">We are passionate about providing home, office, school building services for you. Your safety and comfort is our priority .</p>
-                    </div> <!-- end of text-container -->
-                </div> <!-- end of col -->
-                <div class="col-md-2">
-                    <div class="text-container">
-                        <h4>Links</h4>
-                        <ul class="list-unstyled li-space-lg white">
-                            <li>
-                                <a class="white" href="#your-link">buildingcontractor.id</a>
-                            </li>
-                            <li>
-                                <a class="white" href="terms-conditions.html">buildingcontractor.id</a>
-                            </li>
-                            <li>
-                                <a class="white" href="privacy-policy.html">buildingcontractor.id</a>
-                            </li>
-                        </ul>
-                    </div> <!-- end of text-container -->
-                </div> <!-- end of col -->
-                <div class="col-md-2">
-                    <div class="text-container">
-                        <h4>Tools</h4>
-                        <ul class="list-unstyled li-space-lg">
-                            <li>
-                                <a class="white" href="#your-link">buildingcontractor.id</a>
-                            </li>
-                            <li>
-                                <a class="white" href="#your-link">buildingcontractor.id</a>
-                            </li>
-                            <li class="media">
-                                <a class="white" href="#your-link">buildingcontractor.id</a>
-                            </li>
-                        </ul>
-                    </div> <!-- end of text-container -->
-                </div> <!-- end of col -->
-                <div class="col-md-2">
-                    <div class="text-container">
-                        <h4>Partners</h4>
-                        <ul class="list-unstyled li-space-lg">
-                            <li>
-                                <a class="white" href="#your-link">buildingcontractor.id</a>
-                            </li>
-                            <li>
-                                <a class="white" href="#your-link">buildingcontractor.id</a>
-                            </li>
-                            <li>
-                                <a class="white" href="#your-link">buildingcontractor.id</a>
-                            </li>
-                        </ul>
-                    </div> <!-- end of text-container -->
-                </div> <!-- end of col -->
-            </div> <!-- end of row -->
-        </div> <!-- end of container -->
-    </div> <!-- end of footer -->  
-    <!-- end of footer -->
-
-
-    <!-- Copyright -->
-    <div class="copyright">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <p class="p-small">Copyright © 2020 <a href="https://buildingcontractor.com">Template by buildingcontractor</a></p>
-                </div> <!-- end of col -->
-            </div> <!-- enf of row -->
-        </div> <!-- end of container -->
-    </div> <!-- end of copyright --> 
-    <!-- end of copyright -->
-    
-
-    <!-- Scripts -->
-    <script src="{{ asset('frontend/js/jquery.min.js')}}"></script> <!-- jQuery for Bootstrap's JavaScript plugins -->
-    <script src="{{ asset('frontend/js/popper.min.js')}}"></script> <!-- Popper tooltip library for Bootstrap -->
-    <script src="{{ asset('frontend/js/bootstrap.min.js')}}"></script> <!-- Bootstrap framework -->
-    <script src="{{ asset('frontend/js/jquery.easing.min.js')}}"></script> <!-- jQuery Easing for smooth scrolling between anchors -->
-    <script src="{{ asset('frontend/js/swiper.min.js')}}"></script> <!-- Swiper for image and text sliders -->
-    <script src="{{ asset('frontend/js/jquery.magnific-popup.js')}}"></script> <!-- Magnific Popup for lightboxes -->
-    <script src="{{ asset('frontend/js/morphext.min.js')}}"></script> <!-- Morphtext rotating text in the header -->
-    <script src="{{ asset('frontend/js/isotope.pkgd.min.js')}}"></script> <!-- Isotope for filter -->
-    <script src="{{ asset('frontend/js/validator.min.js')}}"></script> <!-- Validator.js - Bootstrap plugin that validates forms -->
-    <script src="{{ asset('frontend/js/scripts.js')}}"></script> <!-- Custom scripts -->
-    @livewireScripts
 </body>
+
 </html>
-</div>
-
-
-
-
-
-
-

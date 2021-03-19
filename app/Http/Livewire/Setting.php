@@ -3,7 +3,6 @@
 namespace App\Http\Livewire;
 
 use Livewire\Component;
-use Livewire\WithPagination;
 use Livewire\WithFileUploads;
 use App\Models\Setting as ModelSetting;
 
@@ -15,7 +14,7 @@ class Setting extends Component
     protected $paginationTheme = 'bootstrap';
 
     protected $rules = [
-        'logo' => 'required|mimes:jpg,png,jpeg,bmp',
+        'logo' => 'required|mimes:jpg,png,jpeg,bmp,svg',
         'web_name' => 'required',
         'web_desc' => 'required',
         'facebook' => 'required',

@@ -18,13 +18,13 @@
             </div>
         </div>
     </header>
-    <div class="container mt-n10">
-        <div class="card mb-4">
+    <div class="container mt-n10">        
             @if ($isForm)
                 @include('livewire.Setting.create_setting')
             @endif
 
             @if ($isForm == false)
+        <div class="card mb-4">    
             <div class="card-body">
                 <div class="datatable">
                     <table class="table table-bordered table-hover text-center" width="100%" cellspacing="0">
@@ -67,9 +67,9 @@
                             @endforeach
                         </tbody>
                     </table>  
-                </div>              
-            @endif
-            </div>
-        </div>
+                </div> 
+            </div>  
+        </div>               
+        @endif                    
     </div>
 </div>

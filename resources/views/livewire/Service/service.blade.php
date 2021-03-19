@@ -19,12 +19,13 @@
         </div>
     </header>
     <div class="container mt-n10">
-        <div class="card mb-4">
+        
             @if ($isForm)
                 @include('livewire.Service.create_service')
             @endif
 
             @if ($isForm == false)
+        <div class="card mb-4">
             <div class="card-body">
                 <div>
                     <a wire:click.prevent="create" class="btn btn-outline-primary">add row</a><br><br>
@@ -96,8 +97,8 @@
                 </div>
                 {{$service->links()}}
             </div>
-            @endif
         </div>
+        @endif        
     </div>
     @push('scripts')
         <script>

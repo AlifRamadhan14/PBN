@@ -1,6 +1,4 @@
 <div>
-    <div class="card">
-        <div class="card-body">
             <div class="card">
                 <div class="card-body">
                     <form wire:submit.prevent="store" >
@@ -30,8 +28,6 @@
                         Kembali
                     </h6>
                 </div>
-            </div>
-        </div>
-    </div> 
+            </div>    
 </div>
     

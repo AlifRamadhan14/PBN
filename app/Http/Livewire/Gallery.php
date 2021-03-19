@@ -18,7 +18,7 @@ class Gallery extends Component
 
     protected $rules = [
         'title' => 'required',
-        'image' => 'required|mimes:jpg,png,jpeg,bmp', 
+        'image' => 'required|mimes:jpg,png,jpeg,bmp,svg', 
     ];
 
      public function updated($propertyName)
