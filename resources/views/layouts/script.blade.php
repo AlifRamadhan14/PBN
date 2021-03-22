@@ -11,6 +11,9 @@
     <script src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js" crossorigin="anonymous"></script>
     <script src="{{'backend/assets/demo/date-range-picker-demo.js'}}"></script>
+    <script src="{{'backend/assets/fontawesome/js/all.min.js'}}"></script>
+    <script src="{{'backend/assets/fontawesome/js/fontawesome.min.js'}}"></script>
+
 {{--
     <script src="{{'backend/js/sb-customizer.js'}}"></script>
     <sb-customizer project="sb-admin-pro"></sb-customizer> --}}

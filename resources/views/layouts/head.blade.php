@@ -10,7 +10,9 @@
         crossorigin="anonymous" />
     <link href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" rel="stylesheet"
         crossorigin="anonymous" />
-    <link rel="icon" type="image/x-icon" href="{{'backend/assets/img/favicon.png'}}" />
+    <link href="{{'frontend/image/stempel PBN.png'}}" rel="icon">
+    <link rel="stylesheet" href="{{'backend/assets/fontawesome/css/fontawesome.min.css'}}">
+    <link rel="stylesheet" href="{{'backend/assets/fontawesome/css/all.min.css'}}">
     <script data-search-pseudo-elements defer
         src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.27.0/feather.min.js" crossorigin="anonymous">

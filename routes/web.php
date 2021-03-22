@@ -25,11 +25,11 @@ use App\Http\Livewire\Setting;
 |
 */
 
-// Route::get('/', function () {
+// Route::get('/', functio n () {
 //     return view('livewire.index');
 // });
 
-Route::view('/', 'index')->middleware('guest');
+Route::get('/', Index::class)->middleware('guest');
 
 // Route::get('/home', function () {
 //     return view('livewire.dashboard');
@@ -50,5 +50,6 @@ Route::get('/service', Service::class);
 Route::get('/slider', Slider::class);
 Route::get('/consultation', Consultation::class);
 Route::get('/setting', Setting::class);
+
 });
 

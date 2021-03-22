@@ -16,7 +16,7 @@ class CreateConsultationsTable extends Migration
         Schema::create('consultations', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->integer('phone');
+            $table->bigInteger('phone');
             $table->string('topic');
             $table->text('description');
             $table->string('image', 80);

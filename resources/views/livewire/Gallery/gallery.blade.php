@@ -4,13 +4,13 @@
             {{ session('message') }}
         </div>
     @endif
-    <header class="page-header page-header-dark bg-gradient-primary-to-secondary pb-10">
+    <header class="page-header page-header-dark bg-danger pb-10">
         <div class="container">
             <div class="page-header-content pt-4">
                 <div class="row align-items-center justify-content-between">
                     <div class="col-auto mt-4">
                         <h1 class="page-header-title">
-                            <div class="page-header-icon"><i data-feather="image"></i></div>
+                            <div class="page-header-icon"><i class="far fa-image"></i></div>
                             Gallery
                         </h1>
                     </div>
@@ -27,7 +27,7 @@
             @if ($isForm == false)
             <div class="card-body">
                 <div>
-                    <a wire:click.prevent="create" class="btn btn-outline-primary">add row</a><br><br>
+                    <a wire:click.prevent="create" class="btn btn-outline-danger">add row</a><br><br>
                 </div>
                  <div class="row">
                     <div class="col">

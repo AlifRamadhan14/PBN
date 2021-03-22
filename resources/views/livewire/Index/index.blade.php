@@ -1,4 +1,4 @@
- 
+<div> 
 <html lang="en">
 
 <head>
@@ -48,6 +48,7 @@
           <li>
             <a class="nav-link scrollto" data-bs-toggle="modal" data-bs-target=".bd-example-modal-lg">konsultasi</a>
           </li>
+          <li><a class="nav-link scrollto" href="#about">About</a></li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->
@@ -55,7 +56,7 @@
     </div>
   </header><!-- End Header -->
 
-  <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
+  <div wire:ignore.self  class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
     aria-hidden="true">
 
     <div class="modal-dialog modal-lg" style="border-radius: 40px;">
@@ -72,7 +73,7 @@
               </div>
             </div>
           </div>
-          <div class="col">
+          <div class="col modal-form">
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             <div class="col-sm">
               <h3>
@@ -80,43 +81,45 @@
               </h3>
             </div>
             <br>
-            <form>
+            <form wire:submit.prevent="store">
               <div class="row">
                 <div class="col-sm-5">
                   <div class="form-group">
-                    <label for="name">Nama Lengkap</label>
-                    <input type="text" name="name" wire:model="name" class="form-control" id="name" value="{{ old('name')}}">
+                    <label for="name">Nama lengkap</label>
+                    <input type="text" wire:model="name" class="form-control" id="name">
                     @error('name') <span class="text-danger">{{ $message }}</span>@enderror
                   </div>
                 </div>
                 <div class="col-sm-5 tlpn">
                   <div class="form-group">
                     <label for="phone">No telepon</label>
-                    <input type="tel" wire:model=phone name="phone" class="form-control" id="phone" value="{{ old('phone')}}">
+                    <input type="tel" wire:model="phone" class="form-control" id="phone">
                     @error('phone') <span class="text-danger">{{ $message }}</span>@enderror
                   </div>
                 </div>
               </div><br>
               <div class="form-group col-sm-8">
                 <label for="topic">Topik konsultasi</label>
-                <input type="text" wire:model="topic" name="topic" class="form-control" id="topic" value="{{ old('topic')}}">
+                <input type="text" wire:model="topic" class="form-control" id="topic">
                 @error('topic') <span class="text-danger">{{ $message }}</span>@enderror
               </div><br>
               <div class="form-group col-sm-10">
                 <label for="description">Deskripsi</label>
-                <textarea type="text" wire:model="description" name="description" class="form-control" id="description" value="{{ old('description')}}"></textarea>
+                <textarea type="text" wire:model="description" class="form-control" id="description"></textarea>
                 @error('description') <span class="text-danger">{{ $message }}</span>@enderror                
               </div><br>
-              <div class="form-group col-sm-8">
+              <div class="form-group col-sm-10">
                 <label for="image">Foto pendukung</label>
-                <i class="fa fa-camera" aria-hidden="false"></i>
-                <input class="form-control" id="image">
+                <div class="custom-file">
+                  <input type="file" wire:model="image" class="custom-file-input" id="image">
+                  <label class="custom-file-label" for="customFileLang"></label>                                                 
+                </div>
+                @error('image') <span class="text-danger">{{ $message }}</span>@enderror
               </div>
               <br>
-              <button type="submit" class="btn btn-primary">Kirim</button>
+              <button type="submit" class="btn btn-danger" wire:click.prevent="store()">Kirim</button>
             </form>
           </div>
-
 
         </div>
 
@@ -126,48 +129,51 @@
 
   <!-- ======= Hero Section ======= -->
   <section id="hero" class="hero d-flex align-items-center">
-    @foreach($slide as $item)
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-6 d-flex flex-column justify-content-center">
-          <h2 data-aos="fade-up">{{$item->title}}</h2><br>
-          <p data-aos="fade-up" data-aos-delay="400" class="col-10 ">{{$item->description}}</p>
-          <div data-aos="fade-up" data-aos-delay="600">
-            <div class="text-center text-lg-start">
-              <a href="#about"
-                class="btn-get-started scrollto d-inline-flex align-items-center justify-content-center align-self-center">
-                <span>Yuk Konsultasi </span>
-                <i class="bi bi-arrow-right"></i>
-              </a>
+    @foreach( $slide as $item )
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-6 d-flex flex-column justify-content-center">
+            <h2 data-aos="fade-up">{{$item->title}}</h2><br>
+            <p data-aos="fade-up" data-aos-delay="400" class="col-10 ">{{$item->description}}</p>
+            <div data-aos="fade-up" data-aos-delay="600"><br>
+              <div class="text-center text-lg-start">
+                <a href="#about"
+                  class="btn-get-started scrollto d-inline-flex align-items-center justify-content-center align-self-center">
+                  <span data-bs-toggle="modal" data-bs-target=".bd-example-modal-lg">Yuk Konsultasi </span>
+                  <i class="bi bi-arrow-right"></i>
+                </a>
+              </div>
             </div>
           </div>
-        </div>
-        <div class="col-lg-6 hero-img" data-aos="zoom-out" data-aos-delay="200">
-          <img src="{{asset('storage/image/'.$item->image)}}" class="img-fluid" style="height: 90%; margin-top: 20%;">
+          <div class="col-lg-6 hero-img" data-aos="zoom-out" data-aos-delay="200">
+            <img src="{{asset('storage/image/'.$item->image)}}" class="img-fluid">
+          </div>
         </div>
       </div>
-    </div>
     @endforeach
   </section><!-- End Hero -->
 
   <section class="service d-flex align-items-center ml-30" id="service">
     <div class="container">
       <div class="row">
-        <div class="col-sm standing-img">
-          <img src="{{'frontend/image/standing.png'}}" alt="" class="bg-standing" width="280">
-        </div>
-        <div class="col-sm title-service-kami">
-          <div>
-            <h1 class="title-service">Service</h1>
-            <h1 class="title-kami">Kami</h1>
+        <div class="col-md-8 row">
+          <div class="col-sm standing-img">
+            <img src="{{'frontend/image/standing.png'}}" alt="" class="bg-standing" width="280">
           </div>
-          <div class="col-8">
-            <p>
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolorum quam laudantium nostrum, praesentium
-              ipsam itaque ullam.
-            </p>
+          <div class="col-sm title-service-kami">
+            <div>
+              <h1 class="title-service">Service</h1> 
+              <h1 class="title-kami">Kami</h1>
+            </div>
+            <div class="col-8">
+              <p>
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolorum quam laudantium nostrum, praesentium
+                ipsam itaque ullam.
+              </p>
+            </div>
           </div>
         </div>
+        <div class="col">
         <div class="col-sm service-item">
           <div class="row">
             @foreach($service as $item)
@@ -179,6 +185,7 @@
             @endforeach
           </div>
         </div>
+        </div>            
       </div>
     </div>
   </section>
@@ -220,7 +227,7 @@
     </div>
   </section><br><br><br>
 
-  <section class="tentang">
+  <section class="tentang" id="about">
     <div class="container">
       <div class="row">
         <div class="col">
@@ -244,7 +251,7 @@
             <div class="text-center text-lg-start ">
               <a
                 class="btn-get-started scrollto d-inline-flex align-items-center justify-content-center align-self-center baca">
-                <span>Baca Selanjutnya</span>
+                <span>Selanjutnya</span>
                 <i class="bi bi-arrow-right"></i>
               </a>
             </div>
@@ -254,36 +261,38 @@
           <img src="{{'frontend/image/laptop-peep.png'}}" alt="" width="280">
         </div>
       </div><br><br><br>
-      <!-- <div class="row">
+      <div class="">
+      <div class="row">
       <div class="col-sm-4 text-center">
-        <img src="{{'frontend/image/redbox.png'}}" alt="" width="100"><br><br>
+        <img src="{{'frontend/image/redbox.png'}}" alt="" width="150"><br><br>
         <h6>Judul service</h6>
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
       </div><br>
       <div class="col-sm-4 text-center">
-        <img src="{{'frontend/image/redbox.png'}}" alt="" width="100"><br><br>
+        <img src="{{'frontend/image/redbox.png'}}" alt="" width="150"><br><br>
         <h6>Judul service</h6>
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
       </div><br>
       <div class="col-sm-4 text-center">
-        <img src="{{'frontend/image/redbox.png'}}" alt="" width="100"><br><br>
+        <img src="{{'frontend/image/redbox.png'}}" alt="" width="150"><br><br>
         <h6>Judul service</h6>
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
       </div><br>
+      </div>
 
-      </div> -->
+      </div>
     </div>
   </section><br><br><br><br>
 
   <section class="siap">
     <div class="container">
       <div class="row">
-        <div class="col-sm-6">
+        <div class="col-sm-6 siap-img">
           <img src="{{'frontend/image/Group 8.svg'}}" alt="" width="500">
         </div>
         <div class="col-sm-6">
           <div>
-            <h1 class="title-tentang">Tertarik ?</h1>
+            <h1 class="title-tertarik">Tertarik ?</h1>
             <h1 class="title-kami-siap-bantu">Kami siap bantu!</h1><br>
             <p data-aos="fade-up" data-aos-delay="400" class="col-12">Lorem ipsum dolor sit amet consectetur,
               adipisicing elit. Voluptas alias in accusamus ipsam! Deleniti quam soluta praesentium, quas excepturi
@@ -316,24 +325,26 @@
           </h2>
           <p>Cras fermentum odio eu feugiat lide par naso tierra. Justo eget nada terra videa</p>
           <div class="social-links mt-3">
-            <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
-            <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
-            <a href="#" class="instagram"><i class="bi bi-instagram bx bxl-instagram"></i></a>
-            <a href="#" class="linkedin"><i class="bi bi-linkedin bx bxl-linkedin"></i></a>
+          @foreach($setting as $item)
+            <a href="{{$item->twitter}}" class="twitter"><i class="bi bi-twitter"></i></a>
+            <a href="{{$item->facebook}}" class="facebook"><i class="bi bi-facebook"></i></a>
+            <a href="{{$item->instagram}}" class="instagram"><i class="bi bi-instagram bx bxl-instagram"></i></a>
+            <a href="{{$item->linkedln}}" class="linkedin"><i class="bi bi-linkedin bx bxl-linkedin"></i></a>
+          @endforeach
           </div>
         </div>
         <div class="col-lg-1"></div>
         <div class="col-md-2 footer-links">
           <h4>Quick Links</h4>
           <div class="link">
-            <div><a href="#">Home</a></div>
-            <div><a href="#">Service kami</a></div>
-            <div><a href="#">Galeri</a></div>
-            <div><a href="#">Testimonial</a></div>
+            <div><a href="#hero">Home</a></div>
+            <div><a href="#service">Service kami</a></div>
+            <div><a href="#gallery">Galeri</a></div>
+            <div><a data-bs-toggle="modal" data-bs-target=".bd-example-modal-lg">Konsultasi</a></div>
           </div>
         </div>
         <div class="col-md-2 footer-links">
-          <h4>About Us</h4>
+          <h4 class="about">About Us</h4>
           <div class="link">
             <div><a href="#">Detail Perusahaan</a></div>
             <div><a href="#">Tim Kami</a></div>
@@ -348,6 +359,47 @@
     </div>
     <!-- <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#ed1c24" fill-opacity="0.2" d="M0,64L48,74.7C96,85,192,107,288,128C384,149,480,171,576,160C672,149,768,107,864,85.3C960,64,1056,64,1152,69.3C1248,75,1344,85,1392,90.7L1440,96L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg> -->
   </section>
+
+  <form wire:submit.prevent="store">
+              <div class="row">
+                <div class="col-sm-5">
+                  <div class="form-group">
+                    <label for="name">Nama lengkap</label>
+                    <input type="text" wire:model="name" class="form-control" id="name">
+                    @error('name') <span class="text-danger">{{ $message }}</span>@enderror
+                  </div>
+                </div>
+                <div class="col-sm-5 tlpn">
+                  <div class="form-group">
+                    <label for="phone">No telepon</label>
+                    <input type="tel" wire:model="phone" class="form-control" id="phone">
+                    @error('phone') <span class="text-danger">{{ $message }}</span>@enderror
+                  </div>
+                </div>
+              </div><br>
+              <div class="form-group col-sm-8">
+                <label for="topic">Topik konsultasi</label>
+                <input type="text" wire:model="topic" class="form-control" id="topic">
+                @error('topic') <span class="text-danger">{{ $message }}</span>@enderror
+              </div><br>
+              <div class="form-group col-sm-10">
+                <label for="description">Deskripsi</label>
+                <textarea type="text" wire:model="description" class="form-control" id="description"></textarea>
+                @error('description') <span class="text-danger">{{ $message }}</span>@enderror                
+              </div><br>
+              <div class="form-group col-sm-10">
+                <label for="image">Foto pendukung</label>
+                <div class="custom-file">
+                  <input type="file" wire:model="image" class="custom-file-input" id="image">
+                  <label class="custom-file-label" for="customFileLang"></label>                                                 
+                </div>
+                @error('image') <span class="text-danger">{{ $message }}</span>@enderror
+              </div>
+              <br>
+              <button type="submit" class="btn btn-danger" wire:click.prevent="store()">Kirim</button>
+            </form>
+
+  
 
   <!-- Vendor JS Files -->
   <script src="{{'frontend/vendor/bootstrap/js/bootstrap.bundle.js'}}"></script>
@@ -365,3 +417,4 @@
 </body>
 
 </html>
+</div>

@@ -22,8 +22,8 @@ class CreateSettingsTable extends Migration
             $table->string('instagram');
             $table->string('twitter');
             $table->string('linkedln');
-            $table->integer('phone');
-            $table->integer('whatsapp');
+            $table->bigInteger('phone');
+            $table->bigInteger('whatsapp');
             $table->timestamps();
         });
     }
