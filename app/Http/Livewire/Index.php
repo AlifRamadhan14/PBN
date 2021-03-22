@@ -46,7 +46,7 @@ class Index extends Component
             'gallery'=>$gallery,
             'service'=>$service,
             'setting'=>$setting,
-        ]);
+        ])->extends('frontend.master');
     }
 
     public function store()
@@ -58,6 +58,7 @@ class Index extends Component
             ModelConsult::create($data);
             session()->flash('message','data berhasil ditambah');
             $this->resetInput();
+            redirect('/');
     }
     
     private function resetInput()
