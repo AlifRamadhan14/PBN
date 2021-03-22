@@ -44,7 +44,7 @@ Auth::routes();
 // Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::middleware(['auth'])->group(function () {
-Route::get('/consultpage', ConsultPage::class );
+
 Route::view('/dashboard', Dashboard::class);
 Route::get('/home', Dashboard::class);
 Route::get('/about', About::class);

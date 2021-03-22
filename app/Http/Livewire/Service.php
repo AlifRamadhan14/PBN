@@ -127,8 +127,8 @@ class Service extends Component
     
     private function resetInput()
     {
-        $this->title = null;
-        $this->description =null;
-        $this->image = null;
+        $this->title = "";
+        $this->description = "";
+        $this->image = "";
     }
 }

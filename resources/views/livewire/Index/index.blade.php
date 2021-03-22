@@ -24,7 +24,7 @@
       </div>
     </header><!-- End Header -->
 
-    <div wire:ignore.self  class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
+    <div wire:ignore.self  class="modal fade bd-example-modal-lg"  role="dialog" aria-labelledby="myLargeModalLabel"
       aria-hidden="true">
 
       <div class="modal-dialog modal-lg" style="border-radius: 40px;">
@@ -77,12 +77,12 @@
                   @error('description') <span class="text-danger">{{ $message }}</span>@enderror                
                 </div><br>
                 <div class="form-group col-sm-10">
-                  <label for="image">Foto pendukung</label>
-                  <div class="custom-file">
-                    <input type="file" wire:model="image" class="custom-file-input" id="image">
-                    <label class="custom-file-label" for="customFileLang"></label>                                                 
-                  </div>
-                  @error('image') <span class="text-danger">{{ $message }}</span>@enderror
+                  <label for="image">Foto pendukung</label>          
+                    <div class="custom-file">
+                      <input type="file" name="image" wire:model="image" class="custom-file-input" id="image">
+                        <label class="custom-file-label" for="customFileLang"></label>                                                 
+                      </div>
+                    @error('image') <span class="text-danger">{{ $message }}</span>@enderror
                 </div>
                 <br>
                 <button type="submit" class="btn btn-danger" wire:click="store()">Kirim</button>
@@ -114,7 +114,7 @@
                 </div>
               </div>
             </div>
-            <div class="col-lg-6 hero-img" data-aos="zoom-out" data-aos-delay="200">
+            <div class="col-lg-6 hero-img text-end" data-aos="zoom-out" data-aos-delay="200">
               <img src="{{asset('storage/image/'.$item->image)}}" class="img-fluid">
             </div>
           </div>
@@ -125,36 +125,28 @@
     <section class="service d-flex align-items-center ml-30" id="service">
       <div class="container">
         <div class="row">
-          <div class="col-md-8 row">
-            <div class="col-sm standing-img">
-              <img src="{{'frontend/image/standing.png'}}" alt="" class="bg-standing" width="280">
-            </div>
-            <div class="col-sm title-service-kami">
-              <div>
-                <h1 class="title-service">Service</h1> 
-                <h1 class="title-kami">Kami</h1>
-              </div>
-              <div class="col-8">
-                <p>
-                  Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolorum quam laudantium nostrum, praesentium
-                  ipsam itaque ullam.
-                </p>
-              </div>
+          <div class="col-sm">
+            <div class="standing-img">
+              <img src="{{'frontend/image/standing.png'}}" alt="" class="bg-standing" width="300">
             </div>
           </div>
-          <div class="col">
-          <div class="col-sm service-item">
-            <div class="row">
-              @foreach($service as $item)
+          <div class="col-sm ">
+            <div class="row title-service-kami">
+            <div>
+                <h1 class="title-service">Service</h1> 
+                <h1 class="title-s-kami">Kami</h1>
+              </div>              
+            </div><br>
+            <div class="row service-item">
+            @foreach($service as $item)
               <div class="col-6 text-center">
-                <img src="{{asset('storage/image/'.$item->image)}}" alt="" width="100"><br><br>
-                <h6>{{$item->title}}</h6>
+                <img src="{{asset('storage/image/'.$item->image)}}" alt=""><br><br>
+                <h4 class="fw-bold">{{$item->title}}</h4>
                 <p>{{$item->description}}</p>
               </div>
               @endforeach
             </div>
-          </div>
-          </div>            
+          </div>                           
         </div>
       </div>
     </section>
@@ -226,28 +218,26 @@
               </div>
             </div>
           </div>
-          <div class="col text-end">
+          <div class="col text-end laptop-img">
             <img src="{{'frontend/image/laptop-peep.png'}}" alt="" width="280">
           </div>
         </div><br><br><br>
         <div class="">
+        <div class="about-item text-center"><br><br>
         <div class="row">
-        <div class="col-sm-4 text-center">
-          <img src="{{'frontend/image/redbox.png'}}" alt="" width="150"><br><br>
-          <h6>Judul service</h6>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+          @foreach($about as $item)
+          <div class="col-sm-4">
+            <img src="{{asset('storage/image/'.$item->image)}}" alt=""><br><br>
+            <h3> 
+              {{$item->title}}
+            </h3>
+            <p>
+             {{$item->description}}
+            </p><br>
+          </div>
+          @endforeach
         </div><br>
-        <div class="col-sm-4 text-center">
-          <img src="{{'frontend/image/redbox.png'}}" alt="" width="150"><br><br>
-          <h6>Judul service</h6>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-        </div><br>
-        <div class="col-sm-4 text-center">
-          <img src="{{'frontend/image/redbox.png'}}" alt="" width="150"><br><br>
-          <h6>Judul service</h6>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-        </div><br>
-        </div>
+      </div>
 
         </div>
       </div>
@@ -304,8 +294,8 @@
           </div>
           <div class="col-lg-1"></div>
           <div class="col-md-2 footer-links">
-            <h4>Quick Links</h4>
-            <div class="link">
+            <h4 class="quick">Quick Links</h4>
+            <div class="quick-link">
               <div><a href="#hero">Home</a></div>
               <div><a href="#service">Service kami</a></div>
               <div><a href="#gallery">Galeri</a></div>
@@ -314,16 +304,18 @@
           </div>
           <div class="col-md-2 footer-links">
             <h4 class="about">About Us</h4>
-            <div class="link">
+            <div class="about-link">
               <div><a href="#">Detail Perusahaan</a></div>
               <div><a href="#">Tim Kami</a></div>
               <div><a href="#">Servis</a></div>
               <div><a href="#">estimonial</a></div>
             </div>
           </div>
+          @foreach( $slide as $item )
           <div class="col-lg-4 text-end footer-img">
-            <img src="{{'frontend/image/peeps.svg'}}" alt="" width="250">
+            <img src="{{'storage/image/'.$item->image}}" alt="" width="250">
           </div>
+          @endforeach
         </div>
       </div>
       <!-- <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#ed1c24" fill-opacity="0.2" d="M0,64L48,74.7C96,85,192,107,288,128C384,149,480,171,576,160C672,149,768,107,864,85.3C960,64,1056,64,1152,69.3C1248,75,1344,85,1392,90.7L1440,96L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg> -->
