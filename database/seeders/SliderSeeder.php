@@ -19,7 +19,7 @@ class SliderSeeder extends Seeder
         DB::table('sliders')->insert([
             'title' => 'Ingin segera konsultasi dengan kami ?',
             'description' => 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptas alias in accusamus ipsam! Deleniti quam soluta praesentium, quas excepturi vitae facere eligendi rem explicabo optio ad quis animi',
-            'image' => 'slider.jpg', 
+            'image' => 'slider.png', 
         ]);
     }
 }
