@@ -77,12 +77,9 @@
                   @error('description') <span class="text-danger">{{ $message }}</span>@enderror                
                 </div><br>
                 <div class="form-group col-sm-10">
-                  <label for="image">Foto pendukung</label>          
-                    <div class="custom-file">
-                      <input type="file" name="image" wire:model="image" class="custom-file-input" id="image">
-                        <label class="custom-file-label" for="customFileLang"></label>                                                 
-                      </div>
-                    @error('image') <span class="text-danger">{{ $message }}</span>@enderror
+                  <label class="form-label" for="customFile">Foto pendukung</label>
+                  <input type="file" wire:model="image" class="form-control" id="customFile" />              
+                  @error('image') <span class="text-danger">{{ $message }}</span>@enderror
                 </div>
                 <br>
                 <button type="submit" class="btn btn-danger" wire:click="store()">Kirim</button>
@@ -223,22 +220,21 @@
           </div>
         </div><br><br><br>
         <div class="">
-        <div class="about-item text-center"><br><br>
-        <div class="row">
-          @foreach($about as $item)
-          <div class="col-sm-4">
-            <img src="{{asset('storage/image/'.$item->image)}}" alt=""><br><br>
-            <h3> 
-              {{$item->title}}
-            </h3>
-            <p>
-             {{$item->description}}
-            </p><br>
+          <div class="about-item text-center"><br><br>
+            <div class="row">
+              @foreach($about as $item)
+              <div class="col-sm-4">
+                <img src="{{asset('storage/image/'.$item->image)}}" alt=""><br><br>
+                <h3> 
+                  {{$item->title}}
+                </h3>
+                <p>
+                {{$item->description}}
+                </p><br>
+              </div>
+              @endforeach
+            </div><br>
           </div>
-          @endforeach
-        </div><br>
-      </div>
-
         </div>
       </div>
     </section><br><br><br><br>
