@@ -49,12 +49,12 @@
                     <div class="form-group row">
                         <div class="col">
                             <label for="phone">Phone</label>
-                            <input type="tel" name="phone" wire:model="phone" class="form-control" id="phone" value="{{ old('phone')}}">
+                            <input type="number" min="0" name="phone" wire:model="phone" class="form-control" id="phone" value="{{ old('phone')}}">
                             @error('phone') <span class="text-danger">{{ $message }}</span>@enderror
                         </div>
                         <div class="col">
                             <label for="whatsapp">Whatsapp</label>
-                            <input type="tel" name="whatsapp" wire:model="whatsapp" class="form-control" id="whatsapp" value="{{ old('whatsapp')}}">
+                            <input type="number" min="0" name="whatsapp" wire:model="whatsapp" class="form-control" id="whatsapp" value="{{ old('whatsapp')}}">
                             @error('whatsapp') <span class="text-danger">{{ $message }}</span>@enderror
                         </div>
                     </div>                                        

@@ -61,7 +61,7 @@
                   <div class="col-sm-5 tlpn">
                     <div class="form-group">
                       <label for="phone">No telepon</label>
-                      <input type="tel" wire:model="phone" class="form-control" id="phone">
+                      <input type="number" wire:model="phone" class="form-control" id="phone" min="0" step="1" pattern="[0-9]{10}">
                       @error('phone') <span class="text-danger">{{ $message }}</span>@enderror
                     </div>
                   </div>
