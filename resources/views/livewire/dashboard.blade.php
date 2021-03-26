@@ -25,13 +25,13 @@
                                     <div class="row align-items-center">
                                         <div class="col-xl-8 col-xxl-12">
                                             <div class="text-center px-4 mb-4 mb-xl-0 mb-xxl-4">
-                                                <h1 class="text-danger">Welcome Back!</h1>
+                                                <h1 class="text-danger">Welcome Back, {{ Auth::user()->name }}</h1>
                                                 <p class="text-gray-700 mb-0">It&apos;s time to get started! View new
                                                     opportunities now, or continue on your previous work.</p>
                                             </div>
                                         </div>
                                         <div class="col-xl-4 col-xxl-12 text-center"><img class="img-fluid"
-                                                src="{{'frontend/image/laptop-peep.png'}}" style="max-width: 10rem;" />
+                                                src="{{'frontend/image/laptop-peep.png'}}" style="max-width: 10rem; -webkit-transform: scaleX(-1); transform: scaleX(-1);" />
                                         </div>
                                     </div>
                                 </div>

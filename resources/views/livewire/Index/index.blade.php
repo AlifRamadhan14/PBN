@@ -4,7 +4,7 @@
 
       @foreach($setting as $item)
         <a href="index.html" class="logo d-flex align-items-center">
-          <img src="{{asset('storage/image/'.$item->logo)}}" alt="">
+          <img src="{{asset('storage/image/'.$item->logo)}}" alt="" class="">
         </a>
       @endforeach
       
@@ -20,7 +20,6 @@
           </ul>
           <i class="bi bi-list mobile-nav-toggle"></i>
         </nav><!-- .navbar -->
-
       </div>
     </header><!-- End Header -->
 
@@ -42,7 +41,9 @@
               </div>
             </div>
             <div class="col modal-form">
+              <div class="row">
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
               <div class="col-sm">
                 <h3>
                   <b>Isi dengan lengkap</b>
@@ -122,12 +123,12 @@
     <section class="service d-flex align-items-center ml-30" id="service">
       <div class="container">
         <div class="row">
-          <div class="col-sm">
+          <div class="col-md">
             <div class="standing-img">
               <img src="{{'frontend/image/standing.png'}}" alt="" class="bg-standing" width="300">
             </div>
           </div>
-          <div class="col-sm ">
+          <div class="col-md justify-content-center">
             <div class="row title-service-kami">
             <div>
                 <h1 class="title-service">Service</h1> 
@@ -139,7 +140,9 @@
               <div class="col-6 text-center">
                 <img src="{{asset('storage/image/'.$item->image)}}" alt=""><br><br>
                 <h4 class="fw-bold">{{$item->title}}</h4>
-                <p>{{$item->description}}</p>
+                <div class="col-12 ">
+                  <p>{{$item->description}}</p>
+                </div>              
               </div>
               @endforeach
             </div>
@@ -150,13 +153,16 @@
 
     <section class="gallery d-flex align-items-center " id="gallery">
       <div class="container">
-        <div class="col">
-          <div class="row">
-            <div class="col-12 title-galeri text-center">
-              <div class="row">
-                <div class="col-sm-4 title-gallery "></div>
-                <H2 class="col col-sm-2 title-galeri-1 ">Galeri</H2>
-                <h2 class="col col-sm-1 title-galeri-2 ">PBN</h2>
+        <div class="col ">
+          <div class="row ">
+            <div class="col-12 title-galeri justify-content-center text-center">
+              <div class="row">  
+                <div class="col">
+                  <H2 class="title-galeri-1 ">Galeri</H2>
+                </div>
+                <div class="col">
+                  <h2 class="title-galeri-2 ">PBN</h2>  
+                </div>                                           
               </div>
               <div class="row desc-title">
                 <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolorum</p>
@@ -183,18 +189,18 @@
           </div>
         </div>
       </div>
-    </section><br><br><br>
+    </section>
 
     <section class="tentang" id="about">
       <div class="container">
         <div class="row">
-          <div class="col">
-            <div>
+          <div class="col-md">
+            <div class="tentang-kami">
               <h1 class="title-tentang">Tentang</h1>
               <h1 class="title-kami">Kami</h1>
-            </div>
+            </div><br>
           </div>
-          <div class="col tt">
+          <div class="col-md tt">
             <div class="tentang-text">
               <p data-aos="fade-up" data-aos-delay="400" class="col-12">Lorem ipsum dolor sit amet consectetur,
                 adipisicing
@@ -228,24 +234,27 @@
                 <h3> 
                   {{$item->title}}
                 </h3>
+                <div class="col-12">
                 <p>
                 {{$item->description}}
-                </p><br>
+                </p>
+                </div>
+                <br>
               </div>
               @endforeach
             </div><br>
           </div>
         </div>
       </div>
-    </section><br><br><br><br>
+    </section>
 
     <section class="siap">
       <div class="container">
         <div class="row">
-          <div class="col-sm-6 siap-img">
+          <div class="col-md-6 siap-img">
             <img src="{{'frontend/image/Group 8.svg'}}" alt="" width="500">
           </div>
-          <div class="col-sm-6">
+          <div class="col-md-6">
             <div>
               <h1 class="title-tertarik">Tertarik ?</h1>
               <h1 class="title-kami-siap-bantu">Kami siap bantu!</h1><br>
@@ -278,7 +287,9 @@
             <h2>
               PBN
             </h2>
+            <div class="col-12">
             <p>Cras fermentum odio eu feugiat lide par naso tierra. Justo eget nada terra videa</p>
+            </div>
             <div class="social-links mt-3">
             @foreach($setting as $item)
               <a href="{{$item->twitter}}" class="twitter"><i class="bi bi-twitter"></i></a>
@@ -287,33 +298,32 @@
               <a href="{{$item->linkedln}}" class="linkedin"><i class="bi bi-linkedin bx bxl-linkedin"></i></a>
             @endforeach
             </div>
-          </div>
-          <div class="col-lg-1"></div>
-          <div class="col-md-2 footer-links">
-            <h4 class="quick">Quick Links</h4>
-            <div class="quick-link">
-              <div><a href="#hero">Home</a></div>
-              <div><a href="#service">Service kami</a></div>
-              <div><a href="#gallery">Galeri</a></div>
-              <div><a data-bs-toggle="modal" data-bs-target=".bd-example-modal-lg">Konsultasi</a></div>
+          </div><br><br>
+            <div class="col-lg-1"></div>
+            <div class="col-lg-2 footer-links">
+              <h4 class="quick">Quick Links</h4>
+              <div class="quick-link">
+                <div><a href="#hero">Home</a></div>
+                <div><a href="#service">Service kami</a></div>
+                <div><a href="#gallery">Galeri</a></div>
+                <div><a data-bs-toggle="modal" data-bs-target=".bd-example-modal-lg">Konsultasi</a></div>
+              </div>
+            </div><br><br>
+            <div class="col-lg-2 footer-links">
+              <h4 class="about">About Us</h4>
+              <div class="about-link">
+                <div><a href="#about">Detail Perusahaan</a></div>
+                <div><a href="#about">Tim Kami</a></div>
+                <div><a href="#service">Servis</a></div>
+                <div><a href="#about">Testimonial</a></div>
+              </div>
             </div>
-          </div>
-          <div class="col-md-2 footer-links">
-            <h4 class="about">About Us</h4>
-            <div class="about-link">
-              <div><a href="#">Detail Perusahaan</a></div>
-              <div><a href="#">Tim Kami</a></div>
-              <div><a href="#">Servis</a></div>
-              <div><a href="#">estimonial</a></div>
+            @foreach( $slide as $item )
+            <div class="col-lg-4 text-end footer-img">
+              <img src="{{'storage/image/'.$item->image}}" alt="" width="250">
             </div>
-          </div>
-          @foreach( $slide as $item )
-          <div class="col-lg-4 text-end footer-img">
-            <img src="{{'storage/image/'.$item->image}}" alt="" width="250">
-          </div>
-          @endforeach
+            @endforeach        
         </div>
       </div>
-      <!-- <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#ed1c24" fill-opacity="0.2" d="M0,64L48,74.7C96,85,192,107,288,128C384,149,480,171,576,160C672,149,768,107,864,85.3C960,64,1056,64,1152,69.3C1248,75,1344,85,1392,90.7L1440,96L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg> -->
     </section>
 </div>
