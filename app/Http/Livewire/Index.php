@@ -22,7 +22,7 @@ class Index extends Component
         'phone' => 'required',
         'topic' => 'required',
         'description' => 'required',
-        'image' => 'required|mimes:jpg,png,jpeg,bmp,svg', 
+        'image' => 'mimes:jpg,png,jpeg,bmp,svg', 
     ];
 
     public function updated($propertyName)

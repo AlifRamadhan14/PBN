@@ -107,9 +107,9 @@ class About extends Component
             if($this->image <> ""){
                 unlink(public_path('storage/image').'/'.$this->image);
             }                          
-        }
-        session()->flash('message','data berhasil dihapus');
+        }        
         $this->emit('confirm');
+        session()->flash('message','data berhasil dihapus');
     }
 
     public function openForm()

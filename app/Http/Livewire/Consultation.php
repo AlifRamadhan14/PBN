@@ -21,7 +21,7 @@ class Consultation extends Component
         'phone' => 'required',
         'topic' => 'required',
         'description' => 'required',
-        'image' => 'required|mimes:jpg,png,jpeg,bmp,svg', 
+        'image' => 'mimes:jpg,png,jpeg,bmp,svg', 
     ];
 
     public function updated($propertyName)
@@ -75,13 +75,23 @@ class Consultation extends Component
 
         }else{
 
-            $data = $this->validate();
-            $data['image'] = md5($this->image . microtime()) . '.' . $data['image']->extension();
-            $this->image->storeAs('image', $data['image']);
+            if($this->image){
+                $data = $this->validate();
+                $data['image'] = md5($this->image . microtime()) . '.' . $data['image']->extension();
+                $this->image->storeAs('image', $data['image']);
+                
+                ModelConsult::create($data);
+                session()->flash('message','data berhasil ditambah');
+                $this->resetInput();
+            }
+            else {
+                $data = $this->validate();
+                
+                ModelConsult::create($data);
+                session()->flash('message','data berhasil ditambah');
+                $this->resetInput();
+            }
             
-            ModelConsult::create($data);
-            session()->flash('message','data berhasil ditambah');
-            $this->resetInput();
         }
 
         $this->closeForm();
@@ -112,9 +122,9 @@ class Consultation extends Component
             if($this->image <> ""){
                 unlink(public_path('storage/image').'/'.$this->image);
             }
-        }
-        session()->flash('message','data berhasil dihapus');
+        }        
         $this->emit('confirm');
+        session()->flash('message','data berhasil dihapus');
     }
 
     public function openForm()

@@ -491,13 +491,6 @@ section {
         margin-top: 80px;
     }
 
-    .modal .form-control {
-        margin-left: -2vh;
-    }
-
-    .modal .col-sm-5-tlpn {
-        margin-left: -1vh;
-    }
 }
 
 @media (max-width: 768px) {
@@ -570,203 +563,71 @@ section {
 
 }
 
-@media(max-width:320px) {}
+/*--------------------------------------------------------------
+# Modal
+--------------------------------------------------------------*/
 
-.modal {}
-
-.modal-content {
-    height: 110vh;
-    width: 150vh;
-    margin-left: -10vh;
-}
 
 .modal-body {
-    height: 110vh;
-    background-color: #ed1c24;
-}
-
-.modal-body h2 {
-    color: #FBD0D2;
-    margin-top: 8vh;
-
-}
-
-.modal h3 {
-    color: black;
-}
-
-.title-modal {
-    margin-left: 10%;
-}
-
-.title-modal img {
-    width: 220%;
-    height: auto;
-    margin-left: -65vh;
-    margin-top: -65vh;
+    padding: 0px 12px;
 }
 
 .modal input {
+    margin-top: 10px;
     box-shadow: 0px 3px 10px rgba(65, 84, 241, 0.4);
     border-radius: 10px;
-    margin-top: 2vh;
+}
+
+.close button{
+    text-align: right;
 }
 
 .modal textarea {
+    margin-top: 10px;
     box-shadow: 0px 3px 10px rgba(65, 84, 241, 0.4);
     border-radius: 10px;
-    margin-top: 2vh;
 }
 
-.btn-close {
-    margin-top: 3vh;
-    margin-left: 65vh;
+.bg-consult-red {
+    color: white;
 }
 
-.col-sm-4 text-center {
-    width: 100px;
+.bg-consult-red h2 {
+    font-size: 30px; 
+    opacity: 50%;
+    margin: 20px 20px 8px ;
 }
 
-@media (max-width: 768px) {
-    .modal-body {
+.bg-consult-red h3 {
+    margin:  10px 20px 8px;
+}
+
+.bg-consult-red img {
+    width: 400px;
+    margin: 10px 50px 15px;
+}
+
+@media (max-width: 1199px) {
+    .bg-consult-red img {
+        width: 400px;
+        margin: 10px 0px 15px;
+    }
+}
+
+@media (max-width: 991px) {
+    .bg-consult-red {
         display: none;
-    }
 
-    .modal-content {
-        height: 160vh;
-        width: 120%;
-    }
-
-    .modal-form {
-        margin-right: 30vh;
-        width: 100vh;
-    }
-
-    .btn-close {
-        margin-left: 75vh;
     }
 }
 
-@media (max-width:615px) {
-    .modal-form {
-        width: 60vh;
-        margin-left: 5vh;
-    }
-
-    .modal-content {
-        height: 180vh;
-        width: 100%;
-        margin-left: 1px;
-    }
-
-    .btn-close {
-        margin-left: 75vh;
-    }
-
-    .tlpn label {
-        margin-top: 3vh;
+@media (max-width: 575px) {
+    .tlpn {
+        margin-top: 15px;
     }
 }
 
-@media (max-width: 425px) {
-    .modal-body {
-        display: none;
-    }
 
-    .modal-form {
-        width: 60vh;
-        margin-left: 5vh;
-    }
-
-    .modal-content {
-        height: 180vh;
-        width: 100%;
-        margin-left: 1px;
-    }
-
-    .btn-close {
-        margin-left: 65vh;
-    }
-
-    .tlpn label {
-        margin-top: 3vh;
-    }
-
-}
-
-@media(max-width:350px) {
-
-    .btn-close {
-        margin-left: 55vh;
-    }
-}
-
-@media(max-width:375px) {
-    .modal-body {
-        display: none;
-    }
-
-    .modal-content {
-        height: 180vh;
-        width: 100%;
-    }
-
-
-    .modal input {
-        box-shadow: 0px 3px 10px rgba(65, 84, 241, 0.4);
-        border-radius: 10px;
-        margin-top: 2vh;
-        width: 80%;
-    }
-
-    .modal textarea {
-        box-shadow: 0px 3px 10px rgba(65, 84, 241, 0.4);
-        border-radius: 10px;
-        margin-top: 2vh;
-        width: 80%;
-    }
-
-    .modal form {
-        margin-left: 2vh;
-    }
-
-    .modal h3 {
-        color: black;
-        margin-left: 5vh;
-
-    }
-
-    .tlpn label {
-        margin-top: 4vh;
-    }
-
-    .btn-close {
-        margin-left: 60vh;
-    }
-
-}
-
-@media(max-width:340px) {
-    .btn-close {
-        margin-left: 55vh;
-    }
-}
-
-@media(max-width:320px) {
-
-    .btn-close {
-        margin-left: 50vh;
-    }
-
-    .modal h3 {
-        margin-left: -1vh;
-    }
-
-    .modal form {
-        margin-left: 1vh;
-    }
-
-}
 
 /*--------------------------------------------------------------
 # Service

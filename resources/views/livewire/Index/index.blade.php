@@ -14,8 +14,8 @@
             <li><a class="nav-link scrollto" href="#service">Service</a></li>
             <li><a class="nav-link scrollto" href="#gallery">Gallery</a></li>
             <li>
-              <a class="nav-link scrollto"data-bs-toggle="modal" data-bs-target=".bd-example-modal-lg">konsultasi</a>
-            </li>
+              <a class="nav-link scrollto" data-bs-toggle="modal" data-bs-target="#exampleModal">konsultasi</a>
+            </li>            
             <li><a class="nav-link scrollto" href="#about">About</a></li>
           </ul>
           <i class="bi bi-list mobile-nav-toggle"></i>
@@ -23,75 +23,80 @@
       </div>
     </header><!-- End Header -->
 
-    <div wire:ignore.self  class="modal fade bd-example-modal-lg"  role="dialog" aria-labelledby="myLargeModalLabel"
-      aria-hidden="true">
-
-      <div class="modal-dialog modal-lg" style="border-radius: 40px;">
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" wire:ignore.self>
+      <div class="modal-dialog modal-xl">
         <div class="modal-content">
-
-          <div class="row">
-            <div class="col-sm">
-              <div class="modal-body">
-                <div class="title-modal">
-                  <h2> <b>PBN</b> </h2>
-                  <h3 style="color: white;">mulai konsultasimu <br> hari ini bersama <br> kami
-                  </h3>
-                  <img src="{{'frontend/image/mask.PNG'}}">
-                </div>
-              </div>
-            </div>
-            <div class="col modal-form">
+          <div class="modal-body">
               <div class="row">
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-              </div>
-              <div class="col-sm">
-                <h3>
-                  <b>Isi dengan lengkap</b>
-                </h3>
-              </div>
-              <br>
-              <form wire:submit.prevent="store">
-                <div class="row">
-                  <div class="col-sm-5">
-                    <div class="form-group">
-                      <label for="name">Nama lengkap</label>
-                      <input type="text" wire:model="name" class="form-control" id="name">
-                      @error('name') <span class="text-danger">{{ $message }}</span>@enderror
-                    </div>
+                <div class="col-md bg-consult-red" style="background-color: red;">                  
+                  <div class="col-12">
+                    <h2> <b>PBN</b> </h2>
                   </div>
-                  <div class="col-sm-5 tlpn">
-                    <div class="form-group">
-                      <label for="phone">No telepon</label>
-                      <input type="number" wire:model="phone" class="form-control" id="phone" min="0" step="1" pattern="[0-9]{10}">
-                      @error('phone') <span class="text-danger">{{ $message }}</span>@enderror
-                    </div>
+                  <div class="col-12">
+                    <h3 style="color: white;">mulai konsultasimu <br> hari ini bersama <br> kami </h3>
                   </div>
-                </div><br>
-                <div class="form-group col-sm-8">
-                  <label for="topic">Topik konsultasi</label>
-                  <input type="text" wire:model="topic" class="form-control" id="topic">
-                  @error('topic') <span class="text-danger">{{ $message }}</span>@enderror
-                </div><br>
-                <div class="form-group col-sm-10">
-                  <label for="description">Deskripsi</label>
-                  <textarea type="text" wire:model="description" class="form-control" id="description"></textarea>
-                  @error('description') <span class="text-danger">{{ $message }}</span>@enderror                
-                </div><br>
-                <div class="form-group col-sm-10">
-                  <label class="form-label" for="customFile">Foto pendukung</label>
-                  <input type="file" wire:model="image" class="form-control" id="customFile" />              
-                  @error('image') <span class="text-danger">{{ $message }}</span>@enderror
+                  <div class="row text-center">
+                    <div class="col-12"></div>
+                    <img src="{{asset('frontend/image/team-mask.png')}}" class="img-fluid">
+                  </div>
+                </div>                                
+                <div class="col-md" style="padding: 30px;">
+                    <div class="row close"> 
+                      <div class="col text-end">
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                      </div>    
+                    </div>
+                    <div class="col-sm">
+                      <h3>
+                        <b>Isi dengan lengkap</b>
+                      </h3>
+                    </div>
+                    <br>
+                    <form wire:submit.prevent="store">
+                      <div class="row">
+                        <div class="col-sm-5">
+                          <div class="form-group">
+                            <label for="name">Nama lengkap</label>
+                            <input type="text" wire:model="name" class="form-control" id="name">
+                            @error('name') <span class="text-danger">{{ $message }}</span>@enderror
+                          </div>
+                        </div>
+                        <div class="col-sm-5 tlpn">
+                          <div class="form-group">
+                            <label for="phone">No telepon</label>
+                            <input type="number" wire:model="phone" class="form-control" id="phone" min="0" step="1" pattern="[0-9]{10}">
+                            @error('phone') <span class="text-danger">{{ $message }}</span>@enderror
+                          </div>
+                        </div>
+                      </div><br>
+                      <div class="form-group col-sm-5">
+                        <label for="topic">Topik konsultasi</label>
+                        <input type="text" wire:model="topic" class="form-control" id="topic">
+                        @error('topic') <span class="text-danger">{{ $message }}</span>@enderror
+                      </div><br>
+                      <div class="form-group col-sm-10">
+                        <label for="description">Deskripsi</label>
+                        <textarea type="text" wire:model="description" class="form-control" id="description"></textarea>
+                        @error('description') <span class="text-danger">{{ $message }}</span>@enderror                
+                      </div><br>
+                      <div class="form-group col-sm-5">
+                        <label class="form-label" for="customFile">Foto pendukung</label>
+                        <input type="file" wire:model="image" class="form-control" id="customFile" />              
+                        @error('image') <span class="text-danger">{{ $message }}</span>@enderror
+                      </div>
+                      <br>
+                      <button type="submit" class="btn btn-danger" wire:click="store()">Kirim</button>
+                    </form>
+                  </div>
                 </div>
-                <br>
-                <button type="submit" class="btn btn-danger" wire:click="store()">Kirim</button>
-              </form>
-            </div>
-
+              </div>
           </div>
-
         </div>
       </div>
     </div>
+
+    
     
 
     <!-- ======= Hero Section ======= -->

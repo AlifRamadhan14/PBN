@@ -70,12 +70,12 @@
                                         <button class="btn btn-success" wire:click="edit({{ $item->id }})">
                                             <i class="far fa-edit"></i>
                                         </button>                             
-                                        <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal">
+                                        <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modal{{$item->id}}">
                                             <i class="far fa-trash-alt"></i>
                                         </button>
                                     </td>
                                 </tr>
-                                <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal fade" id="modal{{$item->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                     <div class="modal-dialog" role="document">
                                         <div class="modal-content">
                                         <div class="modal-header">
