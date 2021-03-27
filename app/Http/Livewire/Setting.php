@@ -76,7 +76,7 @@ class Setting extends Component
         }
         else{
             $data = $this->validate();
-            $data['logo'] = md5($this->logo . microtime()) . '.' . $data['logo']->extension();
+            $data['logo'] = 'logo' . '.' . $data['logo']->extension();
             $this->logo->storeAs('image', $data['logo']);
             
             ModelSetting::create($data);
