@@ -31,6 +31,7 @@
   <link href="{{'frontend/vendor/swiper/swiper-bundle.min.css'}}" rel="stylesheet">
   <link href="{{'frontend/vendor/glightbox/css/glightbox.min.css'}}" rel="stylesheet">
   <link href="{{'frontend/css/style.css'}}" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css">
 
   @livewireStyles
 
@@ -42,6 +43,7 @@
   @yield('content')
 
   <!-- Vendor JS Files -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js" integrity="sha512-AA1Bzp5Q0K1KanKKmvN/4d3IRKVlv9PYgwFPvm32nPO6QS8yH1HO7LbgB1pgiOxPtfeg5zEn2ba64MUcqJx6CA==" crossorigin="anonymous"></script>
   <script src="{{'frontend/vendor/bootstrap/js/bootstrap.bundle.js'}}"></script>
   <script src="{{'frontend/vendor/aos/aos.js'}}"></script>
   <script src="{{'frontend/vendor/php-email-form/validate.js'}}"></script>
@@ -52,6 +54,8 @@
 
   <!-- Template Main JS File -->
   <script src="{{'frontend/js/main.js'}}"></script>
+  @stack('scripts')
+
   @livewireScripts
 
 </body>

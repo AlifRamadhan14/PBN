@@ -18,10 +18,10 @@ class Consultation extends Component
 
     protected $rules = [
         'name' => 'required',
-        'phone' => 'required',
+        'phone' => 'required|min:12|max:15',
         'topic' => 'required',
         'description' => 'required',
-        'image' => 'mimes:jpg,png,jpeg,bmp,svg', 
+        'image' => '', 
     ];
 
     public function updated($propertyName)
@@ -53,10 +53,31 @@ class Consultation extends Component
         if($this->idConsult){
 
             if($this->image){
-                $data = $this->validate();
-                unlink(public_path('storage/image') . '/' . $this->oldImage);
+                $data = $this->validate([
+                    'name' => 'required',
+                    'phone' => 'required|min:12|max:15',
+                    'topic' => 'required',
+                    'description' => 'required',
+                    'image' => 'image|mimes:jpg,png,jpeg,bmp,svg', 
+                ]);
+                if($this->oldImage != "default" ){
+                    unlink(public_path('storage/image') . '/' . $this->oldImage);
+                }        
                 $data ['image'] = md5($this->image . microtime()) . '.' . $this->image->extension();
                 $this->image->storeAS('image', $data['image']);
+            }
+
+            else if($this->image == "default"){
+               
+                $data = $this->validate([
+                'name' => 'required',
+                'phone' => 'required',
+                'topic' => 'required',
+                'description' => 'required',
+                ]);
+                $data['image'] = "default";
+            
+                
             }else{
                 $data = $this->validate([
                 'name' => 'required',
@@ -75,21 +96,26 @@ class Consultation extends Component
 
         }else{
 
-            if($this->image){
-                $data = $this->validate();
-                $data['image'] = md5($this->image . microtime()) . '.' . $data['image']->extension();
-                $this->image->storeAs('image', $data['image']);
-                
-                ModelConsult::create($data);
-                session()->flash('message','data berhasil ditambah');
-                $this->resetInput();
+            if($this->image) {
+            $data = $this->validate([
+                'name' => 'required',
+                'phone' => 'required|min:12|max:15',
+                'topic' => 'required',
+                'description' => 'required',
+                'image' => 'image|mimes:jpg,png,jpeg,bmp,svg', 
+            ]);
+            $data['image'] = md5($this->image . microtime()) . '.' . $data['image']->extension();
+            $this->image->storeAs('image', $data['image']);
+            
+            ModelConsult::create($data);
+            session()->flash('message','data berhasil ditambah');
+            $this->resetInput();            
             }
             else {
                 $data = $this->validate();
-                
-                ModelConsult::create($data);
-                session()->flash('message','data berhasil ditambah');
-                $this->resetInput();
+                $data['image'] = "default";
+                ModelConsult::create($data);                        
+                $this->resetInput();           
             }
             
         }
@@ -118,12 +144,19 @@ class Consultation extends Component
         
         if($id)
         {
-            ModelConsult::where('id', $id)->delete();
-            if($this->image <> ""){
-                unlink(public_path('storage/image').'/'.$this->image);
+            if($this->image == "default") {
+                ModelConsult::where('id', $id)->delete();
+               
             }
+            else {                
+                ModelConsult::where('id', $id)->delete();
+                if($this->image <> ""){
+                    unlink(public_path('storage/image').'/'.$this->image);
+                }
+            }
+           
         }        
-        $this->emit('confirm');
+        redirect('/consultation');
         session()->flash('message','data berhasil dihapus');
     }
 

@@ -3,9 +3,9 @@
       <div class="container-fluid header-container container-xl d-flex align-items-center justify-content-between">
 
       @foreach($setting as $item)
-        <a href="index.html" class="logo d-flex align-items-center">
+        <div class="logo d-flex align-items-center">
           <img src="{{asset('storage/image/'.$item->logo)}}" alt="" class="">
-        </a>
+        </div>
       @endforeach
       
         <nav id="navbar" class="navbar">
@@ -24,6 +24,7 @@
     </header><!-- End Header -->
 
     <!-- Modal -->
+    
     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" wire:ignore.self>
       <div class="modal-dialog modal-xl">
         <div class="modal-content">
@@ -81,7 +82,7 @@
                         @error('description') <span class="text-danger">{{ $message }}</span>@enderror                
                       </div><br>
                       <div class="form-group col-sm-5">
-                        <label class="form-label" for="customFile">Foto pendukung</label>
+                        <label class="form-label" for="customFile">Foto pendukung (optional)</label>
                         <input type="file" wire:model="image" class="form-control" id="customFile" />              
                         @error('image') <span class="text-danger">{{ $message }}</span>@enderror
                       </div>
@@ -95,14 +96,50 @@
         </div>
       </div>
     </div>
+    <!-- <div class="modal fade" id="myModal">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+                </button>
+              </div> 
+              <div class="modal-body">
+                {{ session('message') }}
+              </div>               
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              </div>
+            </div>
+          </div>
+        </div>     -->
+    <!-- @if (session()->has('message'))
+      <script>
+        swal({
+          title: "Good job!",
+          text: "You clicked the button!",
+          icon: "success",
+        });
+      </script>        
+    @endif    -->
 
-    
-    
-
+   
+                                    
     <!-- ======= Hero Section ======= -->
     <section id="hero" class="hero d-flex align-items-center">
       @foreach( $slide as $item )
         <div class="container">
+        <div class="row">
+          @if (session()->has('message'))
+            <!-- <div class="alert alert-success">
+                {{ session('message') }}
+            </div> -->
+            <script>
+                alert("Konsultasi terkirim");
+            </script>
+
+         @endif 
+        </div>         
           <div class="row">
             <div class="col-lg-6 d-flex flex-column justify-content-center">
               <h2 data-aos="fade-up">{{$item->title}}</h2><br>
@@ -123,6 +160,7 @@
           </div>
         </div>
       @endforeach
+      
     </section><!-- End Hero -->
 
     <section class="service d-flex align-items-center ml-30" id="service">
@@ -218,8 +256,7 @@
             </div>
             <div data-aos="fade-up" data-aos-delay="600">
               <div class="text-center text-lg-start ">
-                <a
-                  class="btn-get-started scrollto d-inline-flex align-items-center justify-content-center align-self-center baca">
+                <a class="btn-get-started scrollto d-inline-flex align-items-center justify-content-center align-self-center baca" href="#about-item">
                   <span>Selanjutnya</span>
                   <i class="bi bi-arrow-right"></i>
                 </a>
@@ -230,7 +267,7 @@
             <img src="{{'frontend/image/laptop-peep.png'}}" alt="" width="280">
           </div>
         </div><br>
-        <div class="">
+        <div id="about-item">
           <div class="about-item text-center"><br><br>
             <div class="row text-center">
               @foreach($about as $item)
@@ -268,7 +305,7 @@
               <div data-aos="fade-up" data-aos-delay="600">
                 <div class="text-center text-lg-start">
                   <a
-                    class="btn-get-started scrollto d-inline-flex align-items-center justify-content-center align-self-center">
+                    class="btn-get-started scrollto d-inline-flex align-items-center justify-content-center align-self-center" href="#about">
                     <span>Baca Selanjutnya</span>
                     <i class="bi bi-arrow-right"></i>
                   </a>
@@ -330,4 +367,7 @@
         </div>
       </div>
     </section>
+   
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js" integrity="sha512-AA1Bzp5Q0K1KanKKmvN/4d3IRKVlv9PYgwFPvm32nPO6QS8yH1HO7LbgB1pgiOxPtfeg5zEn2ba64MUcqJx6CA==" crossorigin="anonymous"></script>
+
 </div>

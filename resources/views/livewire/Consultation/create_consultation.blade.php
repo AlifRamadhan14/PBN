@@ -10,7 +10,7 @@
                         </div><br>
                         <div class="col-sm 6">
                             <label for="phone">No telepon</label>
-                            <input type="tel" wire:model=phone name="phone" class="form-control" id="phone" value="{{ old('phone')}}">
+                            <input type="number" min="0" wire:model=phone name="phone" class="form-control" id="phone" value="{{ old('phone')}}">
                             @error('phone') <span class="text-danger">{{ $message }}</span>@enderror
                         </div>
                     </div>                

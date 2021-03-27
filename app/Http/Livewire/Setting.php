@@ -11,7 +11,6 @@ class Setting extends Component
     public $idSetting, $logo, $web_name, $web_desc, $facebook, $instagram, $twitter, $linkedln, $phone, $whatsapp, $oldLogo, $isForm;
     use WithFileUploads;
 
-    protected $paginationTheme = 'bootstrap';
 
     protected $rules = [
         'logo' => 'required|mimes:jpg,png,jpeg,bmp,svg',
@@ -21,8 +20,8 @@ class Setting extends Component
         'instagram' => 'required',
         'twitter' => 'required',
         'linkedln' => 'required',
-        'phone' => 'required',
-        'whatsapp' => 'required'
+        'phone' => 'required|min:12|max:15',
+        'whatsapp' => 'required|min:12|max:15'
     ];
 
     public function updated($propertyName)
@@ -75,6 +74,15 @@ class Setting extends Component
             $this->resetInput();
             redirect("/setting");
         }
+        else{
+            $data = $this->validate();
+            $data['logo'] = md5($this->logo . microtime()) . '.' . $data['logo']->extension();
+            $this->logo->storeAs('image', $data['logo']);
+            
+            ModelSetting::create($data);
+            
+        }
+        $this->closeForm();
     }
 
     public function edit($id)
@@ -93,6 +101,22 @@ class Setting extends Component
 
         $this->openForm();
 
+    }
+
+    public function delete($id)
+    {
+        $setting = ModelSetting::where('id',$id)->first();
+        $this->logo = $setting->logo;
+        
+        if($id)
+        {
+            ModelSetting::where('id', $id)->delete();
+            if($this->logo <> ""){
+                unlink(public_path('storage/image').'/'.$this->logo);
+            }       
+        }
+        $this->emit('confirm');
+        
     }
 
     public function openForm()

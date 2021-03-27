@@ -58,14 +58,16 @@ class Slider extends Component
             redirect("/slider");
 
         }
-        //else{
-        //     $data = $this->validate();
-        //     $data['image'] = md5($this->image . microtime()) . '.' . $data['image']->extension();
-        //     $this->image->storeAs('image', $data['image']);
+        else{
+            $data = $this->validate();
+            $data['image'] = md5($this->image . microtime()) . '.' . $data['image']->extension();
+            $this->image->storeAs('image', $data['image']);
             
-        //     ModelSlider::create($data);
-        //}
-        // $this->closeForm();
+            ModelSlider::create($data);
+            
+        }
+        $this->closeForm();
+        
     }
 
     public function edit($id)
@@ -79,15 +81,21 @@ class Slider extends Component
         $this->openForm();
     }
 
-    // public function delete($id)
-    // {
-    //     $slide = ModelSlider::where('id',$id)->first();
+    public function delete($id)
+    {
+        $slide = ModelSlider::where('id',$id)->first();
+        $this->image = $slide->image;
         
-    //     if($id)
-    //     {
-    //         ModelSlider::where('id', $id)->delete();
-    //     }
-    // }
+        if($id)
+        {
+            ModelSlider::where('id', $id)->delete();
+            if($this->image <> ""){
+                unlink(public_path('storage/image').'/'.$this->image);
+            }       
+        }
+        $this->emit('confirm');
+        
+    }
 
     public function openForm()
     {

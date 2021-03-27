@@ -20,7 +20,7 @@ class Index extends Component
 
     protected $rules = [
         'name' => 'required',
-        'phone' => 'required|min:12|max:12}',
+        'phone' => 'required|min:12|max:15}',
         'topic' => 'required',
         'description' => 'required',
         'image' => '', 
@@ -53,24 +53,29 @@ class Index extends Component
     public function store()
     {
         if($this->image) {
-            $data = $this->validate();
+            $data = $this->validate([
+                'name' => 'required',
+                'phone' => 'required|min:12|max:15',
+                'topic' => 'required',
+                'description' => 'required',
+                'image' => 'image|mimes:jpg,png,jpeg,bmp,svg', 
+            ]);
             $data['image'] = md5($this->image . microtime()) . '.' . $data['image']->extension();
             $this->image->storeAs('image', $data['image']);
             
             ModelConsult::create($data);
             session()->flash('message','data berhasil ditambah');
-            $this->resetInput();
-            redirect('/');
+            $this->resetInput();            
         }
         else {
             $data = $this->validate();
-            $data['image'] = 'kosong';
-            ModelConsult::create($data);
-            session()->flash('message','data berhasil ditambah');
-            $this->resetInput();
-            redirect('/');
+            $data['image'] = "default";
+            ModelConsult::create($data);                        
+            $this->resetInput();           
         }
-           
+
+        redirect('/');
+        session()->flash('message','data berhasil ditambah');
     }
     
     private function resetInput()
