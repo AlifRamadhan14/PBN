@@ -11,6 +11,7 @@ use App\Models\Gallery as ModelGallery;
 use App\Models\Service as ModelService;
 use App\Models\Slider as ModelSlider;
 use App\Models\Setting as ModelSetting;
+use phpDocumentor\Reflection\Types\This;
 
 class Index extends Component
 {
@@ -19,10 +20,10 @@ class Index extends Component
 
     protected $rules = [
         'name' => 'required',
-        'phone' => 'required',
+        'phone' => 'required|min:12|max:12}',
         'topic' => 'required',
         'description' => 'required',
-        'image' => 'mimes:jpg,png,jpeg,bmp,svg', 
+        'image' => '', 
     ];
 
     public function updated($propertyName)
@@ -51,6 +52,7 @@ class Index extends Component
 
     public function store()
     {
+        if($this->image) {
             $data = $this->validate();
             $data['image'] = md5($this->image . microtime()) . '.' . $data['image']->extension();
             $this->image->storeAs('image', $data['image']);
@@ -59,6 +61,16 @@ class Index extends Component
             session()->flash('message','data berhasil ditambah');
             $this->resetInput();
             redirect('/');
+        }
+        else {
+            $data = $this->validate();
+            $data['image'] = 'kosong';
+            ModelConsult::create($data);
+            session()->flash('message','data berhasil ditambah');
+            $this->resetInput();
+            redirect('/');
+        }
+           
     }
     
     private function resetInput()

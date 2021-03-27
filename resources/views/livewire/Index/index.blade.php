@@ -106,7 +106,7 @@
           <div class="row">
             <div class="col-lg-6 d-flex flex-column justify-content-center">
               <h2 data-aos="fade-up">{{$item->title}}</h2><br>
-              <p data-aos="fade-up" data-aos-delay="400" class="col-10 ">{{$item->description}}</p>
+              <p data-aos="fade-up" data-aos-delay="400" class="col-12 ">{{$item->description}}</p>
               <div data-aos="fade-up" data-aos-delay="600"><br>
                 <div class="text-center text-lg-start">
                   <a href="#about"
@@ -178,7 +178,7 @@
 
                   <div class="row gy-4 portfolio-container" data-aos="fade-up" data-aos-delay="200">
                   @foreach($gallery as $item)
-                    <div class="col-lg-4 col-md-6 portfolio-item filter-app">
+                    <div class="col-lg-4 col-sm-6 portfolio-item filter-app">
                       <div class="portfolio-wrap">
                         <img src="{{asset('storage/image/'.$item->image)}}" class="img-fluid" alt="">
                         <div class="portfolio-info">
@@ -229,22 +229,21 @@
           <div class="col text-end laptop-img">
             <img src="{{'frontend/image/laptop-peep.png'}}" alt="" width="280">
           </div>
-        </div><br><br><br>
+        </div><br>
         <div class="">
           <div class="about-item text-center"><br><br>
-            <div class="row">
+            <div class="row text-center">
               @foreach($about as $item)
-              <div class="col-sm-4">
+              <div class="col-lg-4 col-md-6 col-sm-6">
                 <img src="{{asset('storage/image/'.$item->image)}}" alt=""><br><br>
                 <h3> 
                   {{$item->title}}
                 </h3>
                 <div class="col-12">
-                <p>
-                {{$item->description}}
-                </p>
-                </div>
-                <br>
+                  <p>
+                    {{$item->description}}
+                  </p>
+                </div><br>
               </div>
               @endforeach
             </div><br>
@@ -288,7 +287,7 @@
     <section class="footer-top">
       <div class="container">
         <div class="row">
-          <div class="col-lg-3 text-start footer-info">
+          <div class="col-md-3 text-start footer-info">
             <h2>
               PBN
             </h2>
@@ -304,8 +303,8 @@
             @endforeach
             </div>
           </div><br><br>
-            <div class="col-lg-1"></div>
-            <div class="col-lg-2 footer-links">
+            <div class="col-md-1"></div>
+            <div class="col-md-2 footer-links">
               <h4 class="quick">Quick Links</h4>
               <div class="quick-link">
                 <div><a href="#hero">Home</a></div>
@@ -314,7 +313,7 @@
                 <div><a data-bs-toggle="modal" data-bs-target=".bd-example-modal-lg">Konsultasi</a></div>
               </div>
             </div><br><br>
-            <div class="col-lg-2 footer-links">
+            <div class="col-md-2 footer-links">
               <h4 class="about">About Us</h4>
               <div class="about-link">
                 <div><a href="#about">Detail Perusahaan</a></div>
@@ -324,7 +323,7 @@
               </div>
             </div>
             @foreach( $slide as $item )
-            <div class="col-lg-4 text-end footer-img">
+            <div class="col-md-4 footer-img">
               <img src="{{'storage/image/'.$item->image}}" alt="" width="250">
             </div>
             @endforeach        
