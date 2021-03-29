@@ -19,18 +19,18 @@
         </div>
     </header>
     <div class="container mt-n10">  
-    <div class="card mb-4">      
+         
             @if ($isForm)
                 @include('livewire.Setting.create_setting')
             @endif
-
-            @if ($isForm == false)        
-        <div class="card-body">
-              
-                    <div>
-                        <a wire:click.prevent="create" class="btn btn-outline-danger">add row</a><br><br>
-                    </div><br>
-              
+        
+         @if ($isForm == false)
+        <div class="card mb-4">
+            <div class="card-body">
+                <div>
+                    <a wire:click.prevent="create" class="btn btn-outline-danger">add row</a><br><br>
+                </div><br>
+               
                 <div class="datatable">
                     <table class="table table-bordered table-hover text-center" width="100%" cellspacing="0">
                         <thead>
@@ -50,7 +50,7 @@
                         </thead>
                         <tbody>
                             @foreach( $setting as $item )
-                                <tr >
+                                 <tr >
                                     <td>{{$loop->iteration}}</td>                                
                                     <td><img src="{{asset('storage/image/'.$item->logo)}}" alt="" srcset="" width="50"></td>
                                     <td>{{$item->web_name}}</td>
@@ -61,8 +61,7 @@
                                     <td>{{$item->linkedln}}</td>
                                     <td>{{$item->phone}}</td>
                                     <td>{{$item->whatsapp}}</td>
-                                    <td>
-                                        
+                                    <td>                                        
                                         <button class="btn btn-success" wire:click="edit({{ $item->id }})">
                                             <i class="far fa-edit"></i>
                                         </button>
@@ -74,28 +73,28 @@
                                 <div class="modal fade" id="modal{{$item->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                     <div class="modal-dialog" role="document">
                                         <div class="modal-content">
-                                            <div class="modal-header">
-                                                <h5 class="modal-title" id="exampleModalLabel">Anda yakin menghapus data ini ? </h5>
-                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                <span aria-hidden="true">&times;</span>
-                                                </button>
-                                            </div>                
-                                            <div class="modal-footer">
-                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                                <button type="button" class="btn btn-danger" wire:click="delete({{ $item->id }})">
-                                                    Delete
-                                                </button> 
-                                            </div>
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalLabel">Anda yakin menghapus data ini ? </h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>                
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                            <button type="button" class="btn btn-danger" wire:click="delete({{ $item->id }})">
+                                                Delete
+                                            </button>  
+                                        </div>
                                         </div>
                                     </div>
-                                </div>          
+                                </div>
                             @endforeach
                         </tbody>
-                    </table>  
-                </div> 
-            </div>  
-        </div>               
-        @endif                    
+                    </table>
+                </div>
+            </div>
+        </div>
+        @endif                           
     </div>
     @push('scripts')
         <script>

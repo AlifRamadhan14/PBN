@@ -41,7 +41,7 @@ class Slider extends Component
             if ($this->image){
                 $data = $this->validate();
                 unlink(public_path('storage/image') . '/' . $this->oldImage);
-                $data ['image'] = "slider" . '.' . $this->image->extension();;
+                $data ['image'] = md5($this->image . microtime()) . '.' . $this->image->extension();;
                 $this->image->storeAS('image', $data['image']);
             }else{
                 $data = $this->validate([

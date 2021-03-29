@@ -48,7 +48,7 @@ class Setting extends Component
 
                 $data = $this->validate();
                 unlink(public_path('storage/image') . '/' . $this->oldLogo);
-                $data ['logo'] = "logo" . '.' . $this->logo->extension();
+                $data ['logo'] = md5($this->logo . microtime()) . '.' . $this->logo->extension();
                 $this->logo->storeAS('image', $data['logo']);
 
             }else{
@@ -76,13 +76,15 @@ class Setting extends Component
         }
         else{
             $data = $this->validate();
-            $data['logo'] = 'logo' . '.' . $data['logo']->extension();
+            $data['logo'] =  md5($this->logo . microtime()) . '.' . $data['logo']->extension();
             $this->logo->storeAs('image', $data['logo']);
             
             ModelSetting::create($data);
-            
+            session()->flash('message','data berhasil ditambah');
+            $this->resetInput();
         }
         $this->closeForm();
+        
     }
 
     public function edit($id)
