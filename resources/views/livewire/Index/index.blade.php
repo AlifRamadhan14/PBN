@@ -1,3 +1,19 @@
+@section('title')
+
+@foreach($setting as $item)
+  {{$item->web_name}}
+@endforeach
+
+@endsection
+
+@section('icon')
+
+@foreach($setting as $item)
+  {{$item->logo}}
+@endforeach
+
+@endsection
+
 <div>
   <header id="header" class="header fixed-top">
       <div class="container-fluid header-container container-xl d-flex align-items-center justify-content-between">
@@ -146,9 +162,9 @@
               <p data-aos="fade-up" data-aos-delay="400" class="col-12 ">{{$item->description}}</p>
               <div data-aos="fade-up" data-aos-delay="600"><br>
                 <div class="text-center text-lg-start">
-                  <a href="#about"
+                  <a
                     class="btn-get-started scrollto d-inline-flex align-items-center justify-content-center align-self-center">
-                    <span data-bs-toggle="modal" data-bs-target=".bd-example-modal-lg">Yuk Konsultasi </span>
+                    <span data-bs-toggle="modal" data-bs-target="#exampleModal">Yuk Konsultasi </span>
                     <i class="bi bi-arrow-right"></i>
                   </a>
                 </div>
@@ -368,5 +384,4 @@
     </section>
    
     <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js" integrity="sha512-AA1Bzp5Q0K1KanKKmvN/4d3IRKVlv9PYgwFPvm32nPO6QS8yH1HO7LbgB1pgiOxPtfeg5zEn2ba64MUcqJx6CA==" crossorigin="anonymous"></script>
-
 </div>
