@@ -347,7 +347,7 @@
                 <div><a href="#hero">Home</a></div>
                 <div><a href="#service">Service kami</a></div>
                 <div><a href="#gallery">Galeri</a></div>
-                <div><a data-bs-toggle="modal" data-bs-target=".bd-example-modal-lg">Konsultasi</a></div>
+                <div><a data-bs-toggle="modal" data-bs-target="#exampleModal">Konsultasi</a></div>
               </div>
             </div><br><br>
             <div class="col-md-2 footer-links">
@@ -356,7 +356,6 @@
                 <div><a href="#about">Detail Perusahaan</a></div>
                 <div><a href="#about">Tim Kami</a></div>
                 <div><a href="#service">Servis</a></div>
-                <div><a href="#about">Testimonial</a></div>
               </div>
             </div>
             @foreach( $slide as $item )
