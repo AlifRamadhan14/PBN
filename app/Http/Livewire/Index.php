@@ -62,6 +62,7 @@ class Index extends Component
             ]);
             $data['image'] = md5($this->image . microtime()) . '.' . $data['image']->extension();
             $this->image->storeAs('image', $data['image']);
+            $data['phone'] = "+62" . $this->phone;
             
             ModelConsult::create($data);
             session()->flash('message','data berhasil ditambah');

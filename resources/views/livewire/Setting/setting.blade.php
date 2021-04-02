@@ -27,9 +27,9 @@
          @if ($isForm == false)
         <div class="card mb-4">
             <div class="card-body">
-                <div>
+                <!-- <div>
                     <a wire:click.prevent="create" class="btn btn-outline-danger">add row</a><br><br>
-                </div><br>
+                </div><br> -->
                
                 <div class="datatable">
                     <table class="table table-bordered table-hover text-center" width="100%" cellspacing="0">
@@ -65,12 +65,12 @@
                                         <button class="btn btn-success" wire:click="edit({{ $item->id }})">
                                             <i class="far fa-edit"></i>
                                         </button>
-                                        <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modal{{$item->id}}">
+                                        <!-- <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modal{{$item->id}}">
                                             <i class="far fa-trash-alt"></i>
-                                        </button>                      
+                                        </button>                       -->
                                     </td>
                                 </tr>  
-                                <div class="modal fade" id="modal{{$item->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <!-- <div class="modal fade" id="modal{{$item->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                     <div class="modal-dialog" role="document">
                                         <div class="modal-content">
                                         <div class="modal-header">
@@ -87,7 +87,7 @@
                                         </div>
                                         </div>
                                     </div>
-                                </div>
+                                </div> -->
                             @endforeach
                         </tbody>
                     </table>

@@ -27,9 +27,7 @@
 
             @if ($isForm == false)        
             <div class="card-body">
-                <div>
-                    <a wire:click.prevent="create" class="btn btn-outline-danger">add row</a><br><br>
-                </div>
+                
                 <div class="row">
                     <div class="col">
                         <select wire:model="paginate" name="" id="" class="form-control sm w-auto">
@@ -60,16 +58,13 @@
                         <tbody>
                             @foreach( $consult as $item )
                                 <tr>
-                                    <td>{{$loop->iteration}}</td>
+                                    <td>{{$item->id}}</td>
                                     <td>{{$item->name}}</td>
-                                    <td>{{$item->phone}}</td>
+                                    <td><a href="https://wa.me/+62{{$item->phone}}">https://wa.me/+62{{$item->phone}}</a> </td>
                                     <td>{{$item->topic}}</td>
                                     <td>{{$item->description}}</td>
                                     <td><img src="{{asset('storage/image/'.$item->image)}}" alt="" srcset="" width="50"></td>
-                                    <td>
-                                        <button class="btn btn-success" wire:click="edit({{ $item->id }})">
-                                            <i class="far fa-edit"></i>
-                                        </button>                             
+                                    <td>                                                           
                                         <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modal{{$item->id}}">
                                             <i class="far fa-trash-alt"></i>
                                         </button>

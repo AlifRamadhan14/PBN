@@ -13,7 +13,7 @@ class Setting extends Component
 
 
     protected $rules = [
-        'logo' => 'required|mimes:jpg,png,jpeg,bmp,svg',
+        'logo' => '',
         'web_name' => 'required',
         'web_desc' => 'required',
         'facebook' => 'required',
@@ -46,26 +46,43 @@ class Setting extends Component
 
             if($this->logo){
 
-                $data = $this->validate();
-                unlink(public_path('storage/image') . '/' . $this->oldLogo);
-                $data ['logo'] = md5($this->logo . microtime()) . '.' . $this->logo->extension();
-                $this->logo->storeAS('image', $data['logo']);
-
-            }else{
-
                 $data = $this->validate([
+                    'logo' => 'image|mimes:jpg,png,jpeg,bmp,svg',
                     'web_name' => 'required',
                     'web_desc' => 'required',
                     'facebook' => 'required',
                     'instagram' => 'required',
                     'twitter' => 'required',
                     'linkedln' => 'required',
-                    'phone' => 'required',
-                    'whatsapp' => 'required'
+                    'phone' => 'required|min:12|max:15',
+                    'whatsapp' => 'required|min:12|max:15'
                 ]);
-                $data['logo'] = $this->oldLogo;
 
-            }      
+                if($this->oldLogo != "default") {
+                    unlink(public_path('storage/image') . '/' . $this->oldLogo);
+                }                
+                $data ['logo'] = md5($this->logo . microtime()) . '.' . $this->logo->extension();
+                $this->logo->storeAS('image', $data['logo']);
+
+            }
+            
+            else{
+
+                 $data = $this->validate([
+                    'web_name' => 'required',
+                    'web_desc' => 'required',
+                    'facebook' => 'required',
+                    'instagram' => 'required',
+                    'twitter' => 'required',
+                    'linkedln' => 'required',
+                    'phone' => 'required|min:12|max:15',
+                    'whatsapp' => 'required|min:12|max:15'
+                ]);
+                $data['logo'] = "default";
+
+            }
+            
+           
 
             $setting = ModelSetting::find($this->idSetting);
             $setting->update($data);
@@ -74,15 +91,7 @@ class Setting extends Component
             $this->resetInput();
             redirect("/setting");
         }
-        else{
-            $data = $this->validate();
-            $data['logo'] =  md5($this->logo . microtime()) . '.' . $data['logo']->extension();
-            $this->logo->storeAs('image', $data['logo']);
-            
-            ModelSetting::create($data);
-            session()->flash('message','data berhasil ditambah');
-            $this->resetInput();
-        }
+       
         $this->closeForm();
         
     }

@@ -14,7 +14,7 @@ class Slider extends Component
     protected $rules = [
         'title' => 'required',
         'description' => 'required',
-        'image' => 'required|mimes:jpg,png,jpeg,bmp,svg', 
+        'image' => '', 
     ];
 
     public function updated($propertyName)
@@ -39,8 +39,14 @@ class Slider extends Component
         if($this->idSlide){
 
             if ($this->image){
-                $data = $this->validate();
-                unlink(public_path('storage/image') . '/' . $this->oldImage);
+                $data = $this->validate([
+                     'title' => 'required',
+                    'description' => 'required',
+                    'image' => 'image|mimes:jpg,png,jpeg,bmp,svg',
+                ]);
+                if($this->oldImage != "default" ){
+                    unlink(public_path('storage/image') . '/' . $this->oldImage);
+                }
                 $data ['image'] = md5($this->image . microtime()) . '.' . $this->image->extension();;
                 $this->image->storeAS('image', $data['image']);
             }else{
@@ -48,7 +54,7 @@ class Slider extends Component
                     'title' => 'required',
                     'description' => 'required',
                 ]);
-                $data['image'] = $this->oldImage;
+                $data['image'] = "default";
             }
         
             $slide  = ModelSlider::find($this->idSlide);
@@ -58,14 +64,7 @@ class Slider extends Component
             redirect("/slider");
 
         }
-        else{
-            $data = $this->validate();
-            $data['image'] = md5($this->image . microtime()) . '.' . $data['image']->extension();
-            $this->image->storeAs('image', $data['image']);
-            
-            ModelSlider::create($data);
-            
-        }
+        
         $this->closeForm();
         
     }
