@@ -28,11 +28,11 @@
           <ul class="justify-content-center">
             <li><a class="nav-link scrollto active" href="#hero">Home</a></li>
             <li><a class="nav-link scrollto" href="#service">Service</a></li>
-            <li><a class="nav-link scrollto" href="#gallery">Gallery</a></li>
-            <li>
-              <a class="nav-link scrollto" data-bs-toggle="modal" data-bs-target="#exampleModal">konsultasi</a>
-            </li>            
+            <li><a class="nav-link scrollto" href="#gallery">Gallery</a></li>          
             <li><a class="nav-link scrollto" href="#about">About</a></li>
+            <li>
+            <a class="nav-link scrollto" data-bs-toggle="modal" data-bs-target="#exampleModal"><button type="button" class="btn btn-danger">konsultasi</button></a>
+            </li>  
           </ul>
           <i class="bi bi-list mobile-nav-toggle"></i>
         </nav><!-- .navbar -->
@@ -381,6 +381,9 @@
             @endforeach        
         </div>
       </div>
+      <div class="copyright">
+                <h6>© Copyright <b>SPI.</b> All Rights Reserved</h6>
+              </div>
     </section>
    
     <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js" integrity="sha512-AA1Bzp5Q0K1KanKKmvN/4d3IRKVlv9PYgwFPvm32nPO6QS8yH1HO7LbgB1pgiOxPtfeg5zEn2ba64MUcqJx6CA==" crossorigin="anonymous"></script>
