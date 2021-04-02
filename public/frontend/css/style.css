@@ -1,13 +1,3 @@
-/**
-* Template Name: FlexStart - v1.1.1
-* Template URL: https://bootstrapmade.com/flexstart-bootstrap-startup-template/
-* Author: BootstrapMade.com
-* License: https://bootstrapmade.com/license/
-*/
-
-/*--------------------------------------------------------------
-# General
---------------------------------------------------------------*/
 :root {
     scroll-behavior: smooth;
 }
@@ -412,8 +402,15 @@ section {
     background-size: 50rem;
 }
 
+.hero-img {
+    margin-top: 1%;
+    margin-left: 10%;
+    width: 40%;
+    height: auto;
+}
+
 .hero h2 {
-    margin: 0;
+    margin-top: -2%;
     font-size: 48px;
     font-weight: 700;
     color: black;
@@ -426,7 +423,7 @@ section {
 }
 
 .hero .btn-get-started {
-    margin-top: 3 0px;
+    margin-top: 30px;
     line-height: 0;
     padding: 15px 40px;
     border-radius: 4px;
@@ -486,6 +483,7 @@ section {
     .hero .hero-img {
         display: none;
     }
+
     .hero h2 {
         font-size: 30px;
     }
@@ -493,7 +491,7 @@ section {
 }
 
 @media (max-width: 768px) {
-    .hero {     
+    .hero {
         background-size: 30rem;
     }
 
@@ -510,9 +508,9 @@ section {
 
 }
 
- @media (max-width: 375px) {
+@media (max-width: 375px) {
 
-    
+
     .hero h2 {
         font-size: 28px;
         font-weight: 700;
@@ -525,7 +523,7 @@ section {
         text-align: center;
     }
 
-} 
+}
 
 /*--------------------------------------------------------------
 # Modal
@@ -542,7 +540,7 @@ section {
     border-radius: 10px;
 }
 
-.close button{
+.close button {
     text-align: right;
 }
 
@@ -557,14 +555,14 @@ section {
 }
 
 .bg-consult-red h2 {
-    font-size: 45px; 
+    font-size: 45px;
     opacity: 50%;
-    margin: 20px 20px 8px ;
+    margin: 20px 20px 8px;
     margin-top: 10%;
 }
 
 .bg-consult-red h3 {
-    margin:  10px 20px 8px;
+    margin: 10px 20px 8px;
     margin-top: 1%;
 }
 
@@ -667,6 +665,10 @@ section {
     margin-left: 5vh;
 }
 
+.tg {
+    padding: 0px 5px;
+}
+
 .title-galeri-1 {
     font-size: 50px;
     font-weight: 700;
@@ -703,6 +705,7 @@ section {
 .portfolio {
     padding: 0px 0px;
 }
+
 .portfolio .portfolio-wrap {
     transition: 0.3s;
     position: relative;
@@ -994,12 +997,10 @@ section {
     .title-tentang {
         font-size: 35px;
         margin: 50px 0px 8px;
-        margin-left: 20%;
     }
 
     .title-kami {
         font-size: 35px;
-        margin-left: 20%;
     }
 
     .laptop-img {
@@ -1026,7 +1027,7 @@ section {
     font-weight: 700;
     color: #ed1c24;
     font-family: "segoe UI";
-    margin:90px 0px 8px;
+    margin: 90px 0px 8px;
 }
 
 .title-kami-siap-bantu {
@@ -1072,8 +1073,9 @@ section {
         height: auto;
 
     }
+
     .title-tertarik {
-       
+
         margin: 50px 0px 8px;
     }
 }
@@ -1086,11 +1088,12 @@ section {
         margin: 40px 0px 8px;
     }
 
-    .title-tertarik {       
+    .title-tertarik {
         margin: 0px 0px 8px;
     }
+
     .siap .btn-get-started {
-        margin-left:-80px;
+        margin-left: -80px;
     }
 }
 
@@ -1129,8 +1132,8 @@ section {
 # Footer
 --------------------------------------------------------------*/
 .footer-top {
-    width: 100%;
     position: relative;
+    padding: 50px 0px;
     background-color: #FBD0D2;
 }
 
@@ -1141,15 +1144,6 @@ section {
     line-height: 0;
 }
 
-@media (max-width: 992px) {
-    .footer .footer-top {
-        background-position: center bottom;
-    }
-}
-
-/* .footer .footer-top .footer-info {
-  margin-bottom: 30px;
-} */
 .footer-info h2 {
     font-size: 50px;
     font-weight: 700;
@@ -1185,7 +1179,6 @@ section {
     display: inline-block;
     color: black;
     line-height: 0;
-    margin-right: 10px;
     transition: 0.3s;
     margin-left: 10%;
 }
@@ -1252,10 +1245,11 @@ section {
     margin-top: -10vh;
     margin-left: 15%;
 }
-.footer-top .copyright{
+
+/* .footer-top .copyright {
     margin-top: 5%;
     margin-left: 40%;
-}
+} */
 
 @media (max-width: 991px) {
     /* .footer-img img {
@@ -1288,14 +1282,16 @@ section {
     .footer-links {
         text-align: center;
     }
-    .footer-top .copyright{
+
+    /* .footer-top .copyright {
         margin-left: -3%;
-    }
+    } */
 }
 
 @media (max-width:768px) {
     .footer-img img {
         text-align: center;
+        margin-left: 0px;
     }
 }
 
@@ -1303,21 +1299,38 @@ section {
     .footer-img img {
         display: none;
     }
-    .footer-top .footer-links a{
+
+    .footer-top .footer-links a {
         margin-top: 2%;
         margin-left: -3%;
     }
-    .footer-top h4{
+
+    .footer-top h4 {
         margin-top: 3%;
         margin-left: -3%;
     }
-    .footer-info h2{
+
+    .footer-info h2 {
         margin-left: -2%;
     }
-    .footer-info.footer-info p{
+
+    .footer-info.footer-info p {
         margin-left: -2%;
     }
-    .social-links{
+
+    .social-links {
         margin-left: -10%;
+    }
+}
+
+@media (max-width:425px) {
+    .copyright h6{
+        font-size: 15px;
+    }
+}
+
+@media (max-width:375px) {
+    .copyright h6 {
+        font-size: 12px;
     }
 }

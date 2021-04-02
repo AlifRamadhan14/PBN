@@ -216,10 +216,10 @@
           <div class="row ">
             <div class="col-12 title-galeri justify-content-center text-center">
               <div class="row">  
-                <div class="col">
+                <div class="col tg">
                   <H2 class="title-galeri-1 ">Galeri</H2>
                 </div>
-                <div class="col">
+                <div class="col tg">
                   <h2 class="title-galeri-2 ">PBN</h2>  
                 </div>                                           
               </div>
@@ -380,10 +380,14 @@
             </div>
             @endforeach        
         </div>
-      </div>
+      </div><br><br>
       <div class="copyright">
-                <h6>© Copyright <b>SPI.</b> All Rights Reserved</h6>
-              </div>
+        <div class="row text-center">
+          <div class="col">
+            <h6>© Copyright <b>PBN.</b> All Rights Reserved</h6>
+          </div>
+        </div>
+      </div>
     </section>
    
     <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js" integrity="sha512-AA1Bzp5Q0K1KanKKmvN/4d3IRKVlv9PYgwFPvm32nPO6QS8yH1HO7LbgB1pgiOxPtfeg5zEn2ba64MUcqJx6CA==" crossorigin="anonymous"></script>

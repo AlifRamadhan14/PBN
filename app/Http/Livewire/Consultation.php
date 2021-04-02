@@ -36,10 +36,9 @@ class Consultation extends Component
 
     public function render()
     {
-        $consult = ModelConsult::all();
+       
         return view('livewire.Consultation.consultation', [
-            'consult'=>$consult,
-            'consult'=>ModelConsult::where('name', 'like', '%'.$this->search.'%')->paginate($this->paginate),
+            'consult'=>modelconsult::latest()->where('name', 'like', '%'.$this->search.'%')->paginate($this->paginate),
             ])->extends('layouts.master');
     }
 

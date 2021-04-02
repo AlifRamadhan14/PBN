@@ -58,7 +58,7 @@
                         <tbody>
                             @foreach( $consult as $item )
                                 <tr>
-                                    <td>{{$item->id}}</td>
+                                    <td>{{$loop->iteration}}</td>
                                     <td>{{$item->name}}</td>
                                     <td><a href="https://wa.me/+62{{$item->phone}}">https://wa.me/+62{{$item->phone}}</a> </td>
                                     <td>{{$item->topic}}</td>
