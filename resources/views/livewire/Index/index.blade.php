@@ -25,7 +25,7 @@
       @endforeach
       
         <nav id="navbar" class="navbar">
-          <ul class="justify-content-center">
+          <ul>
             <li><a class="nav-link scrollto active" href="#hero">Home</a></li>
             <li><a class="nav-link scrollto" href="#service">Service</a></li>
             <li><a class="nav-link scrollto" href="#gallery">Gallery</a></li>          
@@ -389,6 +389,13 @@
         </div>
       </div>
     </section>
+
+    
+        <a href="https://api.whatsapp.com/send?phone=6283111547153&text=Halo,%20nama%20Saya%20(tulis%20nama)%0Asaya%20ingin%20(tulis%20tujuan)" class="chat d-flex align-items-center justify-content-center"><i class="bi bi-whatsapp"></i></a>
+        <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+     
+    </div>
    
     <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js" integrity="sha512-AA1Bzp5Q0K1KanKKmvN/4d3IRKVlv9PYgwFPvm32nPO6QS8yH1HO7LbgB1pgiOxPtfeg5zEn2ba64MUcqJx6CA==" crossorigin="anonymous"></script>
 </div>

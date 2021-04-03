@@ -13,7 +13,8 @@
 
   <!-- Favicons -->
 
-  <link href="{{asset('storage/image/logo.png')}}" rel="icon">
+    <link href="{{'frontend/image/stempel PBN.png'}}" rel="icon">
+
 
   <!-- Google Fonts -->
   <link
@@ -28,7 +29,6 @@
   <link href="{{'frontend/vendor/swiper/swiper-bundle.min.css'}}" rel="stylesheet">
   <link href="{{'frontend/vendor/glightbox/css/glightbox.min.css'}}" rel="stylesheet">
   <link href="{{'frontend/css/style.css'}}" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css">
 
   @livewireStyles
 

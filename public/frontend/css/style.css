@@ -86,14 +86,14 @@ section {
     position: fixed;
     visibility: hidden;
     opacity: 0;
-    right: 15px;
+    right: 70px;
     bottom: 15px;
     z-index: 99999;
-    background: #4154f1;
+    background: #ed1c24;
     width: 40px;
     height: 40px;
     border-radius: 4px;
-    transition: all 0.4s;
+    transition: all 0.5s;
 }
 
 .back-to-top i {
@@ -103,7 +103,7 @@ section {
 }
 
 .back-to-top:hover {
-    background: #6776f4;
+    background: red;
     color: #fff;
 }
 
@@ -111,6 +111,35 @@ section {
     visibility: visible;
     opacity: 1;
 }
+
+.chat {
+    position: fixed;
+    right: 15px;
+    bottom: 15px;
+    background: limegreen;
+    width: 40px;
+    height: 40px;
+    border-radius: 4px;
+
+}
+
+.chat i {
+    font-size: 24px;
+    color: #fff;
+    line-height: 0;
+}
+
+.chat:hover {
+    background: lime;
+    color: #fff;
+}
+
+.chat.active {
+    visibility: visible;
+    opacity: 1;
+}
+
+
 
 /*--------------------------------------------------------------
 # Disable aos animation delay on mobile devices
@@ -165,7 +194,7 @@ section {
 }
 
 .navbar ul {
-    margin: 0;
+    margin: 0px 0px 0px 0px;
     padding: 0;
     display: flex;
     list-style: none;
@@ -281,9 +310,7 @@ section {
 }
 
 @media (min-width: 1000px) {
-    .navbar ul {
-        margin-right: 23rem;
-    }
+   
 }
 
 /**
