@@ -225,7 +225,7 @@
               </div>
               <div class="row desc-title">
                 <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolorum</p>
-              </div>
+              </div><br><br>
               <section id="portfolio" class="portfolio">
 
                 <div class="container" data-aos="fade-up">
@@ -390,12 +390,16 @@
       </div>
     </section>
 
-    
+    <div class="row">
+      <div class="col col-md-">        
         <a href="https://api.whatsapp.com/send?phone=6283111547153&text=Halo,%20nama%20Saya%20(tulis%20nama)%0Asaya%20ingin%20(tulis%20tujuan)" class="chat d-flex align-items-center justify-content-center"><i class="bi bi-whatsapp"></i></a>
+      </div>
+      <div class="col col-md-6">
         <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
-
-     
+      </div>
     </div>
-   
+
+    </div>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js" integrity="sha512-AA1Bzp5Q0K1KanKKmvN/4d3IRKVlv9PYgwFPvm32nPO6QS8yH1HO7LbgB1pgiOxPtfeg5zEn2ba64MUcqJx6CA==" crossorigin="anonymous"></script>
 </div>

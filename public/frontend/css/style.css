@@ -139,8 +139,42 @@ section {
     opacity: 1;
 }
 
+@media(max-width: 767px){
+    .back-to-top {
+        right: 15px;
+        bottom: 60px;        
+    }
+  
+    .chat {    
+        right: 15px;
+        bottom: 15px;       
+    }  
+}
 
+@media(max-width: 425px) {
 
+    .back-to-top {
+        right: 15px;
+        bottom: 60px;    
+        width: 35px;
+        height: 35px;       
+    }
+
+    .back-to-top i {
+        font-size: 20px;
+    }
+
+    .chat {    
+        right: 15px;
+        bottom: 15px;
+        width: 35px;
+        height: 35px;
+    }  
+    
+    .chat i {
+        font-size: 20px;
+    }
+}
 /*--------------------------------------------------------------
 # Disable aos animation delay on mobile devices
 --------------------------------------------------------------*/
@@ -663,7 +697,7 @@ section {
 .service-item img {
     width: 100px;
     height: 100px;
-    object-fit: fill;
+    object-fit: cover;
 }
 
 @media (max-width:768px) {
@@ -756,9 +790,9 @@ section {
 
 .portfolio .portfolio-wrap img {
     transition: 1s;
-    width: 300px;
+    width: 400px;
     height: 300px;
-    object-fit: fill;
+    object-fit: cover;
 }
 
 .portfolio .portfolio-wrap .portfolio-info {
@@ -1006,7 +1040,7 @@ section {
 .about-item img {
     width: 200px;
     height: 200px;
-    object-fit: fill;
+    object-fit: cover;
 }
 
 @media (max-width: 991px) {
