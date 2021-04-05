@@ -9,8 +9,8 @@
                             @error('name') <span class="text-danger">{{ $message }}</span>@enderror
                         </div><br>
                         <div class="col-sm 6">
-                            <label for="phone">No telepon</label>
-                            <input type="number" min="0" wire:model=phone name="phone" class="form-control" id="phone" value="{{ old('phone')}}">
+                            <label for="phone_num>No telepon</label>
+                            <input type="number" min="0" wire:model=phone_num" name="phone" class="form-control" id="phone_num" value="{{ old('phone')}}">
                             @error('phone') <span class="text-danger">{{ $message }}</span>@enderror
                         </div>
                     </div>                

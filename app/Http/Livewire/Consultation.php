@@ -9,7 +9,7 @@ use App\Models\Consultation as ModelConsult;
 
 class Consultation extends Component
 {
-    public $idConsult, $name, $phone, $topic, $description, $image, $oldImage, $isForm, $paginate = 5, $search;
+    public $idConsult, $name, $phone_num, $topic, $description, $image, $oldImage, $isForm, $paginate = 5, $search;
     use WithFileUploads;
     use WithPagination;
 
@@ -18,7 +18,7 @@ class Consultation extends Component
 
     protected $rules = [
         'name' => 'required',
-        'phone' => 'required|min:12|max:15',
+        'phone_num' => 'required|min:11|max:15',
         'topic' => 'required',
         'description' => 'required',
         'image' => '', 
@@ -87,7 +87,7 @@ class Consultation extends Component
     private function resetInput()
     {
         $this->name = null;
-        $this->phone = null;
+        $this->phone_num = null;
         $this->topic = null;
         $this->description =null;
         $this->image = null;

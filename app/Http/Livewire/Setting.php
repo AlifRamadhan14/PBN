@@ -20,8 +20,8 @@ class Setting extends Component
         'instagram' => 'required',
         'twitter' => 'required',
         'linkedln' => 'required',
-        'phone' => 'required|min:12|max:15',
-        'whatsapp' => 'required|min:12|max:15'
+        'phone' => 'required|min:11|max:15',
+        'whatsapp' => 'required|min:11|max:15'
     ];
 
     public function updated($propertyName)
@@ -61,7 +61,7 @@ class Setting extends Component
                 if($this->oldLogo != "default") {
                     unlink(public_path('storage/image') . '/' . $this->oldLogo);
                 }                
-                $data ['logo'] = md5($this->logo . microtime()) . '.' . $this->logo->extension();
+                $data ['logo'] = md5($this->logo . microtime()) . '.' . $this->logo->extension();               
                 $this->logo->storeAS('image', $data['logo']);
 
             }
@@ -78,7 +78,7 @@ class Setting extends Component
                     'phone' => 'required|min:12|max:15',
                     'whatsapp' => 'required|min:12|max:15'
                 ]);
-                $data['logo'] = "default";
+                $data['logo'] = "default";               
 
             }
             

@@ -23,8 +23,8 @@ class SettingSeeder extends Seeder
             'instagram' => 'instagram.com',
             'twitter' => 'twiiter.com',
             'linkedln' => 'linkedln.com',
-            'phone' => '081131133000',
-            'whatsapp' => '081131133000'      
+            'phone' => '81131133000',
+            'whatsapp' => '81131133000'      
         ]);
     }
 }

@@ -81,9 +81,9 @@
                         </div>
                         <div class="col-sm-5 tlpn">
                           <div class="form-group">
-                            <label for="phone">No telepon</label>
-                            <input type="number" wire:model="phone" class="form-control" id="phone" min="0" step="1" pattern="[0-9]{10}">
-                            @error('phone') <span class="text-danger">{{ $message }}</span>@enderror
+                            <label for="phone_num">No telepon</label>
+                            <input type="number" wire:model="phone_num" class="form-control" id="phone_num" min="0" step="1" pattern="[0-9]{10}">
+                            @error('phone_num') <span class="text-danger">{{ $message }}</span>@enderror
                           </div>
                         </div>
                       </div><br>
@@ -392,7 +392,7 @@
 
     <div class="row">
       <div class="col col-md-">        
-        <a href="https://api.whatsapp.com/send?phone=6283111547153&text=Halo,%20nama%20Saya%20(tulis%20nama)%0Asaya%20ingin%20(tulis%20tujuan)" class="chat d-flex align-items-center justify-content-center"><i class="bi bi-whatsapp"></i></a>
+        <a href="https://api.whatsapp.com/send?phone=62 @foreach($setting as $item) {{$item->whatsapp}} @endforeach &text=Halo,%20nama%20Saya%20(tulis%20nama)%0Asaya%20ingin%20(tulis%20tujuan)" class="chat d-flex align-items-center justify-content-center"><i class="bi bi-whatsapp"></i></a>
       </div>
       <div class="col col-md-6">
         <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>

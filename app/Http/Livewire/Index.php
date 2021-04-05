@@ -15,12 +15,12 @@ use phpDocumentor\Reflection\Types\This;
 
 class Index extends Component
 {
-    public $idConsult, $name, $phone, $topic, $description, $image, $oldImage;
+    public $idConsult, $name, $phone_num, $topic, $description, $image, $oldImage;
     use WithFileUploads;
 
     protected $rules = [
         'name' => 'required',
-        'phone' => 'required|min:12|max:15}',
+        'phone_num' => 'required|min:11|max:15}',
         'topic' => 'required',
         'description' => 'required',
         'image' => '', 
@@ -55,14 +55,14 @@ class Index extends Component
         if($this->image) {
             $data = $this->validate([
                 'name' => 'required',
-                'phone' => 'required|min:12|max:15',
+                'phone_num' => 'required|min:12|max:15',
                 'topic' => 'required',
                 'description' => 'required',
                 'image' => 'image|mimes:jpg,png,jpeg,bmp,svg', 
             ]);
             $data['image'] = md5($this->image . microtime()) . '.' . $data['image']->extension();
             $this->image->storeAs('image', $data['image']);
-            $data['phone'] = "+62" . $this->phone;
+            $data['phone_num'] = "+" . $this->phone_num;
             
             ModelConsult::create($data);
             session()->flash('message','data berhasil ditambah');
@@ -71,6 +71,7 @@ class Index extends Component
         else {
             $data = $this->validate();
             $data['image'] = "default";
+            $data['phone_num'] = "+" . $this->phone_num;
             ModelConsult::create($data);                        
             $this->resetInput();           
         }
@@ -82,7 +83,7 @@ class Index extends Component
     private function resetInput()
     {
         $this->name = null;
-        $this->phone = null;
+        $this->phone_num = null;
         $this->topic = null;
         $this->description = null;
         $this->image = null;

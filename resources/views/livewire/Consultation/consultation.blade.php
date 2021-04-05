@@ -60,7 +60,7 @@
                                 <tr>
                                     <td>{{$loop->iteration}}</td>
                                     <td>{{$item->name}}</td>
-                                    <td><a href="https://wa.me/+62{{$item->phone}}">https://wa.me/+62{{$item->phone}}</a> </td>
+                                    <td><a href="https://wa.me/+62{{$item->phone}}">https://wa.me/+62{{$item->phone_num}}</a> </td>
                                     <td>{{$item->topic}}</td>
                                     <td>{{$item->description}}</td>
                                     <td><img src="{{asset('storage/image/'.$item->image)}}" alt="" srcset="" width="50"></td>
